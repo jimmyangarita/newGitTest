@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://impl.update.services.search.cps.trellis.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://impl.update.services.search.cps.trellis.avocent.com/">
+
+<xs:element name="updateIndex" type="tns:updateIndex"/>
+
+<xs:element name="updateIndexResponse" type="tns:updateIndexResponse"/>
+
+<xs:complexType name="updateIndex">
+<xs:sequence>
+<xs:element name="arg0" type="tns:updateIndexRequestDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateIndexRequestDTO">
+<xs:sequence>
+<xs:element name="updateIndexRequestRecordDTO" type="tns:updateIndexRequestRecordDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="userId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateIndexRequestRecordDTO">
+<xs:sequence>
+<xs:element name="domainName" type="xs:string" minOccurs="0"/>
+<xs:element name="oid" type="xs:string" minOccurs="0"/>
+<xs:element name="operation" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateIndexResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:updateIndexResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateIndexResponseDTO">
+<xs:sequence>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="statusDescription" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
