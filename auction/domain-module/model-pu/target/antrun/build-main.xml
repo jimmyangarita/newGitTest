@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <replace file="./target/classes/META-INF/persistence.xml">
-    <replacetoken>lib/auction-domain-model-XXX.jar</replacetoken>
-    <replacevalue>lib/auction-domain-model-0.0.1-SNAPSHOT.jar</replacevalue>
-  </replace>
-</target>
-</project>

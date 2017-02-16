@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="auction-domain-model-0.0.1-SNAPSHOT">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/domain-module/model/target/auction-domain-model-0.0.1-SNAPSHOT.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
