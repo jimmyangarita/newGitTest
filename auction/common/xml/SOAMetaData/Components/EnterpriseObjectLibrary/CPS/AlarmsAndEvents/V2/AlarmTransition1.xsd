@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://xmlns.avocent.com/commonplatform/event" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://xmlns.avocent.com/commonplatform/event">
+
+<xs:element name="auctionEvent" type="tns:auctionEvent"/>
+
+<xs:complexType name="auctionEvent">
+<xs:sequence>
+<xs:element name="EventClass" type="xs:string"/>
+<xs:element name="Header" type="tns:auctionEventHeader"/>
+<xs:element name="Payload" type="tns:auctionEventPayload"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionEventHeader">
+<xs:sequence>
+<xs:element name="EventTypeTag" type="xs:string"/>
+<xs:element name="EventNameKey" type="xs:string"/>
+<xs:element name="SubjectName" type="xs:string"/>
+
+<xs:element name="SubjectTypeKey" type="xs:string"/>
+<xs:element name="SubjectCategoryKey" type="xs:string"/>
+<xs:element name="SubjectObjectId" type="xs:string" minOccurs="0"/>
+<xs:element name="SourceTypeKey" type="xs:string"/>
+<xs:element name="SeverityKey" type="xs:string"/>
+<xs:element name="EquipCategory" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionEventPayload">
+<xs:sequence>
+<xs:element name="EventInstanceId" type="xs:string"/>
+<xs:element name="EventTimestamp" type="xs:string"/>
+<xs:element name="EventDescriptionKey" type="xs:string"/>
+<xs:element name="EventDetailDescriptionKey" type="xs:string" minOccurs="0"/>
+<xs:element name="SourceName" type="xs:string" minOccurs="0"/>
+<xs:element name="SourceObjectId" type="xs:string" minOccurs="0"/>
+
+<xs:element name="EventState" type="xs:string"/>
+<xs:element name="UserId" type="xs:string" minOccurs="0"/>
+<xs:element name="UserName" type="xs:string" minOccurs="0"/>
+<xs:element name="Extensions" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="Component" type="tns:Component" minOccurs="0"/>
+<xs:element name="NVPData" type="tns:NVPData" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Component">
+<xs:sequence>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="Id" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NVPData">
+
+<xs:sequence>
+<xs:element name="Name" type="xs:string"/>
+<xs:element name="Value" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

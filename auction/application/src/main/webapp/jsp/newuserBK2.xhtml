@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>IGNORED</title>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<h:outputScript library="javascript" name="checkPassword.js" />
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="windowTitle">
+            #{msg.createUserMsg}
+         </ui:define>
+
+		<ui:define name="content">
+			<h:form>
+				<h3>Lets create a your Auction.com account</h3>
+
+				<h:panelGrid title="User" border="0" columns="3">
+
+					<h:outputText value="#{msg.userTypeQuestion}"></h:outputText>
+					<h:selectOneMenu id="userType" value="#{user.userKind}" required="true"
+						label="#{msg.userTypeQuestion}">
+						<f:selectItems value="#{user.userKinds}" />
+					</h:selectOneMenu>
+					<h:message for="userType" errorClass="errors" />
+
+					<h:outputText value="#{msg.firstName}" />
+					<h:inputText id="firstName" value="#{user.firstName}" required="true"
+						label="#{msg.firstName}"></h:inputText>
+					<h:message for="firstName" errorClass="errors" />
+
+					<h:outputText value="#{msg.lastName}" />
+					<h:inputText id="lastName" value="#{user.lastName}" required="true"
+						label="#{msg.lastName}">
+					</h:inputText>
+					<h:message for="lastName" errorClass="errors" />
+
+					<h:outputText value="#{msg.userName}" />
+					<h:inputText id="userName" value="#{user.userName}" required="true"
+						label="#{msg.userName}">
+						<f:validator
+							validatorId="com.jdap.auction.application.validator.EmailValidator" />
+					</h:inputText>
+					<h:message for="userName" errorClass="errors" />
+
+					<h:outputLabel value="#{msg.password}" />
+					<h:inputSecret id="password" value="#{user.password}" required="true"
+						label="#{msg.password}"></h:inputSecret>
+					<h:message for="password" errorClass="errors" />
+
+					<h:outputLabel value="#{msg.passwordConfirm}" />
+					<h:inputSecret id="passwordConfirm" value="#{user.password}"
+						required="true" label="#{msg.passwordConfirm}"></h:inputSecret>
+					<h:message for="passwordConfirm" errorClass="errors" />
+
+					<h:outputLabel value="#{msg.phone}" />
+					<h:inputText id="phone" value="#{user.phone}" required="true"
+						label="#{msg.phone}"></h:inputText>
+					<h:message for="phone" errorClass="errors" />
+				</h:panelGrid>
+				<p>Please provide your address:</p>
+				<h:panelGrid title="Adress" border="0" columns="3">
+					<h:outputLabel value="Street Line1: "></h:outputLabel>
+					<h:inputText id="street1" value="#{user.address.line1}" required="true"
+						requiredMessage="Street can not be Blank"></h:inputText>
+					<h:message for="street1" style="color:red" />
+
+					<h:outputLabel value="Street Line2: "></h:outputLabel>
+					<h:inputText value="#{user.address.line2}"></h:inputText>
+					<h:outputLabel value=""></h:outputLabel>
+
+					<h:outputLabel value="City: "></h:outputLabel>
+					<h:inputText id="city" value="#{user.address.city}" required="true"
+						requiredMessage="City can not be Blank"></h:inputText>
+					<h:message for="city" style="color:red" />
+
+					<h:outputLabel value="State: "></h:outputLabel>
+					<h:inputText id="state" value="#{user.address.state}" required="true"
+						requiredMessage="State can not be Blank"></h:inputText>
+					<h:message for="state" style="color:red" />
+
+					<h:outputLabel value="Country: "></h:outputLabel>
+					<h:inputText id="country" value="#{user.address.country}" required="true"
+						requiredMessage="County can not be Blank"></h:inputText>
+					<h:message for="country" style="color:red" />
+
+					<h:outputLabel value="Zipcode: "></h:outputLabel>
+					<h:inputText id="zip" value="#{user.address.zipcode}" required="true"
+						requiredMessage="Zipcode can not be Blank"></h:inputText>
+					<h:message for="zip" style="color:red" />
+				</h:panelGrid>
+
+				<h:commandButton action="#{user.createUser}" value="Add Customer1"></h:commandButton>
+				<h:commandButton action="signup" value="Clear" type="reset" immediate="true"></h:commandButton>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

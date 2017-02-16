@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks
+END
+start-commit.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/start-commit.tmpl
+END
+pre-revprop-change.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/pre-revprop-change.tmpl
+END
+pre-commit.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/pre-commit.tmpl
+END
+post-unlock.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/post-unlock.tmpl
+END
+pre-unlock.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/pre-unlock.tmpl
+END
+post-lock.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/post-lock.tmpl
+END
+pre-lock.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/pre-lock.tmpl
+END
+post-commit.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/post-commit.tmpl
+END
+post-revprop-change.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/hooks/post-revprop-change.tmpl
+END

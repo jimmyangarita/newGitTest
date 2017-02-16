@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" schemaLocation="../../Common/V1/CommonComponents.xsd"/>
+<xsd:element name="AssetDataEBO" type="AssetDataEBOType"/>
+<xsd:complexType name="AssetDataEBOType">
+<xsd:sequence>
+<xsd:element name="deviceId" type="xsd:string" minOccurs="1"/>
+<xsd:element name="deviceName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="deviceTypeName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="manufacturer" type="xsd:string" minOccurs="0"/>
+<xsd:element name="model" type="xsd:string" minOccurs="0"/>
+<xsd:element name="isFloorMountable" type="xsd:string" minOccurs="0"/>
+<xsd:element name="height" type="xsd:string" minOccurs="0"/>
+<xsd:element name="width" type="xsd:string" minOccurs="0"/>
+<xsd:element name="depth" type="xsd:string" minOccurs="0"/>
+<xsd:element name="images" type="xsd:string" minOccurs="0"/>
+<xsd:element name="placement" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

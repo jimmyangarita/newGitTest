@@ -1,0 +1,35 @@
+<schema targetNamespace="http://xmlns.oracle.com/xdb/AQSCH" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:AQSCH="http://xmlns.oracle.com/xdb/AQSCH" elementFormDefault="unqualified" attributeFormDefault="qualified">
+   <complexType name="PROGRESS_TYPE">
+      <sequence>
+         <element name="TASKID" nillable="true" minOccurs="0">
+            <simpleType>
+               <restriction base="string">
+                  <maxLength value="255"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="TASKACTIONID" nillable="true" minOccurs="0">
+            <simpleType>
+               <restriction base="string">
+                  <maxLength value="255"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="STATUS" nillable="true" minOccurs="0">
+            <simpleType>
+               <restriction base="string">
+                  <maxLength value="255"/>
+               </restriction>
+            </simpleType>
+         </element>
+         <element name="PROGRESS" nillable="true" minOccurs="0">
+            <simpleType>
+               <restriction base="string">
+                  <maxLength value="255"/>
+               </restriction>
+            </simpleType>
+         </element>
+      </sequence>
+   </complexType>
+   <element name="PROGRESS_TYPE" type="AQSCH:PROGRESS_TYPE" />
+</schema>

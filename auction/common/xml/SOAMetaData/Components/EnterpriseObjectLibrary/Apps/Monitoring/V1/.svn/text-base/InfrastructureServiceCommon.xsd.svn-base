@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+	xmlns:tns="http://xmlns.avocent.com/commonplatform/mss/service/infrastructure/ebo"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://xmlns.avocent.com/commonplatform/mss/service/infrastructure/ebo">
+
+	<xs:complexType name="StatusType">
+		<xs:sequence>
+			<xs:element name="Detail" type="xs:string" form="qualified"
+				minOccurs="0" />
+			<xs:element name="ErrorCode" type="xs:int" form="qualified"
+				minOccurs="0" />
+			<xs:element name="Result" type="xs:boolean" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="CollectionRuleType">
+		<xs:sequence>
+			<xs:element name="CovThreshold" type="xs:double" form="qualified"
+				minOccurs="0" />
+			<xs:element name="DatapointDefName" type="xs:string" form="qualified"
+				minOccurs="0" />
+			<xs:element name="DatapointDefTypeId" type="xs:string"
+				form="qualified" />
+			<xs:element name="Interval" type="xs:int" form="qualified"
+				minOccurs="0" />
+			<xs:element name="Enabled" type="xs:boolean" form="qualified"
+				minOccurs="0" />
+			<xs:element name="Status" type="xs:string" form="qualified"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UpdateCollectionRuleRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="CollectionRuleList" type="tns:UpdateCollectionRuleType"
+				form="qualified" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="UpdateCollectionRuleType">
+		<xs:sequence>
+			<xs:element name="DatapointDefTypeId" type="xs:string"
+				form="qualified" />
+			<xs:element name="CovThreshold" type="xs:double" form="qualified"
+				minOccurs="0" />
+			<xs:element name="Interval" type="xs:int" form="qualified"
+				minOccurs="0" />
+			<xs:element name="Enabled" type="xs:boolean" form="qualified"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetDeviceStatusPollingRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="Interval" type="xs:int" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetNormalModeRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="DatapointDefTypeIdList" type="xs:string"
+				form="qualified" nillable="true" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PropertyType">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string" form="qualified" />
+			<xs:element name="Value" type="xs:string" form="qualified" />
+			<xs:element name="Protocol" type="xs:string" form="qualified"
+				nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DeviceType">
+		<xs:sequence>
+			<xs:element name="Id" type="xs:string" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetAcceleratedModeRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="DatapointDefTypeIdList" type="xs:string"
+				form="qualified" nillable="true" maxOccurs="unbounded" />
+			<xs:element name="Interval" type="xs:int" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GetCollectionRuleRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="DatapointDefTypeIdList" type="xs:string"
+				form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ThresholdType">
+		<xs:sequence>
+			<xs:element name="DatapointDefTypeId" type="xs:string"
+				form="qualified" />
+			<xs:element name="HighCritical" type="xs:double" form="qualified"
+				minOccurs="0" />
+			<xs:element name="HighWarning" type="xs:double" form="qualified"
+				minOccurs="0" />
+			<xs:element name="LowCritical" type="xs:double" form="qualified"
+				minOccurs="0" />
+			<xs:element name="LowWarning" type="xs:double" form="qualified"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetDeviceToBeMonitoredRequestType">
+		<xs:sequence>
+			<xs:element name="EngineId" type="xs:string" form="qualified"
+				nillable="true" />
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="Address" type="xs:string" form="qualified" />
+			<xs:element name="Properties" type="tns:PropertyType"
+				form="qualified" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RequestIDEBO">
+		<xs:sequence>
+			<xs:element name="requestID" type="xs:string" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DeviceIdEBO">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="CorrelationId" type="xs:string" form="qualified"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SetThresholdRequestType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="ThresholdList" type="tns:ThresholdType"
+				form="qualified" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DevicePollingIntervalType">
+		<xs:sequence>
+			<xs:element name="DeviceId" type="xs:string" form="qualified" />
+			<xs:element name="Interval" type="xs:int" form="qualified" />
+			<xs:element name="Status" type="xs:string" form="qualified" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="DataStateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Normal" />
+			<xs:enumeration value="Maintenance Mode" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

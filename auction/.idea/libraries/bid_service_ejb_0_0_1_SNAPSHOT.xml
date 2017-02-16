@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="bid-service-ejb-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/services/bid-service/bid-service-ejb/target/bid-service-ejb-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

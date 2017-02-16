@@ -1,0 +1,62 @@
+<wsdl:definitions name="ApiService"
+	targetNamespace="http://osb.avocent.com/commonplatform/service/ApiService"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://osb.avocent.com/commonplatform/service/ApiService"
+	xmlns:ns2="http://osb.avocent.com/commonplatform/service/ApiServiceResponse"
+	xmlns:client="http://osb.avocent.com/commonplatform/service/ApiService"
+	xmlns:ref1="http://www.auction.com/api/runtimeFault">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import
+				namespace="http://osb.avocent.com/commonplatform/service/ApiService"
+				schemaLocation="../xsd/ApiServiceRequest.xsd" />
+			<xsd:import
+				namespace="http://osb.avocent.com/commonplatform/service/ApiServiceResponse"
+				schemaLocation="../xsd/ApiServiceResponseTwo.xsd" />
+			<xsd:import schemaLocation="../xsd/ApiRuntimeFault.xsd"
+				namespace="http://www.auction.com/api/runtimeFault" />
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="NewOperationRequest">
+		<wsdl:part element="ns1:newOperationRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ApiServiceReply">
+		<wsdl:part element="ns2:newOperationResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="ApiFaultMessage">
+		<wsdl:part name="payload" element="ref1:runtimeFaultMessage"  />
+	</wsdl:message>
+
+	<wsdl:portType name="ApiService">
+		<wsdl:operation name="NewOperation">
+			<wsdl:input message="client:NewOperationRequest" />
+			<wsdl:output message="client:ApiServiceReply" />
+			<wsdl:fault name="ApiFault" message="client:ApiFaultMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="ApiServiceSOAP" type="client:ApiService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="NewOperation">
+			<soap:operation soapAction="http://www.example.org/ApiService/NewOperation" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="ApiFault">
+				<soap:fault name="ApiFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="ApiService">
+		<wsdl:port name="ApiServiceSOAP" binding="client:ApiServiceSOAP">
+			<soap:address
+				location="http://localhost.localdomain:8011/SAMLPassThrough/ApiServiceTwo" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

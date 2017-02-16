@@ -1,0 +1,45 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+	                    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="tsd_pu"
+		transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/commonplatform/mss/datapoint</jta-data-source>
+
+		
+		<jar-file>lib/mss-tsd-domain-model-XXX.jar</jar-file>
+
+		<properties>
+			 <!--  <property name="eclipselink.ddl-generation" value="drop-and-create-tables" 
+				/> <property name="eclipselink.ddl-generation.output-mode" value="both" /> -->
+
+			<property name="eclipselink.logging.level" value="SEVERE" />
+			<property name="eclipselink.logging.level.cache" value="SEVERE" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<!-- <property name="eclipselink.session-event-listener" value="com.avocent.cdmr.model.events.SessionEventListener" 
+				/> -->
+			<property name="eclipselink.weaving" value="false" />
+			<property name="eclipselink.target-server" value="WebLogic_10" />
+			<property name="javax.persistence.jtaDataSource" value="jdbc/commonplatform/mss/datapoint" />
+		</properties>
+
+	</persistence-unit>
+	
+	<persistence-unit name="tsd_scheduler_pu"
+		transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/TSDDataSource</jta-data-source>
+		<jar-file>lib/mss-tsd-domain-model-XXX.jar</jar-file>
+		<properties>	 
+			<property name="eclipselink.logging.level" value="SEVERE" />
+			<property name="eclipselink.logging.level.cache" value="SEVERE" />
+			<property name="eclipselink.logging.level.sql" value="SEVERE" />
+			<property name="eclipselink.weaving" value="false" />
+			<property name="eclipselink.target-server" value="WebLogic_10" />
+			<property name="javax.persistence.jtaDataSource" value="jdbc/TSDDataSource" />
+		</properties>
+	</persistence-unit>
+
+</persistence>

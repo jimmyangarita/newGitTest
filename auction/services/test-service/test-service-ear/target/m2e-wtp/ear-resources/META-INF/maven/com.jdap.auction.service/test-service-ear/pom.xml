@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jdap.auction.service</groupId>
+	<artifactId>test-service-ear</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>ear</packaging>
+	<parent>
+		<groupId>com.jdap.auction.service</groupId>
+		<artifactId>test-service</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<properties>
+	</properties>
+	<build>
+		<finalName>test-service</finalName>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<earSourceExcludes>**/application.xml</earSourceExcludes>
+					<applicationXml>${project.build.directory}/application.xml</applicationXml>
+					<includeLibInApplicationXml>false</includeLibInApplicationXml>
+					<version>5</version>
+					<earSourcesDirectory>target</earSourcesDirectory>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<archive>
+						<manifestEntries>
+							<WebLogic-Application-Version>${project.version}</WebLogic-Application-Version>
+						</manifestEntries>
+					</archive>
+					<modules>
+						<ejbModule>
+							<groupId>com.jdap.auction.service</groupId>
+							<artifactId>bid-service-ejb</artifactId>
+						</ejbModule>						
+						<jarModule>
+							<groupId>com.jdap.auction.service</groupId>
+							<artifactId>bid-service-client</artifactId>
+							<bundleDir>lib</bundleDir>
+						</jarModule>
+				
+						<jarModule>
+							<groupId>org.jboss.el</groupId>
+							<artifactId>jboss-el</artifactId>
+							<bundleDir>lib</bundleDir>
+						</jarModule>
+						<jarModule>
+							<groupId>javax.el</groupId>
+							<artifactId>el-api</artifactId>
+							<bundleDir>lib</bundleDir>
+						</jarModule>
+
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.jdap.auction.service</groupId>
+			<artifactId>bid-service-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.jboss.el</groupId>
+			<artifactId>jboss-el</artifactId>
+			<version>2.0.1.GA</version>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>el-api</artifactId>
+			<version>2.2</version>
+			<type>jar</type>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>com.avocent.trellis.ds.cache</groupId> <artifactId>data-cache-model</artifactId> 
+			<version>0.0.20.41</version> </dependency> <dependency> <groupId>com.avocent.trellis.ds.cache</groupId> 
+			<artifactId>data-cache-config</artifactId> <version>0.0.20.41</version> </dependency> <dependency> 
+			<groupId>com.avocent.trellis.ds.cache</groupId> <artifactId>data-cache</artifactId> <version>0.0.20.53</version> 
+			</dependency> -->
+
+	</dependencies>
+</project>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ejb.common.apps.auction.avocent.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://ejb.common.apps.auction.avocent.com/" name="AppsCommonSettingsServiceEJBBeanService">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://ejb.common.apps.auction.avocent.com/" schemaLocation="../../../../EnterpriseObjectLibrary/Apps/Inventory/V1/AppsCommonSettingsServiceEJBBeanService.xsd"/>
+</xsd:schema>
+</types>
+<message name="removeSystemPropertiesOnDeleteEntity">
+<part name="parameters" element="tns:removeSystemPropertiesOnDeleteEntity"/>
+</message>
+<message name="removeSystemPropertiesOnDeleteEntityResponse">
+<part name="parameters" element="tns:removeSystemPropertiesOnDeleteEntityResponse"/>
+</message>
+<message name="auctionException">
+<part name="fault" element="tns:auctionException"/>
+</message>
+<portType name="AppsCommonSettingsServiceEJBBeanService">
+<operation name="removeSystemPropertiesOnDeleteEntity">
+<input message="tns:removeSystemPropertiesOnDeleteEntity"/>
+<output message="tns:removeSystemPropertiesOnDeleteEntityResponse"/>
+<fault message="tns:auctionException" name="auctionException"/>
+</operation>
+</portType>
+</definitions>

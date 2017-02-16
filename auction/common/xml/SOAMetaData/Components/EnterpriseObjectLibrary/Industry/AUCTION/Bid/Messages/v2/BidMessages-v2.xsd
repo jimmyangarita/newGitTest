@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: BidMessages-v2.0.xsd
+
+Description: XML Schema for Bid Messages
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:bidmsg="http://xmlns.jdap.com/auction/Bid/Messages/v2"
+            xmlns:bidobj="http://xmlns.jdap.com/auction/Bid/Objects/v2"
+            xmlns:common="http://xmlns.jdap.com/auction/Common/v2"
+              xmlns:header="http://xmlns.jdap.com/auction/Common/Messages/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/Bid/Messages/v2" elementFormDefault="qualified"
+            version="1.0">
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Bid/Objects/v2"
+              schemaLocation="../../Objects/v2/BidObjects-v2.xsd"/>
+  <xsd:import schemaLocation="../../../common/Messages/v2/Message-v2.xsd"
+              namespace="http://xmlns.jdap.com/auction/Common/Messages/v2"/>
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd"/>
+ 
+  <xsd:complexType name="CreateBidRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to create a bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Bid details to create the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidRequestMessage" type="bidmsg:CreateBidRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create bid request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateBidResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of create bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The created bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidResponseMessage" type="bidmsg:CreateBidResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create bid response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="UpdateBidRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to update the bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Bid details to be updated for the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateBidRequestMessage" type="bidmsg:UpdateBidRequestMessageType"></xsd:element>
+  <xsd:complexType name="UpdateBidResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of update bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the bid after update operation</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateBidResponseMessage" type="bidmsg:UpdateBidResponseMessageType"></xsd:element>
+  <xsd:complexType name="DeleteBidRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to delete a bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the bid object to be deleted</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ForceFlag" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The force flag to delete the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteBidRequestMessage" type="bidmsg:DeleteBidRequestMessageType"></xsd:element>
+  <xsd:complexType name="DeleteBidResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of the delete bid query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteBidResponseMessage" type="bidmsg:DeleteBidResponseMessageType"></xsd:element>
+  <xsd:complexType name="QueryBidRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to query bid</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the bid to query bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+    <xsd:element name="QueryBidRequestMessage" type="bidmsg:QueryBidRequestMessageType"></xsd:element>
+  <xsd:complexType name="QueryBidResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of read bid query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:documentation>Details of the bid in response to query bid request</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryBidResponseMessage" type="bidmsg:QueryBidResponseMessageType"></xsd:element>
+  <!-- Added messages for BidDetails method-->
+  
+  <xsd:complexType name="QueryBidDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request of bid query details element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of bid object to query bid details</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryBidDetailsRequestMessage"
+               type="bidmsg:QueryBidDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query bid details request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="QueryBidDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of bid details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query bid details for the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryBidDetailsResponseMessage"
+               type="bidmsg:QueryBidDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query bid details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <!-- Adding messages for UC 9a -->
+  <xsd:complexType name="CreateBidDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of bid details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query bid details for the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidDetailsRequestMessage"
+               type="bidmsg:CreateBidDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query bid details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateBidDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of bid details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="bidobj:bid" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query bid details for the bid</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidDetailsResponseMessage"
+               type="bidmsg:CreateBidDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query bid details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

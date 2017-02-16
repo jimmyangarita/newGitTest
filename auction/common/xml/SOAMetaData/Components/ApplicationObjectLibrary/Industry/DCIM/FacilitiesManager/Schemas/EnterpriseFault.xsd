@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--// Proprietary and Confidential, jesad 2010  All rights reserved. -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.avocent.com/dcim/ds/v1.0/EnterpriseFault"
+            targetNamespace="http://xmlns.avocent.com/dcim/ds/v1.0/EnterpriseFault"
+            elementFormDefault="qualified">
+  <xsd:element name="EnterpriseException" type="EnterpriseExceptionType"/>
+  <xsd:complexType name="EnterpriseExceptionType">
+    <xsd:sequence maxOccurs="unbounded" minOccurs="1">
+      <xsd:element name="FaultedServiceId" type="xsd:string"/>
+      <xsd:element name="ErrorCode" type="xsd:string"/>
+      <xsd:element name="Message" minOccurs="1" type="xsd:string"/>
+      <xsd:element name="ErrorTime" type="xsd:dateTime"/>
+      <xsd:element name="severityLevel" type="xsd:string"/>
+      <xsd:element name="RequestCorrelationIds" type="RequestCorrelationIdsType"/>
+      <xsd:element name="ExceptionAttribute" type="ExceptionAttributeType" maxOccurs="unbounded" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RequestCorrelationIdsType">
+    <xsd:sequence>
+      <xsd:element name="BusinessProcessId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SenderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InstanceId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TransactionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EventId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExceptionAttributeType">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<xs:schema xmlns:tns="http://facade.alarms.ejb.monitoring.apps.auction.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://facade.alarms.ejb.monitoring.apps.auction.avocent.com/">
+
+<xs:element name="auctionException" type="tns:auctionException"/>
+
+<xs:element name="evaluateStateChange" type="tns:evaluateStateChange"/>
+
+<xs:element name="evaluateStateChangeResponse" type="tns:evaluateStateChangeResponse"/>
+
+<xs:element name="updateDeviceSate" type="tns:updateDeviceSate"/>
+
+<xs:element name="updateDeviceSateResponse" type="tns:updateDeviceSateResponse"/>
+
+<xs:complexType name="updateDeviceSate">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateDeviceSateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:deviceAlarmState" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deviceAlarmState">
+<xs:sequence>
+<xs:element name="alarmSeverityChanged" type="xs:boolean"/>
+<xs:element name="deviceStateChanged" type="xs:boolean"/>
+<xs:element name="newAlarmSeverity" type="xs:string" minOccurs="0"/>
+<xs:element name="newDeviceState" type="xs:string" minOccurs="0"/>
+<xs:element name="oldAlarmSeverity" type="xs:string" minOccurs="0"/>
+<xs:element name="oldDeviceState" type="xs:string" minOccurs="0"/>
+<xs:element name="severeRecentAlarm" type="tns:auctionAlarmTypeEBO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionAlarmTypeEBO">
+<xs:sequence>
+<xs:element name="acknowledged" type="xs:boolean" minOccurs="0"/>
+<xs:element name="acknowledgedBy" type="xs:string" minOccurs="0"/>
+<xs:element name="acknowledgedTimestamp" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmDescriptionString" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmDetailDescriptionKey" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmInstanceId" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmNameKey" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmStateKey" type="xs:string" minOccurs="0"/>
+<xs:element name="alarmTypeTag" type="xs:string" minOccurs="0"/>
+<xs:element name="componentId" type="xs:string" minOccurs="0"/>
+<xs:element name="componentName" type="xs:string" minOccurs="0"/>
+<xs:element name="createdTimestamp" type="xs:string" minOccurs="0"/>
+<xs:element name="equipCategory" type="xs:string" minOccurs="0"/>
+<xs:element name="escalationLevel" type="xs:int"/>
+<xs:element name="eventClass" type="xs:string" minOccurs="0"/>
+<xs:element name="lastTransitionTimestamp" type="xs:string" minOccurs="0"/>
+<xs:element name="severityKey" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceName" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceObjectId" type="xs:string" minOccurs="0"/>
+<xs:element name="sourceTypeKey" type="xs:string" minOccurs="0"/>
+<xs:element name="subjectCategoryKey" type="xs:string" minOccurs="0"/>
+<xs:element name="subjectName" type="xs:string" minOccurs="0"/>
+<xs:element name="subjectObjectId" type="xs:string" minOccurs="0"/>
+<xs:element name="subjectTypeKey" type="xs:string" minOccurs="0"/>
+<xs:element name="transitionList" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionException">
+<xs:sequence>
+<xs:element name="errorCode" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="parameters" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evaluateStateChange">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="evaluateStateChangeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:deviceAlarmState" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

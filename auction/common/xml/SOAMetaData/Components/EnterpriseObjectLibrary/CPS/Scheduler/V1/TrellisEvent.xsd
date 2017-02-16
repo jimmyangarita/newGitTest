@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:event="http://xmlns.avocent.com/commonplatform/event"
+            targetNamespace="http://xmlns.avocent.com/commonplatform/event"
+            elementFormDefault="qualified">
+   <xsd:element name="auctionEvent" type="event:auctionEventType"/>
+   <xsd:complexType name="auctionEventType">
+      <xsd:sequence>
+        <!-- Class of published EDN events; e.g. { Device | Engine | Service | Application | Platform  | etc. } -->
+        <xsd:element name="EventClass" type="xsd:string"/>
+		<!-- Classification of published EDN events; e.g. { Audit | Other  | etc. } -->
+        <xsd:element name="EventClassification" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="Header" minOccurs="1" maxOccurs="1" type="event:auctionEventHeader"/>
+        <xsd:element name="Payload" minOccurs= "1" maxOccurs="1" type="event:auctionEventPayload" />
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:complexType name="auctionEventHeader">
+      <xsd:sequence>
+        <!-- Programmatic name that identifies this EventType; not localized.
+             e.g. evt_bat_low, evt_bat_tempOver, evt_aux_tmpSensorOver, etc. -->
+        <xsd:element name="EventTypeTag" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized event 'name'; e.g. UPS is on ON_BATTERY. Who will define these keys? -->
+         <xsd:element name="EventNameKey" type="xsd:string" minOccurs="1"/>
+		 
+		<!-- Subject<xxxx> fields identify the object for which the event was generated.
+             Name of object with this event; e.g. device name. Loaded from SubjectObjectId instance info -->
+        <xsd:element name="SubjectName" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized enum string for CDMR EventSubjectType enum; e.g. { Device | Application | Platform } -->
+        <xsd:element name="SubjectTypeKey" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized enum string for CDMR SubjectCategory enum; e.g. { Facility | IT } -->
+        <xsd:element name="SubjectCategoryKey" type="xsd:string" minOccurs="1"/>
+		<!-- GUID for object with the Event; e.g. device id -->
+        <xsd:element name="SubjectObjectId" type="xsd:string" minOccurs="0"/>
+
+		<!-- Source<xxxx> fields identify the object that generated the event; often same as Subject<xxx>.
+		     Token for localized enum string for CDMR EventSourceType enum; e.g. { Device | Application | Platform  } -->
+        <xsd:element name="SourceTypeKey" type="xsd:string" minOccurs="1"/>
+
+        <!-- Token for localized enum string for CDMR EventSeverity enum; e.g. { Critical | Warning | Informational } -->
+        <xsd:element name="SeverityKey" type="xsd:string" minOccurs="1"/>
+
+		<!-- Name of equipment category for object with the event; e.g. UPS, Environmental, RackPdu, Server, etc.
+             Loaded by accessing SubjectObjectId instance info -->
+        <xsd:element name="EquipCategory" type="xsd:string" minOccurs="0"/>
+		 
+      </xsd:sequence>
+   </xsd:complexType>
+   
+   <xsd:complexType name="auctionEventPayload">
+      <xsd:sequence>
+		 <!-- UUID of the Event instance stored in the database. -->
+         <xsd:element name="EventInstanceId" type="xsd:string" minOccurs="1"/>
+		 <!-- Timestamp of Event instance loaded by producer -->
+         <xsd:element name="EventTimestamp" type="xsd:string" minOccurs="1"/>
+
+		<!-- Token for localized 'shortDescription' string for this EventType; typically one sentence. Value for
+             event instance loaded by producer. Value for event instance from event’s defn identified in GDD as “Description”.
+             Define tokens in the database and global event catalog. -->
+        <xsd:element name="EventDescriptionKey" type="xsd:string"/>
+		<!-- Token for localized 'longDescription' string for this EventType;
+		     typically has helpful text to understand the event.” -->
+        <xsd:element name="EventDetailDescriptionKey" type="xsd:string" minOccurs="0"/>
+
+		<!-- Source<xxxx> fields identify the object that generated the event; often same as Subject<xxx>.
+		     Name of object that generated the event; e.g. device name. Loaded from SourceObjectId instance info -->
+        <xsd:element name="SourceName" type="xsd:string" minOccurs="0"/>
+		<!-- GUID of source object that generated the event; e.g. device id -->
+        <xsd:element name="SourceObjectId" type="xsd:string" minOccurs="0"/>
+
+		 <!-- Value for event instance from producer incidence; e.g. device event Active|Cleared or None if event is not an alarm event. -->
+         <xsd:element name="EventState" type="xsd:string"/>
+		 
+		 <!-- UUID of the user; e.g. for MSS it will be system user. In case the user generate the event -->
+         <xsd:element name="UserId" type="xsd:string" minOccurs="0"/>
+		 <!-- Name of the user; e.g. for MSS it will be system user. In case the user generate the event -->
+         <xsd:element name="UserName" type="xsd:string" minOccurs="0"/>
+
+		 <!-- Originating device protocol message, if applicable to event. For troubleshooting and audit purpose. -->
+         <xsd:element name="Extensions" type="xsd:base64Binary" minOccurs="0"/>
+
+  	<!-- Identifies multi-module device component (if any) -->
+        <xsd:element name="Component" type="event:Component" minOccurs="0"/>
+
+  	<!-- Used for name-value-pair data of event (if needed); e.g. eventSubstitutionValues for a threshold event. -->
+        <xsd:element name="NVPData" type="event:NVPData" minOccurs="0" maxOccurs="unbounded"/>
+
+	 </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="Component">
+      <xsd:sequence>
+        <!-- Identify multi-module device component; verify element name; verify localization not needed -->
+        <xsd:element name="Name" minOccurs="1" type="xsd:string"/>
+        <!-- Verify element -->
+        <xsd:element name="Id" minOccurs="1" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   
+    <xsd:complexType name="NVPData">
+  	  <!-- Name-value-pair data of an event; e.g. a threshold event with substitution data to display in event name. -->
+      <xsd:sequence>
+        <xsd:element name="Name" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="Value" minOccurs="1" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   
+</xsd:schema>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: DeviceService-v1.xsd
+
+Description: WSDL for Device Service
+
+Copyright (c) 2012 Avocent Corporation. All rights reserved.
+-->
+<wsdl:definitions targetNamespace="http://xmlns.avocent.com/DCIM/Device/Services/v1"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://xmlns.avocent.com/DCIM/Device/Services/v1"
+                  xmlns:fault="http://xmlns.avocent.com/Common/Fault/ApiFault/v1"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:devicemsg="http://xmlns.avocent.com/DCIM/Device/Messages/v1" name="DeviceService_v1">
+    <wsdl:documentation>Version 1.0</wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://xmlns.avocent.com/DCIM/Device/Messages/v1"
+                        schemaLocation="../../../../../../EnterpriseObjectLibrary/Industry/DCIM/Device/Messages/v1/DeviceMessages-v1.xsd"/>
+            <xsd:import schemaLocation="../../../../../../EnterpriseObjectLibrary/Common/Fault/v1/ApiFault-v1.xsd"
+                        namespace="http://xmlns.avocent.com/Common/Fault/ApiFault/v1"/>
+        </xsd:schema>
+    </wsdl:types>
+     <wsdl:message name="CreateDeviceRequest">
+        <wsdl:part name="input" element="devicemsg:CreateDeviceRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CreateDeviceResponse">
+        <wsdl:part name="output" element="devicemsg:CreateDeviceResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateDeviceRequest">
+        <wsdl:part name="input" element="devicemsg:UpdateDeviceRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="UpdateDeviceResponse">
+        <wsdl:part name="output" element="devicemsg:UpdateDeviceResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteDeviceRequest">
+        <wsdl:part name="input" element="devicemsg:DeleteDeviceRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="DeleteDeviceResponse">
+        <wsdl:part name="output" element="devicemsg:DeleteDeviceResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDevicePropertiesRequest">
+        <wsdl:part name="input" element="devicemsg:QueryDevicePropertyRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDevicePropertiesResponse">
+        <wsdl:part name="output" element="devicemsg:QueryDevicePropertyResponseMessage"/>
+    </wsdl:message>
+     <wsdl:message name="QueryDeviceDataPointsRequest">
+        <wsdl:part name="input" element="devicemsg:QueryDeviceDataPointRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDeviceDataPointsResponse">
+        <wsdl:part name="output" element="devicemsg:QueryDeviceDataPointResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDeviceRequest">
+        <wsdl:part name="input" element="devicemsg:QueryDeviceRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDeviceResponse">
+        <wsdl:part name="output" element="devicemsg:QueryDeviceResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDevicePropertyDefinitionRequest">
+        <wsdl:part name="input" element="devicemsg:QueryDevicePropertyDefinitionRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDevicePropertyDefinitionResponse">
+        <wsdl:part name="output" element="devicemsg:QueryDevicePropertyDefinitionResponseMessage"/>
+    </wsdl:message>
+     <!-- Query device details message-->
+    
+     <wsdl:message name="QueryDeviceDetailsRequest">
+        <wsdl:part name="input" element="devicemsg:QueryDeviceDetailsRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="QueryDeviceDetailsResponse">
+        <wsdl:part name="output" element="devicemsg:QueryDeviceDetailsResponseMessage"/>
+    </wsdl:message>
+    <!-- Adding messages for UC 9a -->
+    <wsdl:message name="CreateDeviceDetailsRequest">
+        <wsdl:part name="input" element="devicemsg:CreateDeviceDetailsRequestMessage"/>
+    </wsdl:message>
+    <wsdl:message name="CreateDeviceDetailsResponse">
+        <wsdl:part name="output" element="devicemsg:CreateDeviceDetailsResponseMessage"/>
+    </wsdl:message>
+    <wsdl:message name="Fault">
+        <wsdl:part name="fault" element="fault:ApiFault"/>
+    </wsdl:message>
+    <wsdl:portType name="DeviceServicePortType_v1">
+        <wsdl:operation name="queryDeviceProperties">
+            <wsdl:input message="tns:QueryDevicePropertiesRequest"/>
+            <wsdl:output message="tns:QueryDevicePropertiesResponse"/>
+            <wsdl:fault name="QueryDevicePropertiesFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="createDevice">
+            <wsdl:input message="tns:CreateDeviceRequest"/>
+            <wsdl:output message="tns:CreateDeviceResponse"/>
+            <wsdl:fault name="CreateDeviceFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateDevice">
+            <wsdl:input message="tns:UpdateDeviceRequest"/>
+            <wsdl:output message="tns:UpdateDeviceResponse"/>
+            <wsdl:fault name="UpdateDeviceFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDeviceDetails">
+            <wsdl:input message="tns:QueryDeviceDetailsRequest"/>
+            <wsdl:output message="tns:QueryDeviceDetailsResponse"/>
+            <wsdl:fault name="QueryDeviceDetailsFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteDevice">
+            <wsdl:input message="tns:DeleteDeviceRequest"/>
+            <wsdl:output message="tns:DeleteDeviceResponse"/>
+            <wsdl:fault name="DeleteDeviceFault" message="tns:Fault"/>
+        </wsdl:operation>
+         <wsdl:operation name="queryDeviceDataPoints">
+            <wsdl:input message="tns:QueryDeviceDataPointsRequest"/>
+            <wsdl:output message="tns:QueryDeviceDataPointsResponse"/>
+            <wsdl:fault name="QueryDeviceDataPointsFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDevice">
+            <wsdl:input message="tns:QueryDeviceRequest"/>
+            <wsdl:output message="tns:QueryDeviceResponse"/>
+            <wsdl:fault name="QueryDeviceFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="queryDevicePropertyDefinitions">
+            <wsdl:input message="tns:QueryDevicePropertyDefinitionRequest"/>
+            <wsdl:output message="tns:QueryDevicePropertyDefinitionResponse"/>
+            <wsdl:fault name="QueryDevicePropertyDefinitionFault" message="tns:Fault"/>
+        </wsdl:operation>
+        <wsdl:operation name="createDeviceDetails">
+            <wsdl:input message="tns:CreateDeviceDetailsRequest"/>
+            <wsdl:output message="tns:CreateDeviceDetailsResponse"/>
+            <wsdl:fault name="CreateDeviceDetailsFault" message="tns:Fault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

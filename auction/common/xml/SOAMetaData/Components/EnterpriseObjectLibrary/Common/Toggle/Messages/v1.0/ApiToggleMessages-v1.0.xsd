@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://xmlns.avocent.com/Common/Toggle/ApiToggle/Messages/v1.0"
+	targetNamespace="http://xmlns.avocent.com/Common/Toggle/ApiToggle/Messages/v1.0"
+	elementFormDefault="qualified" version="1.0">
+	<xsd:element name="ServiceUri" type="xsd:string" />
+	<xsd:element name="ServiceName" type="xsd:string" />
+	<xsd:element name="ServiceType" type="xsd:string" />
+	<xsd:element name="StatusFlag" type="xsd:boolean" />
+	<xsd:element name="UpdateStatusRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ServiceUri" />
+				<xsd:element ref="ServiceName" />
+				<xsd:element ref="ServiceType" />
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetServStatusRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ServiceUri" />
+				<xsd:element ref="ServiceName" />
+				<xsd:element ref="ServiceType" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetServStatusResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateStatusResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetStatusForAllServicesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="OSBProjectName" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetStatusForAllServicesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="GetStatus" minOccurs="1" maxOccurs="50" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetStatus">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ServiceUri" />
+				<xsd:element ref="ServiceName" />
+				<xsd:element ref="ServiceType" />
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OSBProjectName" type="xsd:string" />
+	<xsd:complexType name="ToggleDisableAllRequestType">
+		<xsd:sequence>
+			<xsd:element ref="OSBProjectName" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ToggleDisableAllRequest" type="ToggleDisableAllRequestType" />
+	<xsd:complexType name="ToggleEnableAllRequestType">
+		<xsd:sequence>
+			<xsd:element ref="OSBProjectName" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ToggleEnableAllRequest" type="ToggleEnableAllRequestType" />
+	<xsd:element name="ToggleEnableAllResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ToggleDisableAllResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="StatusFlag" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

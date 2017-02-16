@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>#{msg.windowTitle}</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+	<h:outputScript library="javascript" name="checkPassword.js" />
+</h:head>
+<h:body>
+	<div>
+		<h:form>
+			<h:outputText value="Welcome: "/>
+			<h:outputText id="firstName" value="#{user.firstName}"/>
+			<div align="left">
+			<h:commandLink value="   Refresh view" action="#{tableUsers.queryUsers}" />
+			</div>
+		</h:form>
+	</div>
+	<h:form>
+		<div align="center">
+			<h:dataTable value="#{tableUsers.users}" var="user" cellpadding="1"
+				cellspacing="1" styleClass="users" headerClass="usersHeader"
+				rowClasses="oddRow,evenRow">
+				
+				<f:facet name="caption">Auction List of Users</f:facet>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.useroidColumn}" />
+					</f:facet>
+					<!--  <h:inputText value="#{user.userKind}" rendered="#{not user.editable}" size="20" />-->
+					<h:outputText value="#{user.id}" rendered="true" size="20" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.userkindColumn}" />
+					</f:facet>
+					<!--  <h:inputText value="#{user.userKind}" rendered="#{not user.editable}" size="20" />-->
+					<h:outputText value="#{user.userKind}" rendered="true" size="20" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+					 <h:commandLink action="#{tableUsers.sortByLast}"  
+						value="#{msg.lastnameColumn}" />
+					</f:facet>
+					<h:inputText value="#{user.lastName}" rendered="#{user.editable}" size="20" />
+					<h:outputText value="#{user.lastName}" rendered="#{not user.editable}"
+						size="20" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						 <h:commandLink action="#{tableUsers.sortByFirst}"  
+						value="#{msg.firstnameColumn}" />
+					</f:facet>
+					<h:inputText value="#{user.firstName}" rendered="#{user.editable}"
+						size="20" />
+					<h:outputText value="#{user.firstName}" rendered="#{not user.editable}"
+						size="20" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.usernameColumn}" />
+					</f:facet>
+					<!-- <h:inputText value="#{user.userName}" rendered="#{not  user.editable}" size="20" />-->
+					<h:outputText value="#{user.userName}" rendered="true" size="30" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.phoneColumn}" />
+					</f:facet>
+					<h:inputText value="#{user.phone}" rendered="#{user.editable}" size="15" />
+					<h:outputText value="#{user.phone}" rendered="#{not user.editable}"
+						size="15" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.addresscountryColumn}"
+							style="font-weight: bold" />
+					</f:facet>
+					<!--<h:inputText value="#{user.addressMBean.country}" rendered="#{not  user.editable}" size="20" />-->
+					<h:outputText
+						value="#{user.addressMBean.line1} #{user.addressMBean.country} 
+										#{user.addressMBean.state} #{user.addressMBean.city} 
+										#{user.addressMBean.zipcode}"
+						rendered="true" size="20" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="#{msg.editColumn}" />
+					</f:facet>
+					<h:selectBooleanCheckbox value="#{user.editable}" onclick="submit()" />
+				</h:column>
+				<h:column>
+					<h:commandLink value="Delete" action="#{tableUsers.deleteRow(user)}" />
+				</h:column>
+			</h:dataTable>
+			
+			<div align="left">
+				<h:commandLink value="add a user..." action="#{user.logout}" />
+			</div>
+			
+			<br></br>
+			<div class="header">
+				<h:commandButton value="#{msg.saveChangesButtonText}"
+					action="#{tableUsers.save}" />
+			</div>
+		</div>
+	</h:form>
+</h:body>
+</html>

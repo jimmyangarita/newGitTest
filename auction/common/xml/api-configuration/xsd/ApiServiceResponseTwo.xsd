@@ -1,0 +1,15 @@
+<xsd:schema
+	targetNamespace="http://osb.avocent.com/commonplatform/service/ApiServiceResponse"
+	xmlns="http://osb.avocent.com/commonplatform/service/ApiServiceResponse"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+	<xsd:element name="newOperationResponse" type="newOperationResponseType" />
+
+	<xsd:complexType name="newOperationResponseType">
+		<xsd:sequence>
+			<xsd:element name="response" type="xsd:string"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

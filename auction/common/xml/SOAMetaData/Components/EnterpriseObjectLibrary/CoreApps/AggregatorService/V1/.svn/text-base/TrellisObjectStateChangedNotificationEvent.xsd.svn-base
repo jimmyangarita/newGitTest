@@ -1,0 +1,47 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          xmlns:event="http://xmlns.avocent.com/commonplatform/objectstatechangednotification"
+            targetNamespace="http://xmlns.avocent.com/commonplatform/objectstatechangednotification"
+            elementFormDefault="qualified">
+
+    <xsd:element name="ObjectStateChangedNotification" type="event:ObjectStateChangedNotificationType"/>  
+    <xsd:complexType name="ObjectStateChangedNotificationType">
+<xsd:sequence>
+        <!-- Class of published EDN events; e.g. { Device | Engine | Service | Application | Platform  | etc. } -->
+        <xsd:element name="EventClass" type="xsd:string"/>
+        <xsd:element name="Header" minOccurs="1" maxOccurs="1" type="event:ObjectStateChangedNotificationHeader"/>
+        <xsd:element name="Payload" minOccurs= "0" maxOccurs="1" type="event:ObjectStateChangedNotificationPayload" />
+</xsd:sequence>
+    </xsd:complexType>
+   
+    <xsd:complexType name="ObjectStateChangedNotificationHeader">
+    <xsd:sequence>
+		<!-- Reason for state change - enum { ContainerOperation | DeviceStateChange | 
+		UserAction | ApplicationAction | StateAggregation } -->
+		<xsd:element name="StateChangeReason" type="xsd:string"/>
+	</xsd:sequence>
+    </xsd:complexType>
+   
+<xsd:complexType name="ObjectStateChangedNotificationPayload">
+	<xsd:sequence>
+        <xsd:element name="ObjectStateInformation" minOccurs="1" maxOccurs="unbounded" type="event:ObjectStateInformation"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="ObjectStateInformation">
+	<xsd:sequence>
+
+		<!-- Type of object; e.g. Device, Rack, Building, DataCenter, Floor, Space, Zone, or Group -->
+		<xsd:element name="SubjectObjectType" type="xsd:string" minOccurs="1" maxOccurs="1" />
+		<!-- GUID for Object identifier; e.g. Object id -->
+		<xsd:element name="SubjectObjectId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+
+		<!-- Value for 'new' ObjectState enum; e.g. { Normal | NotResponding | InAlarm | InMaintenanceMode } -->
+		<xsd:element name="NewState" type="xsd:string" minOccurs="1" maxOccurs="1" />
+
+		<!-- Value for 'new' Device Alarm Severity enum; e.g. { Informational | Warning | Critical } -->
+		<xsd:element name="NewAlarmSeverity" type="xsd:string" minOccurs="0" maxOccurs="1" />		
+		
+	</xsd:sequence>
+</xsd:complexType>
+
+</xsd:schema>

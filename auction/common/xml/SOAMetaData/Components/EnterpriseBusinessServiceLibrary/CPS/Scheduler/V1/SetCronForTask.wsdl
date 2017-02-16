@@ -1,0 +1,57 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="SetCronForTask"
+                  targetNamespace="http://xmlns.oracle.com/SOA_Scheduler_jws/CPS_Scheduler_CronCreatorService/SetCronForTask"
+                  xmlns:ns1="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+                  xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+                  xmlns:client="http://xmlns.oracle.com/SOA_Scheduler_jws/CPS_Scheduler_CronCreatorService/SetCronForTask"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation>SetCronForTask Web service - This service provides the
+                        functionality of preparing a cron expression for a Task,
+                        out of its scheduling Parameters, thereafter, calls the
+                        QuartzScheduler Service to Schdeule the Task</wsdl:documentation>
+    <plnk:partnerLinkType name="SetCronForTask">
+        <plnk:role name="SetCronForTaskProvider">
+            <plnk:portType name="client:SetCronForTask"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema"
+                xmlns:ns1="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+                xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+                xmlns:client="http://xmlns.oracle.com/SOA_Scheduler_jws/CPS_Scheduler_CronCreatorService/SetCronForTask"
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+                    schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSSchedulerEBM.1.0.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.avocent.com/EnterpriseHeader"
+                        schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseHeader.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="msgCommonResponse">
+        <wsdl:part name="payload" element="ns1:CommonResponse"/>
+    </wsdl:message>
+    <wsdl:message name="msgAddTaskRequest">
+        <wsdl:part name="payload" element="ns1:AddTaskRequest"/>
+    </wsdl:message>
+    <wsdl:message name="msgUpdateTaskRequest">
+        <wsdl:part name="payload" element="ns1:UpdateTaskRequest"/>
+    </wsdl:message>
+    <wsdl:message name="msgDeleteTaskRequest">
+        <wsdl:part name="payload" element="ns1:DeleteTaskRequest"/>
+    </wsdl:message>
+    <wsdl:portType name="SetCronForTask">
+        <wsdl:operation name="AddTask">
+            <wsdl:input message="client:msgAddTaskRequest"/>
+            <wsdl:output message="client:msgCommonResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateTask">
+            <wsdl:input message="client:msgUpdateTaskRequest"/>
+            <wsdl:output message="client:msgCommonResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeleteTask">
+            <wsdl:input message="client:msgDeleteTaskRequest"/>
+            <wsdl:output message="client:msgCommonResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

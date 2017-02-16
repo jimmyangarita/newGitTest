@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Name: ExtensionMessageHeader-v2.xsd
+
+Description: Common XML Schema for Message Header Extension 
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xmlns.jdap.com/Common/MessageHeader/Extension/v2"
+            elementFormDefault="qualified" version="1.0">
+  
+    <xsd:complexType name="ExtensionMessageHeaderType"/>
+  
+</xsd:schema>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** avocent  **
+** trellis SOA Metadata**
+** Version 1.00 **
+** Date: 14 Feb 2011 **
+
+<<avocent copyright string >>
+
+  
+XML Schema 
+
+Name: trellis_HOME\SOAMetaData\EnterpriseObjectLibrary\Infrastructure\V1\Meta.xsd
+
+Description: Contains all the "common" XML schema definitions which will be used in composition of enterprise messages, which are requests or responses to the Enterpise Services
+
+-->
+
+<xsd:schema 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" 
+  xmlns="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" 
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" 
+  targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" 
+  elementFormDefault="qualified" 
+  attributeFormDefault="unqualified" 
+  version="1.00">
+
+	<xsd:import namespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" schemaLocation="../../../UtilityArtifacts/XSDs/WS-Addressing.xsd"/>
+	<xsd:include schemaLocation="CodeLists.xsd"/>
+
+	<!-- Abstract EBMType defintion       -->
+	<!-- All EBMs will specialize EBMType -->
+	<!-- EBMType references EBMHeader     -->
+	<xsd:complexType name="EBMType">
+		<xsd:sequence>
+			<xsd:element ref="EBMHeader"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="EBMHeaderType">
+		<xsd:sequence>
+		<xsd:element name="EBMID" type="xsd:string" minOccurs="0"/>
+		<xsd:element name="CreationDateTime" type="xsd:string" minOccurs="0"/>
+		<xsd:element name="LanguageCode" 
+type="com:LanguageCodeType" minOccurs="0"/>
+		<xsd:element name="ReplyToEBMID" type="xsd:string" minOccurs="0"/>
+		<xsd:element name="ConversationID" type="xsd:string" minOccurs="0"/>
+		<xsd:element ref="ProcessingInstructions" minOccurs="0"/>
+		<xsd:element ref="MessageInformation" minOccurs="0"/>
+		<xsd:element ref="Sender" minOccurs="0"/>
+		<xsd:element ref="Target" minOccurs="0"/>
+		<xsd:element ref="Fault" minOccurs="0"/>
+		<xsd:element ref="UserContext" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="EBMHeader" type="EBMHeaderType"/>
+
+	<xsd:complexType name="ProcessingInstructionsType">
+		<xsd:sequence>
+			<xsd:element name="TestModeIndicator" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="ResponseTypeCode" type="com:ResponseTypeCodeType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ProcessingInstructions" type="ProcessingInstructionsType"/>
+
+	<xsd:complexType name="MessageInformationType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Version" type="xsd:string" minOccurs="0" />
+      <xsd:element name="EnterpriseObject" type="xsd:string" minOccurs="0" />
+      <xsd:element name="EnterpriseService" type="xsd:string" minOccurs="0" />
+      <xsd:element name="EnterpriseServiceOperation" type="xsd:string" minOccurs="0" />
+      <xsd:element name="BusinessFlowName" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="MessageInformation" type="MessageInformationType"/>
+
+	<xsd:complexType name="SenderType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SenderMessageID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SenderApplicationID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SenderApplicationName" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="SenderWSAddress" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Sender" type="SenderType"/>
+
+
+  <xsd:element name="SenderWSAddress" type="WSAddressType"/>
+
+	<xsd:complexType name="WSAddressType">
+		<xsd:sequence>
+			<xsd:element ref="wsa:From" minOccurs="0"/>
+			<xsd:element ref="wsa:To" minOccurs="0"/>
+			<xsd:element ref="wsa:ReplyTo" minOccurs="0"/>
+			<xsd:element ref="wsa:FaultTo" minOccurs="0"/>
+			<xsd:element ref="wsa:Recipient" minOccurs="0"/>
+		</xsd:sequence>
+  </xsd:complexType>
+
+	<xsd:complexType name="TargetType">
+		<xsd:sequence>
+			<xsd:element name="ID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EndPointURI" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Target" type="TargetType"/>
+
+	<xsd:complexType name="FaultType">
+		<xsd:sequence>
+			<xsd:element ref="FaultMessage" minOccurs="0" />
+			<xsd:element ref="FaultingComponent" minOccurs="0" />
+      			<xsd:element ref="RequestCorrelationDetails" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Fault" type="FaultType"/>
+
+	<xsd:complexType name="FaultMessageType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Text" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DisplayMessage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DetailedLogURI" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SeverityLevel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FaultDateTime" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FaultMessage" type="FaultMessageType"/>
+
+	<xsd:complexType name="FaultingComponentType">
+		<xsd:sequence>
+			<xsd:element name="ComponentName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ComponentInstanceID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BusinessFlowName" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ImplementationCodeType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InstanceMonitoringURI" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FaultingComponent" type="FaultingComponentType"/>
+  
+	<xsd:complexType name="RequestCorrelationDetailsType">
+		<xsd:sequence>
+      <xsd:element name="EBMID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SenderID" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="SenderWSAddress" minOccurs="0"/>      
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RequestCorrelationDetails" type="RequestCorrelationDetailsType"/>  
+
+<xsd:element name="UserContext" type="UserContextType"/>
+<xsd:complexType name="UserContextType">
+	<xsd:sequence>
+		<xsd:element name="UserID" type="xsd:string" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+<xsd:element name="ApplicationContext" type="ApplicationContextType"/>
+<xsd:complexType name="ApplicationContextType">
+	<xsd:sequence>
+		<xsd:element name="ApplicationID" type="xsd:string" minOccurs="0"/>
+		<xsd:element name="ApplicationName" type="xsd:string" minOccurs="0"/>
+	</xsd:sequence>
+</xsd:complexType>
+
+
+
+</xsd:schema>

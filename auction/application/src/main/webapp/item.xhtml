@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<title>IGNORED</title>
+</head>
+<body>
+	<ui:composition template="/templates/itemLayout.xhtml">
+		<ui:define name="windowTitle">
+            #{msg.createUserMsg}
+         </ui:define>
+
+		<ui:define name="content">
+			<h:form>
+				<div align="left">
+					<h:dataTable value="#{tableItems.items}" var="item" cellpadding="1"
+						cellspacing="1" styleClass="users">
+
+						<f:facet name="caption">
+							<div class="title"></div>
+						</f:facet>
+						<h:column>
+							<h:graphicImage library="images" name="computer.jpg" />
+						</h:column>
+						<h:column>
+							<h:panelGroup>
+								<h:outputText value="" rendered="true" />
+								<div>
+									<p>
+										<h:outputFormat value="#{item.title}" rendered="true"
+											styleClass="bold" />
+									</p>
+								</div>
+								<div id="itemdisplay" align="left">
+									<p>
+										<h:outputText value="#{item.condition}" styleClass="bold" />
+									</p>
+									<p>
+										<h:outputText value="#{msg.price}" />
+
+										<h:outputText value="#{item.initialPrice}" styleClass="colormaroon">
+											<f:convertNumber type="currency" />
+										</h:outputText>
+									</p>
+								</div>
+								<div>
+									<p>
+										<h:outputText value="#{item.description}" rendered="true" />
+									</p>
+								</div>
+							</h:panelGroup>
+
+						</h:column>
+
+						<h:column>
+							<br></br>
+							<div id="itemdisplaycart" align="center">
+								<br></br>
+								<div align="left">
+									<h:outputText value="Cart" rendered="true" styleClass="bold" />
+								</div>
+								<div id="itemdisplaycartinternal">
+									<p>
+										<h:commandButton value="#{msg.addToCart}" action="#{user.login}"
+											 styleClass="buttonbid" />
+									</p>
+								</div>
+								<br></br>
+								<div align="left">
+									<h:outputText value="Bid" rendered="true" styleClass="bold" />
+								</div>
+								<div id="itemdisplaycartinternal">
+									<p>
+										<h:commandButton value="#{msg.placebid}" action="#{user.login}"
+											styleClass="buttonbid" />
+									</p>
+								</div>
+							</div>
+						</h:column>
+					</h:dataTable>
+				</div>
+			</h:form>
+		</ui:define>
+
+		<!-- 	<ui:define name="sidebarRight">
+			<h:form>
+				<br></br>
+				<div id="itemdisplaycart" align="center">
+					<p>
+						<h:outputText value="Cart" rendered="true" styleClass="bold" />
+					</p>
+					<div id="itemdisplaycartinternal">
+						<p>
+							<h:commandButton value="#{msg.addToCart}" action="#{user.login}"
+								styleClass="button" size="20" />
+						</p>
+					</div>
+					<br></br>
+					<div id="itemdisplaycartinternal">
+						<p>
+							<h:commandButton value="#{msg.placebid}" action="#{user.login}"
+								styleClass="button" />
+						</p>
+					</div>
+				</div>
+			</h:form>
+		</ui:define>
+		 -->
+	</ui:composition>
+</body>
+</html>

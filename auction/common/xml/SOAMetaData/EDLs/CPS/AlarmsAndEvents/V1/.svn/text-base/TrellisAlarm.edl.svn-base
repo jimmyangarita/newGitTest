@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://schemas.oracle.com/events/edl"
+             targetNamespace="http://xmlns.avocent.com/commonplatform/alarm/edl">
+    <schema-import namespace="http://xmlns.avocent.com/commonplatform/alarm"
+                   location="../../../../Components/EnterpriseObjectLibrary/CPS/Common/V1/TrellisAlarm.xsd"/>
+    <event-definition name="TrellisAlarm">
+        <content xmlns:ns0="http://xmlns.avocent.com/commonplatform/alarm"
+                 element="ns0:TrellisAlarm"/>
+    </event-definition>
+</definitions>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebo"
+            xmlns:cps-scheduler-ebo="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+            targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebo"
+            version="1.0" elementFormDefault="qualified">
+  <xsd:import schemaLocation="CPSSchedulerEBO.1.0.xsd"
+              namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"/>
+  <xsd:complexType name="QuartzJobScheduleEBOType">
+    <xsd:sequence>
+      <xsd:element name="jobIDEBO" type="cps-scheduler-ebo:TaskIdEBOType"/>
+      <xsd:element name="cronExpression" type="xsd:string"/>
+      <xsd:element name="startDateTime" type="xsd:dateTime"/>
+      <xsd:element name="endDateTime" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="JobPayload">
+    <xsd:sequence>
+      <xsd:element name="TaskIdEBO"
+                   type="cps-scheduler-ebo:TaskIdEBOType"/>
+      <xsd:element name="TaskActionIdEBO"
+                   type="cps-scheduler-ebo:TaskActionIdEBOType"/>
+      <xsd:element name="TaskActionParameters" type="xsd:base64Binary"/>
+      <xsd:element name="JobStatusEBOType"
+                   type="cps-scheduler-ebo:StatusEBOType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExceptionType">
+    <xsd:sequence>
+      <xsd:element name="ExceptionMessage" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

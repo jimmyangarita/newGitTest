@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://dataimportmapping.ejb.emrsn.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://dataimportmapping.ejb.emrsn.com/">
+
+	<xs:element name="createXSL" type="tns:createXSL" />
+
+	<xs:element name="createXSLResponse" type="tns:createXSLResponse" />
+
+	<xs:complexType name="createXSL">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:dataImportMappingRequest"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="dataImportMappingRequest">
+		<xs:sequence>
+			<xs:element name="fileName" type="xs:string" minOccurs="0" />
+			<xs:element name="filePath" type="xs:string" minOccurs="0" />
+			<xs:element name="mapperId" type="xs:string" minOccurs="0" />
+			<xs:element name="rootElementName" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="createXSLResponse">
+		<xs:sequence>
+			<xs:element name="return" type="tns:dataImportMappingResponse"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="dataImportMappingResponse">
+		<xs:sequence>
+			<xs:element name="description" type="xs:string" minOccurs="0" />
+			<xs:element name="status" type="xs:string" minOccurs="0" />
+			<xs:element name="xslFileName" type="xs:string" minOccurs="0" />
+			<xs:element name="xslFilePath" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

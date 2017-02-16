@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:include schemaLocation="AssetDataEBO.xsd"/>
+<xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+<xsd:element name="CDMAssetRequestEBM" type="CDMAssetRequestEBMType"/>
+<xsd:complexType name="CDMAssetRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="AssetRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="CDMAssetResponseEBM" type="CDMAssetResponseEBMType"/>
+<xsd:complexType name="CDMAssetResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="AssetResponsePayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="AssetRequestPayload">
+<xsd:annotation>
+<xsd:documentation>A sample element</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="ebo:AssetDataEBO"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="AssetResponsePayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ResponseDetails" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

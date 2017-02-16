@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://facade.threshold.ejb.monitoring.apps.auction.avocent.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://facade.threshold.ejb.monitoring.apps.auction.avocent.com/" name="ConfirmThresholdsBeanService">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://facade.threshold.ejb.monitoring.apps.auction.avocent.com/" schemaLocation="../../../../EnterpriseObjectLibrary/Apps/Monitoring/V1/ConfirmThresholdsBeanServiceV1.xsd"/>
+</xsd:schema>
+</types>
+<message name="confirmThresholds">
+<part name="parameters" element="tns:confirmThresholds"/>
+</message>
+<message name="confirmThresholdsResponse">
+<part name="parameters" element="tns:confirmThresholdsResponse"/>
+</message>
+<portType name="ConfirmThresholdsBeanService">
+<operation name="confirmThresholds">
+<input message="tns:confirmThresholds"/>
+<output message="tns:confirmThresholdsResponse"/>
+</operation>
+</portType>
+</definitions>

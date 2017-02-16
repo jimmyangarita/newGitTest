@@ -1,0 +1,8 @@
+#Thu Apr 12 16:21:40 EDT 2012
+activeProfiles=
+eclipse.preferences.version=1
+fullBuildGoals=process-test-com.jdap.auction.application
+resolveWorkspaceProjects=true
+resourceFilterGoals=process-com.jdap.auction.application com.jdap.auction.application\:testResources
+skipCompilerPlugin=true
+version=1

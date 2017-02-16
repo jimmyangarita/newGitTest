@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 176
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/Common/V1
+END
+CSVToRawXMLV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/Common/V1/CSVToRawXMLV1.wsdl
+END
+FilePurgeV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/Common/V1/FilePurgeV1.wsdl
+END
+XSLTransformV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/Common/V1/XSLTransformV1.wsdl
+END
+FileParserV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/Common/V1/FileParserV1.wsdl
+END

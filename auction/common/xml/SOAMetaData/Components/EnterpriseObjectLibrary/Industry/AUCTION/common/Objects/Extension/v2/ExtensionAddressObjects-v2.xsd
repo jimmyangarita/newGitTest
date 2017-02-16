@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Name: ExtensionAddressObjects-v1.xsd
+
+Description: XML Schema for Address Objects Extension 
+
+Copyright (c) 2012 JDAP Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xmlns.jdap.com/auction/Address/Objects/Extension/v2"
+            elementFormDefault="qualified" version="1.0">
+            
+    <xsd:complexType name="ExtensionAddressType"/>
+    
+</xsd:schema>

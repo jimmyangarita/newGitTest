@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0">
+	<application>
+		<message-bundle>com.jdap.auction.application.messages</message-bundle>
+		<resource-bundle>
+			<base-name>com.jdap.auction.application.messages</base-name>
+			<!-- should be com.jdap.auction.application.messages, my msgs, page 256 -->
+			<var>msg</var>
+		</resource-bundle>
+		<!-- <message-bundle>com.jdap.auction.application.appmessage</message-bundle> generated application 
+			msg -->
+<!-- 		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>es</supported-locale>
+			<supported-locale>de</supported-locale>
+		</locale-config> -->
+	</application>
+	<!-- <managed-bean> <managed-bean-name>user</managed-bean-name> <managed-bean-class>com.jdap.auction.application.model.UserBean</managed-bean-class> 
+		<managed-bean-scope>session</managed-bean-scope> </managed-bean> -->
+	<!-- <managed-bean> <managed-bean-name>bidBean</managed-bean-name> <managed-bean-class>com.jdap.auction.application.model.BidBean</managed-bean-class> 
+		<managed-bean-scope>session</managed-bean-scope> </managed-bean> -->
+	<navigation-rule>
+		<!-- <display-name>Login</display-name> -->
+		<!-- <from-view-id>*.xhtml</from-view-id> --> <!-- Optional if omitted works from all pages. -->
+		<navigation-case>
+			<from-outcome>welcome</from-outcome>
+			<to-view-id>/welcome.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>tableusers</from-outcome>
+			<to-view-id>/tableusers.xhtml</to-view-id>
+			<redirect/>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>signup</from-outcome>
+			<to-view-id>/newuser.xhtml</to-view-id>
+		</navigation-case>
+		<!-- <navigation-case> <from-outcome>retry</from-outcome> <to-view-id>/index.xhtml</to-view-id> 
+			</navigation-case> -->
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>newuser</display-name>
+		<from-view-id>/newuser.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>users</from-outcome>
+			<to-view-id>/users.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/errors.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>startOver</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<display-name>AddBid</display-name>
+		<from-view-id>/CreateBid.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/ListBid.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

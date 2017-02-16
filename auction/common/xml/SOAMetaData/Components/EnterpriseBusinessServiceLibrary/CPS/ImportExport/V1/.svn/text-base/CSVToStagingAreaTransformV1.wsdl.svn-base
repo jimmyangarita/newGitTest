@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/ImportExport/V1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/ImportExport/V1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ebo="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" xmlns:es="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/ImportExport/V1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+<wsdl:types>
+<xsd:schema targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/ImportExport/V1" elementFormDefault="qualified">
+<xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" schemaLocation="../../../../EnterpriseObjectLibrary/Infrastructure/V1/Meta.xsd"/>
+<xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ImportExport/V1" schemaLocation="../../../../EnterpriseObjectLibrary/CPS/ImportExport/V1/DataFormatterEBM.xsd"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="CSVToStagingAreaTransformReqMsg">
+<wsdl:part name="CSVToStagingAreaTransformRequest" element="ebo:CSVToStagingAreaTransformRequestEBM"/>
+</wsdl:message>
+<wsdl:message name="CSVToStagingAreaTransformRespMsg">
+<wsdl:part name="CSVToStagingAreaTransformResponse" element="ebo:CSVToStagingAreaTransformResponseEBM"/>
+</wsdl:message>
+<wsdl:portType name="CSVToStagingAreaTransformV1">
+<wsdl:operation name="formatData">
+<wsdl:input message="es:CSVToStagingAreaTransformReqMsg"/>
+<wsdl:output message="es:CSVToStagingAreaTransformRespMsg"/>
+</wsdl:operation>
+</wsdl:portType>
+</wsdl:definitions>

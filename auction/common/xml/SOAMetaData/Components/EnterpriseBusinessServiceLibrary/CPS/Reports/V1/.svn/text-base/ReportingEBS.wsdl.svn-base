@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:es="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Reporting/V1"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:ebm="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Reporting/V1"
+             xmlns:met="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Reporting/V1"
+             xmlns:xactecsv="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Search/V1">
+  <types>
+    <xsd:schema targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Reporting/V1/types"
+                elementFormDefault="qualified">
+      <xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+                  schemaLocation="../../../../EnterpriseObjectLibrary/Infrastructure/V1/Meta.xsd"/>
+      <xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Reporting/V1"
+                  schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Reports/V1/ReportingEBM.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="ExecuteReportRequestMsg">
+    <part name="ExecuteReportRequestEBM" element="ebm:ExecuteReportRequest"/>
+  </message>
+  <message name="ExecuteReportResponseMsg">
+    <part name="ExecuteReportResponseEBM" element="ebm:ExecuteReportResponse"/>
+  </message>
+  <message name="FaultMsg">
+    <part name="payload" element="met:Fault"/>
+  </message>
+  <portType name="ReportEBSV1">
+    <operation name="executeReport">
+      <input message="es:ExecuteReportRequestMsg"/>
+      <output message="es:ExecuteReportResponseMsg"/>
+      <fault name="Fault" message="es:FaultMsg"/>
+    </operation>
+  </portType>
+</definitions>

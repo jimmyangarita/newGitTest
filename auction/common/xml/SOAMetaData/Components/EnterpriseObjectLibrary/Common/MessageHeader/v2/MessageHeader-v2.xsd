@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: MessageHeader-v2.xsd
+
+Description: Common XML Schema for Message Header 
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:common="http://xmlns.jdap.com/Common/MessageHeader/v2"
+            xmlns:wsa="http://www.w3.org/2005/08/addressing"
+            xmlns:ext="http://xmlns.jdap.com/Common/MessageHeader/Extension/v2"
+            targetNamespace="http://xmlns.jdap.com/Common/MessageHeader/v2"
+            elementFormDefault="qualified" version="1.0">
+  
+  <xsd:import namespace="http://www.w3.org/2005/08/addressing" schemaLocation="../../../Standard/www.w3.org/2005-08-addressing/ws-addr.xsd"/>
+  <xsd:import namespace="http://xmlns.jdap.com/Common/MessageHeader/Extension/v2" schemaLocation="../Extension/v2/ExtensionMessageHeader-v2.xsd" />
+  <xsd:simpleType name="LoggingLevelType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Fatal">
+              <xsd:annotation>
+                <xsd:documentation>Highest severity level. Unexpected errors that occur during normal execution. Fatal exceptions or any other serious problems that require immediate attention from the System Administrator.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Error">
+              <xsd:annotation>
+                <xsd:documentation>The Error level designates error events that might still allow the application to continue running. Administrator action can be delayed in this severity.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Warning">
+              <xsd:annotation>
+                <xsd:documentation>The Warning level designates potentially harmful situations. Any potential problem that should be reviewed by the System Administrator.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Notification">
+              <xsd:annotation>
+                <xsd:documentation>Key flow steps; high-level functional progress messages. A major life cycle event such as the activation or deactivation of a primary sub-component or feature.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="Trace">
+              <xsd:annotation>
+                <xsd:documentation>Configuration properties and environment settings. This is a finer level of granularity for reporting normal events.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+  <xsd:complexType name="NameValuePairType">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string"/>
+      <xsd:element name="Value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="WSAddressType">
+    <xsd:sequence>
+      <xsd:element ref="wsa:From" minOccurs="0"/>
+      <xsd:element ref="wsa:To" minOccurs="0"/>
+      <xsd:element ref="wsa:ReplyTo" minOccurs="0"/>
+      <xsd:element ref="wsa:FaultTo" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="MessageHeaderType">
+    <xsd:sequence>
+      <xsd:element name="RequestId" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>RequestId contains the Globally Unique ID (GUID) that is specified by the sending application.  The same id is used in the response.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CreationDateTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>CreationDateTime is the date time stamp that is set when the message created.  This date must not be modified during the life of the message.  This time stamp is to be in Coordinated Universal Time (UTC).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Sender" type="common:SenderType" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Sender identifies characteristics and control identifiers that relate to the application that created the message.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element> 
+      <xsd:element name="TransactionId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Transaction Id identifies the transaction of the activity driving this message request and associated message requests. This allows different messages or subsequent messages requests to be associated with the same transaction.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BusinessProcessId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Business Process Id is an identifier of the business process that is associated or driving this messaging.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UserId" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>User Id is an identifier of the user that is driving the request.  Generally this field is used to provide some details of the user that this request was initiated on the behalf of in situations when the request is authenticated/authorized by a different user.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LoggingLevel" type="common:LoggingLevelType" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Logging level to be applied for this requests.  Overrides other logging settings for this request.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ExtensionProperties" type="common:NameValuePairType" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>An optional set of properties that are associated with the message header for extension purposes.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="extension" type="ext:ExtensionMessageHeaderType"
+                   minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Extension point for the message header.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="MessageHeader" type="common:MessageHeaderType"/>
+  
+  <xsd:complexType name="SenderType">
+    <xsd:sequence>
+      <xsd:element name="SenderId" type="xsd:string" maxOccurs="1" minOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Sender Id is the senders system or application unique identification code.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ReferenceId" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>A set of Reference Id(s) that allow the sending application to indicate the instance identifier of the event or tasks that caused this message to be created.  This allows drill back from the message to the sending application.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SenderName" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Sender Name is the name of the sending application or consumer.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+       <xsd:element name="SenderTimeZone" type="xsd:string" minOccurs="0" maxOccurs="1">
+      <xsd:annotation>
+          <xsd:documentation>This element represents the client's timezone, and times in responses, such as data point responses, will be converted to this timezone, before the response is sent to the client, in case no timezone is specified the default is a GMT-. The format of this timezone is "GMT sign hours", sign can be + or -, hours can be single or two digit, digit can be one of 0,1,2,3,4,5,6,7,8,9 for example  GMT-8, and GMT+02 are both valid values of the timezone.</xsd:documentation>
+      </xsd:annotation>
+      </xsd:element> 
+      <xsd:element name="WSAddressing" type="common:WSAddressType" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Web Service Addressing Information</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

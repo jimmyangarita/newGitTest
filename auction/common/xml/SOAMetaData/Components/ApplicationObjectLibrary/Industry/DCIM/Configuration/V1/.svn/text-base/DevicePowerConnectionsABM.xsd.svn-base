@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/PowerConnectionsForDeviceABM" targetNamespace="http://xmlns.avocent.com/PowerConnectionsForDeviceABM" xmlns:PowerConnections="http://xmlns.avocent.com/PowerConnectionsForDeviceABO" elementFormDefault="qualified">
+<xsd:import namespace="http://xmlns.avocent.com/PowerConnectionsForDeviceABO" schemaLocation="DevicePowerConnectionsABO.xsd"/>
+<xsd:element name="findPowerConnectionsForDeviceRequest" type="PowerConnections:findPowerConnectionsForDeviceRequestType"/>
+<xsd:element name="findPowerConnectionsForDeviceResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="FindPowerConnectionsForDevice" type="PowerConnections:findPowerConnectionsForDeviceResponseType"/>
+<xsd:element name="CommonResponse" type="PowerConnections:CommonResponseType" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

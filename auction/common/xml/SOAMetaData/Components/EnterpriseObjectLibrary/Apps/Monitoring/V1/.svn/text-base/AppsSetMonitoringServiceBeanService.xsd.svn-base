@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://facade.enablemonitoring.ejb.monitoring.apps.trellis.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://facade.enablemonitoring.ejb.monitoring.apps.trellis.avocent.com/">
+
+<xs:element name="setMonitoringstatus" type="tns:setMonitoringstatus"/>
+
+<xs:complexType name="setMonitoringstatus">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

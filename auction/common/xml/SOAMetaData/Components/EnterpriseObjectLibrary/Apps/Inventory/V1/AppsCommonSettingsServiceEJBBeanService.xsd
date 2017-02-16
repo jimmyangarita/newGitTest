@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:tns="http://ejb.common.apps.auction.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ejb.common.apps.auction.avocent.com/">
+<xs:element name="auctionException" type="tns:auctionException"/>
+<xs:element name="removeSystemPropertiesOnDeleteEntity" type="tns:removeSystemPropertiesOnDeleteEntity"/>
+<xs:element name="removeSystemPropertiesOnDeleteEntityResponse" type="tns:removeSystemPropertiesOnDeleteEntityResponse"/>
+<xs:complexType name="removeSystemPropertiesOnDeleteEntity">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="removeSystemPropertiesOnDeleteEntityResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="auctionException">
+<xs:sequence>
+<xs:element name="errorCode" type="xs:int"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="parameters" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

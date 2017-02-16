@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<xsd:schema xmlns="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Reporting/V1"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+            xmlns:exec="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Reporting/V1"
+            targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Reporting/V1"
+            elementFormDefault="qualified">
+  <xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+              schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+  <xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1"
+              schemaLocation="../../Common/V1/CommonComponents.xsd"/>  
+  <xsd:element name="ExecuteReportRequest"
+               type="ExecuteReportRequestType"/>
+  <xsd:complexType name="ExecuteReportRequestType">
+      <xsd:complexContent>
+		<xsd:extension base="com:EBMType">
+			<xsd:sequence>
+				<xsd:element ref="ExecuteReportPayload"/>
+			</xsd:sequence>
+	     </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecuteReportPayload" type="ExecuteReportPayloadType"/>
+  <xsd:complexType name="ExecuteReportPayloadType">
+    <xsd:sequence>
+      <xsd:element name="ReportURI" type="xsd:string"/>
+      <xsd:element name="OutputType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ExecuteReportResponse"
+               type="ExecuteReportResponseType"/>
+  <xsd:complexType name="ExecuteReportResponseType">
+    <xsd:complexContent>
+      <xsd:extension base="com:EBMType">
+			<xsd:sequence>
+				<xsd:element ref="ExecuteReportResponsePayload"/>
+			</xsd:sequence>
+	  </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecuteReportResponsePayload" type="ExecuteReportResponsePayloadType"/>
+    <xsd:complexType name="ExecuteReportResponsePayloadType">
+    <xsd:sequence>
+      <xsd:element name="Content" type="ExecuteReportResponseContentType"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExecuteReportResponseContentType">
+    <xsd:sequence>
+      <xsd:element name="FileData" type="xsd:base64Binary"/>
+      <xsd:element name="FileName" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

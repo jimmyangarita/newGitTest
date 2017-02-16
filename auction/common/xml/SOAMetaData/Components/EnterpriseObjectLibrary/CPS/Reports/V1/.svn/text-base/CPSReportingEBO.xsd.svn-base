@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://xmlns.dcim.emerson.com/cps/reporting/ebo"
+        targetNamespace="http://xmlns.dcim.emerson.com/cps/reporting/ebo">
+ <element name="executeAndSaveReport" type="tns:recordType"/>
+ <complexType name="recordType">
+  <sequence>
+   <element name="reportInfo" type="tns:ReportInfo"/>
+   <element name="targetPath" type="string"/>
+  </sequence>
+ </complexType>
+ <complexType name="ReportInfo">
+  <sequence>
+   <element name="inputParams" nillable="true"
+            type="tns:ArrayOf_tns1_ReportInputParams"/>
+   <element name="outPutType" nillable="true" type="string"/>
+   <element name="reportURI" nillable="true" type="string"/>
+  </sequence>
+ </complexType>
+ <complexType name="ArrayOf_tns1_ReportInputParams">
+  <sequence>
+   <element maxOccurs="unbounded" minOccurs="0" name="item"
+            type="tns:ReportInputParams"/>
+  </sequence>
+ </complexType>
+    <complexType name="ReportInputParams">
+    <sequence>
+     <element name="parameterDataType" nillable="true" type="string"/>
+     <element name="parameterName" nillable="true" type="string"/>
+     <element name="parameterValue" nillable="true" type="string"/>
+    </sequence>
+   </complexType>
+</schema>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/wsdl"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://xmlns.dcim.emerson.com/cps/scheduler/wsdl"
+             xmlns:scheduler="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:fault="http://xmlns.avocent.com/EnterpriseFault"
+             xmlns:types="http://xmlns.dcim.emerson.com/cps/scheduler/types"
+             xmlns:header="http://xmlns.avocent.com/EnterpriseHeader">
+    <documentation>CPSSchedulerService Web service - This service provides the
+                   functionality to applications and any 3rd party clients to
+                   add a task,update a task, delete a task ,register task action
+                   types, update task action types, unregister a task action</documentation>
+    <types>
+        <xsd:schema targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/wsdl"
+                    elementFormDefault="qualified">
+            <xsd:import namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+                        
+                        schemaLocation="oramds:/apps/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSSchedulerEBM.1.0.xsd"/>
+        </xsd:schema>
+        
+        <xsd:schema>
+            <xsd:import schemaLocation="oramds:/apps/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseHeader.xsd"
+                        namespace="http://xmlns.avocent.com/EnterpriseHeader"/>
+        
+        
+        <xsd:import schemaLocation="oramds:/apps/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseFault.xsd"
+                        namespace="http://xmlns.avocent.com/EnterpriseFault"/>
+        </xsd:schema>
+    </types>
+    <message name="registerTaskActionTypeRequest">
+        <part name="parameters"
+              element="scheduler:RegisterTaskActionTypeRequest"/>
+    </message>
+    <message name="registerTaskActionTypeResponse">
+        <part name="parameters"
+              element="scheduler:RegisterTaskActionTypeResponse"/>
+    </message>
+    <message name="EnterpriseFaultMessage">
+        <part name="fault" element="fault:EnterpriseException"/>
+    </message>
+    <message name="updateTaskActionTypeRequest">
+        <part name="parameters"
+              element="scheduler:UpdateTaskActionTypeRequest"/>
+    </message>
+    <message name="updateTaskActionTypeResponse">
+        <part name="parameters"
+              element="scheduler:UpdateTaskActionTypeResponse"/>
+    </message>
+    <message name="unRegisterTaskActionTypeRequest">
+        <part name="parameters"
+              element="scheduler:UnRegisterTaskActionTypeRequest"/>
+    </message>
+    <message name="unRegisterTaskActionTypeResponse">
+        <part name="parameters"
+              element="scheduler:UnRegisterTaskActionTypeResponse"/>
+    </message>
+    <message name="addTaskRequest">
+        <part name="parameters" element="scheduler:AddTaskRequest"/>
+    </message>
+    <message name="addTaskResponse">
+        <part name="parameters" element="scheduler:AddTaskResponse"/>
+    </message>
+    <message name="updateTaskRequest">
+        <part name="parameters" element="scheduler:UpdateTaskRequest"/>
+    </message>
+    <message name="updateTaskResponse">
+        <part name="parameters" element="scheduler:UpdateTaskResponse"/>
+    </message>
+    <message name="deleteTaskRequest">
+        <part name="parameters" element="scheduler:DeleteTaskRequest"/>
+    </message>
+    <message name="deleteTaskResponse">
+        <part name="parameters" element="scheduler:DeleteTaskResponse"/>
+    </message>
+    <message name="findTaskByReferenceIdRequest">
+        <part name="parameters"
+              element="scheduler:FindTaskByReferenceIdRequest"/>
+    </message>
+    <message name="findTaskByReferenceIdResponse">
+        <part name="parameters"
+              element="scheduler:FindTaskByReferenceIdResponse"/>
+    </message>
+    <message name="findTaskActionTypeByNameRequest">
+        <part name="parameters"
+              element="scheduler:FindTaskActionTypeByNameRequest"/>
+    </message>
+    <message name="findTaskActionTypeByNameResponse">
+        <part name="parameters"
+              element="scheduler:FindTaskActionTypeByNameResponse"/>
+    </message>
+    <message name="EnterpriseHeaderMessage">
+        <part name="header" element="header:EnterpriseHeader"/>
+    </message>
+    <portType name="CPSSchedulerServicePortType">
+        <operation name="registerTaskType">
+            <documentation>Request for Register a Task Action Type</documentation>
+            <input message="tns:registerTaskActionTypeRequest"/>
+            <output message="tns:registerTaskActionTypeResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="updateTaskType">
+            <documentation>Request for Update a Task Action Type</documentation>
+            <input message="tns:updateTaskActionTypeRequest"/>
+            <output message="tns:updateTaskActionTypeResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="unRegisterTaskType">
+            <documentation>Request for UnRegistering a Task Action Type</documentation>
+            <input message="tns:unRegisterTaskActionTypeRequest"/>
+            <output message="tns:unRegisterTaskActionTypeResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="addTask">
+            <documentation>Request to Add Task</documentation>
+            <input message="tns:addTaskRequest"/>
+            <output message="tns:addTaskResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="updateTask">
+            <documentation>Request to Update Task</documentation>
+            <input message="tns:updateTaskRequest"/>
+            <output message="tns:updateTaskResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="deleteTask">
+            <documentation>Request to Delete Task</documentation>
+            <input message="tns:deleteTaskRequest"/>
+            <output message="tns:deleteTaskResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="findTaskByReferenceId">
+            <documentation>The operation to find a Task by its referenceId</documentation>
+            <input message="tns:findTaskByReferenceIdRequest"/>
+            <output message="tns:findTaskByReferenceIdResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+        <operation name="findTaskActionTypeIDByName">
+            <documentation>The operation to find a Task by its referenceId</documentation>
+            <input message="tns:findTaskActionTypeByNameRequest"/>
+            <output message="tns:findTaskActionTypeByNameResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+    </portType>
+    
+    
+</definitions>

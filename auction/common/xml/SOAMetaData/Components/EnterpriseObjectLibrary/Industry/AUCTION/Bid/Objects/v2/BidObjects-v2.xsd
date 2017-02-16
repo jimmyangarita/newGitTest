@@ -1,0 +1,56 @@
+<!-- Name: BidObjects-v2.xsd Description: XML Schema for Bid Objects Copyright (c) 2014 JDAP 
+	Corporation. All rights reserved. -->
+<xsd:schema targetNamespace="http://xmlns.jdap.com/auction/Bid/Objects/v2"
+	elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bid="http://xmlns.jdap.com/auction/Bid/Objects/v2" xmlns:ext="http://xmlns.jdap.com/auction/Bid/Objects/Extension/v2"
+	xmlns:common="http://xmlns.jdap.com/auction/Common/v2">
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd" />
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Bid/Objects/Extension/v2"
+		schemaLocation="../Extension/v2/ExtensionBidObjects-v2.xsd" />
+	<xsd:complexType name="bidType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier for the Bid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="itemId" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation> Item we are biding on</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bidderId" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User, Bidder who creates the bid</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bidAmount" type="xsd:double" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Bid amount in dollars</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="maxAmount" type="xsd:double" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Max amount the Bidder is willing to pay for the item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bidTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Time when the bid is created</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="ext:ExtensionBidType" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Extension point for the bid.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="bid" type="bid:bidType">
+		<xsd:annotation>
+			<xsd:documentation>Bid extension for MM system</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>
+

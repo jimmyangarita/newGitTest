@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:space="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" schemaLocation="../../Common/V1/CommonComponents.xsd"/>
+<xsd:element name="ImportExportEBO" type="ImportExportEBOType"/>
+<xsd:complexType name="ImportExportEBOType">
+<xsd:sequence>
+<xsd:element ref="cpscom:MetaDataDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:FileDetails" minOccurs="1"/>
+<xsd:element ref="cpscom:MapperDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:StagingAreaDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:Status" minOccurs="0"/>
+<xsd:element ref="cpscom:PreferencesList" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

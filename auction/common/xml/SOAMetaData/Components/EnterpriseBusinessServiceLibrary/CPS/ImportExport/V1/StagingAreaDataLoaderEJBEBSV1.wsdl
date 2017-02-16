@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://dataloader.auction.avocent.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://dataloader.auction.avocent.com/">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://dataloader.auction.avocent.com/" schemaLocation="oramds:/apps/auction/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/StagingAreaDataLoaderEBM.xsd"/>
+</xsd:schema>
+</types>
+<message name="loadData">
+<part name="parameters" element="tns:loadData"/>
+</message>
+<message name="loadDataResponse">
+<part name="parameters" element="tns:loadDataResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<portType name="StagingAreaDataLoaderBeanService">
+<operation name="loadData">
+<input message="tns:loadData"/>
+<output message="tns:loadDataResponse"/>
+<fault message="tns:Exception" name="Exception"/>
+</operation>
+</portType>
+</definitions>

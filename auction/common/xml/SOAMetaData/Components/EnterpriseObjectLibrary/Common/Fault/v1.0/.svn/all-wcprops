@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 171
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Common/Fault/v1.0
+END
+ApiFaultMessages-v1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Common/Fault/v1.0/ApiFaultMessages-v1.0.xsd
+END
+ApiFaultHandler-v1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Common/Fault/v1.0/ApiFaultHandler-v1.0.xsd
+END
+ApiFault-v1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Common/Fault/v1.0/ApiFault-v1.0.xsd
+END

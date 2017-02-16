@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd"
+	version="3.0" xmlns="http://java.sun.com/xml/ns/javaee">
+	<enterprise-beans>
+		<session>
+			<ejb-name>BidEJB</ejb-name>
+			<business-local>com.jdap.auction.service.bid.BidLocal</business-local>
+			<business-remote>com.jdap.auction.service.bid.BidRemote</business-remote>
+			<ejb-class>com.jdap.auction.service.bid.BidBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<env-entry>
+				<env-entry-name>serviceTimeout</env-entry-name>
+				<env-entry-type>java.lang.Integer</env-entry-type>
+				<env-entry-value>300000</env-entry-value>
+				<mapped-name>com.jdap.auction.service.main.serviceTimeout</mapped-name>
+			</env-entry>
+			<security-identity>
+				<run-as>
+					<role-name>sysroleplatformmss</role-name>
+				</run-as>
+			</security-identity>
+		</session>
+	</enterprise-beans>
+	<!-- only when I need to define the method-permission to secure with a role-->
+	<assembly-descriptor>
+		<security-role>
+			<role-name>sysroleplatformmss</role-name>
+		</security-role>
+	</assembly-descriptor>
+
+</ejb-jar>

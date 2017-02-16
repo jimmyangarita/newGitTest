@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions
+	targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://xmlns.avocent.com/auction/EnterpriseServiceLibrary/CPS/V1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+	xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1"
+	xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1">
+	<wsdl:types>
+		<xsd:schema
+			targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1"
+			elementFormDefault="qualified">
+			<xsd:include
+				schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Common/V1/XSLTransformEBM.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="XSLTransformReqMsg">
+		<wsdl:part name="XSLTransformRequest" element="cpscom:XSLTransformRequestEBM" />
+	</wsdl:message>
+	<wsdl:message name="XSLTransformResMsg">
+		<wsdl:part name="XSLTransformResponse" element="cpscom:XSLTransformResponseEBM" />
+	</wsdl:message>
+	<wsdl:portType name="XSLTransformV1">
+		<wsdl:operation name="formatData">
+			<wsdl:input message="cpscom:XSLTransformReqMsg" />
+			<wsdl:output message="cpscom:XSLTransformResMsg" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

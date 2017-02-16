@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jdap.auction</groupId>
+	<artifactId>auction</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<eclipselink.version>2.3.1.v20110924</eclipselink.version>
+		<eclipselink.classifier>r10161</eclipselink.classifier>
+		<javax.persistence.version>2.0.3</javax.persistence.version>
+		<jaxb-impl-version>2.0.3</jaxb-impl-version>
+		<jaxws.version>2.2.5</jaxws.version>
+		<oracle-fusion.version>11.1.1</oracle-fusion.version>
+		<oracle.jdbc.version>10.2.0.2</oracle.jdbc.version>
+		<oracle.fabric-runtime.version>11.1.1</oracle.fabric-runtime.version>
+		<oracle.weblogic.version>10.3</oracle.weblogic.version>
+
+		<jmock.version>2.4.0</jmock.version>
+		<junit.version>4.5</junit.version>
+
+		<java-source-version>1.5</java-source-version>
+		<java-target-version>1.5</java-target-version>
+		<slf4j.version>1.5.6</slf4j.version>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<spring-integration.version>1.0.3.RELEASE</spring-integration.version>
+		<jaxb2-maven-plugin-version>1.2</jaxb2-maven-plugin-version>
+		<spring-bundlor-version>1.0.0.RELEASE</spring-bundlor-version>
+		<jaxb-api-version>2.0</jaxb-api-version>
+        <jaxb-impl-version>2.0.3</jaxb-impl-version>
+        <xerces.version>2.9.1</xerces.version>
+        <javax.jms.version>1.1.0</javax.jms.version>
+
+		<jaxb.commons.interface.insert.version>1.0</jaxb.commons.interface.insert.version>
+
+		<objectweb.version>3.1.0</objectweb.version>
+		<commons-codec.version>1.5</commons-codec.version>
+		<com.springsource.javax.ejb.version>3.0.0</com.springsource.javax.ejb.version>
+		<javax.activation.version>1.0.2</javax.activation.version>
+	</properties>
+
+	<modules>
+		<!-- <module>common</module>
+		<module>exceptions</module>
+		<module>domain-module</module> -->
+		<module>services</module>		
+		<!-- <module>application</module> -->
+	</modules>
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/wsdl"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:quartz-scheduler-EBM="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebm"
+             xmlns:tns="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <types>
+    <documentation>CPSQuartzJobScheduler Web service - This service provides the
+                   functionality of TaskConfiguration via
+                   CPSSCHTaskConfigurePortType and TaskControl via
+                   CPSSCHTaskControlPortType. 1) CPSSCHTaskConfigurePortType :This
+                   port provides the functionality to attach/update/delete
+                   triggers(cron-expression) for a task when applications and
+                   any 3rd party clients, tries to add/update/delete a task
+                   2) CPSSCHTaskControlPortType: This port provides the
+                   functionality to resume/pause/terminate a task</documentation>
+    <xsd:schema targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/wsdl/types"
+                elementFormDefault="qualified">
+      <xsd:import schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSQuartzSchedulerEBM.1.0.xsd"
+                  namespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebm"/>
+    </xsd:schema>
+  </types>
+  <message name="msgAddJobTrigger">
+    <part name="payload"
+          element="quartz-scheduler-EBM:AddJobTriggerRequestEBM"/>
+  </message>
+  <message name="msgModifyJobTrigger">
+    <part name="payload"
+          element="quartz-scheduler-EBM:ModifyJobTriggerRequestEBM"/>
+  </message>
+  <message name="msgDeleteJobTrigger">
+    <part name="payload"
+          element="quartz-scheduler-EBM:DeleteJobTriggerRequestEBM"/>
+  </message>
+  <message name="msgPauseTaskNoPreemption">
+    <part name="payload"
+          element="quartz-scheduler-EBM:PauseTaskNoPreemptionRequestEBM"/>
+  </message>
+  <message name="msgPauseTaskWithPreemption">
+    <part name="Payload"
+          element="quartz-scheduler-EBM:PauseTaskWithPreemptionRequestEBM"/>
+  </message>
+  <message name="msgResumeJob">
+    <part name="payload" element="quartz-scheduler-EBM:ResumeTaskRequestEBM"/>
+  </message>
+  <message name="msgTerminateTask">
+    <part name="payload"
+          element="quartz-scheduler-EBM:TerminateTaskRequestEBM"/>
+  </message>
+  <message name="msgCommonResponse">
+    <part name="payload" element="quartz-scheduler-EBM:CommonResponse"/>
+  </message>
+  <message name="Exception">
+    <part name="fault" element="quartz-scheduler-EBM:Exception"/>
+  </message>
+  <portType name="CPSSCHTaskConfigurePortType">
+    <operation name="AddJobTrigger">
+      <input message="tns:msgAddJobTrigger"/>
+      <output message="tns:msgCommonResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+    <operation name="ModifyJobTrigger">
+      <input message="tns:msgModifyJobTrigger"/>
+      <output message="tns:msgCommonResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+    <operation name="DeleteJobTrigger">
+      <input message="tns:msgDeleteJobTrigger"/>
+      <output message="tns:msgCommonResponse"/>
+      <fault message="tns:Exception" name="Exception"/>
+    </operation>
+  </portType>
+  <portType name="CPSSCHTaskControlPortType">
+    <operation name="pauseTaskNoPreemption">
+      <input message="tns:msgPauseTaskNoPreemption"/>
+    </operation>
+    <operation name="pauseTaskWithPreemption">
+      <input message="tns:msgPauseTaskWithPreemption"/>
+    </operation>
+    <operation name="resumeTask">
+      <input message="tns:msgResumeJob"/>
+    </operation>
+    <operation name="terminateTask">
+      <input message="tns:msgTerminateTask"/>
+    </operation>
+  </portType>
+</definitions>

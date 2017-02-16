@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** This WSDL defines the Search enterprise service interface. 
+ 
+ WSDL File Name 
+ Name: \\EnterpriseServiceLibrary\CPS\Search\V1\SearchEBSV1.wsdl 
+ -->
+
+<definitions 
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" 
+	xmlns:ebo="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Search/V1"
+	xmlns:es="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Search/V1"
+	xmlns:svcdoc="http://xmlns.oracle.com/Services/Documentation/V1" 
+	name="SearchEBSV1" 
+	targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Search/V1">
+
+	<types>
+		<xsd:schema 
+			targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseServiceLibrary/CPS/Search/V1"
+			elementFormDefault="qualified">
+
+			<xsd:import
+				namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+				schemaLocation="../../../../EnterpriseObjectLibrary/Infrastructure/V1/Meta.xsd"/>
+
+			<xsd:import
+				namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Search/V1"
+				schemaLocation="../../../../EnterpriseObjectLibrary/CPS/Search/V1/SearchEBM.xsd"/>
+		</xsd:schema>
+	</types>
+
+	<message name="FaultMsg">
+		<part name="Fault" element="com:Fault"/>
+	</message>
+	<message name="SearchRequestMsg">
+		<part name="SearchRequestEBM" element="ebo:SearchRequestEBM"/>
+	</message>
+	<message name="SearchResponseMsg">
+		<part name="SearchResponseEBM" element="ebo:SearchResponseEBM"/>
+	</message>	
+
+	<portType name="SearchEBSV1">
+		<operation
+			name="Search">
+			<input message="es:SearchRequestMsg"/>
+			<output message="es:SearchResponseMsg"/>
+			<fault name="fault" message="es:FaultMsg"/>
+		</operation>
+
+	</portType>
+
+</definitions>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/dcim/Endpoints/ABO/v1.0.0" targetNamespace="http://xmlns.avocent.com/dcim/Endpoints/ABO/v1.0.0" elementFormDefault="qualified">
+<xsd:element name="DeviceId" type="xsd:string"/>
+<xsd:element name="DeviceName" type="xsd:string"/>
+<xsd:element name="DeviceType" type="xsd:string"/>
+<xsd:element name="ToDeviceId" type="xsd:string"/>
+<xsd:element name="ToDeviceName" type="xsd:string"/>
+<xsd:element name="PortId" type="xsd:string"/>
+<xsd:element name="PortName" type="xsd:string"/>
+<xsd:element name="ToPortId" type="xsd:string"/>
+<xsd:element name="ToPortName" type="xsd:string"/>
+<xsd:element name="Direction" type="xsd:string"/>
+<xsd:element name="PhaseType" type="xsd:string"/>
+<xsd:element name="PowerConnectionId" type="xsd:string"/>
+
+<xsd:element name="Endpoints">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="Endpoint" type="NodeType" maxOccurs="unbounded" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="NodeType">
+<xsd:sequence>
+<xsd:element ref="PortId" minOccurs="0"/>
+<xsd:element ref="PortName" minOccurs="0"/>
+<xsd:element ref="ToDeviceId" minOccurs="0"/>
+<xsd:element ref="ToDeviceName" minOccurs="0"/>
+<xsd:element ref="ToPortId" minOccurs="0"/>
+<xsd:element ref="ToPortName" minOccurs="0"/>
+<xsd:element ref="Direction" minOccurs="0"/>
+<xsd:element ref="PhaseType" minOccurs="0"/>
+<xsd:element ref="PowerConnectionId" minOccurs="0"/>
+
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EndpointsType">
+<xsd:sequence>
+<xsd:element name="Endpoint" type="EndpointType" maxOccurs="unbounded" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="EndpointType">
+<xsd:sequence>
+<xsd:element ref="DeviceId"/>
+<xsd:element ref="DeviceName" minOccurs="0"/>
+<xsd:element ref="DeviceType" minOccurs="0"/>
+<xsd:element name="DeviceEndpoint" type="NodeType"/>
+<xsd:element name="PortEndpoints">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="Endpoint" type="NodeType" maxOccurs="unbounded" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CommonResponseType">
+<xsd:sequence>
+<xsd:element name="ErrorMessage" type="xsd:string"/>
+<xsd:element name="ErrorCode" type="xsd:string"/>
+<xsd:element name="Result" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

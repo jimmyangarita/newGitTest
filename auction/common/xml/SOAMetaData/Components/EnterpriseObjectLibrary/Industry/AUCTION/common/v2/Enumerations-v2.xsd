@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: Enumerations.xsd
+
+Description: Common XML Schema for auction Enumerations
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:enum="http://xmlns.jdap.com/auction/Common/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/Common/v2"
+            elementFormDefault="qualified" version="1.0">
+    <!-- Network Media Type-->
+    <!-- Port type -->
+    <!-- PowerOpeningEnergizedState-->
+    <!-- ObjectSide -->
+    <!-- DeviceState -->
+    <!-- MonitoringState-->
+    <!-- CommunicationStatus -->
+    <!-- Datapoint enumeration-->
+    <xsd:simpleType name="valueType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BIGDECIMAL"/>
+            <xsd:enumeration value="BINARY"/>
+            <xsd:enumeration value="BOOLEAN"/>
+            <xsd:enumeration value="CLOB"/>
+            <xsd:enumeration value="FLOAT"/>
+            <xsd:enumeration value="INTEGER"/>
+            <xsd:enumeration value="LONG"/>
+            <xsd:enumeration value="NULL"/>
+            <xsd:enumeration value="STRING"/>
+            <xsd:enumeration value="TIME"/>
+            <xsd:enumeration value="TIME_FROM_JAN1_70_00_00_00"/>
+            <xsd:enumeration value="TIME_FROM_MIDNIGHT"/>
+            <xsd:enumeration value="TIME_FROM_RESTART"/>
+            <xsd:enumeration value="ULONG"/>
+            <xsd:enumeration value="URL"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!--<xsd:simpleType name="SeverityType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SYSTEM"/>
+      <xsd:enumeration value="CUSTOM"/>
+    </xsd:restriction>
+  </xsd:simpleType>-->
+    <xsd:simpleType name="intervalUnitsType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DAY"/>
+            <xsd:enumeration value="HOUR"/>
+            <xsd:enumeration value="MINUTE"/>
+            <xsd:enumeration value="MONTH"/>
+            <xsd:enumeration value="SECOND"/>
+            <xsd:enumeration value="YEAR"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="billingFrequencyType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MONTHLY"/>
+            <xsd:enumeration value="WEEKLY"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="aggregationType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="MAX"/>
+            <xsd:enumeration value="MIN"/>
+            <xsd:enumeration value="AVERAGE"/>
+            <xsd:enumeration value="SUM"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="IntervalType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="HOURLY"/>
+            <xsd:enumeration value="DAILY"/>
+            <xsd:enumeration value="WEEKLY"/>
+            <xsd:enumeration value="MONTHLY"/>
+            <xsd:enumeration value="YEARLY"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+        <xsd:simpleType name="UserKind">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SELLER"/>
+            <xsd:enumeration value="BIDDER"/>
+            <xsd:enumeration value="CSM"/>
+            <xsd:enumeration value="ADMIN"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="itemCondition">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="NEW"/>
+            <xsd:enumeration value="USED_LIKE_NEW"/>
+            <xsd:enumeration value="USED_VERY_GOOD"/>
+            <xsd:enumeration value="USED_GOOD"/>
+            <xsd:enumeration value="USED_ACCEPTABLE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="paymentMethod">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CREDIT_CARD"/>
+            <xsd:enumeration value="CASH"/>
+            <xsd:enumeration value="CHECKING_ACCOUNT"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="auctionDurationDays">
+        <xsd:restriction base="xsd:integer">
+            <xsd:enumeration value="1"/>
+            <xsd:enumeration value="3"/>
+            <xsd:enumeration value="7"/>
+            <xsd:enumeration value="10"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

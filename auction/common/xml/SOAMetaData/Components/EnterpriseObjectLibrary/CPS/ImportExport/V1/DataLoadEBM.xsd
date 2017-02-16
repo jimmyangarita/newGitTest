@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:include schemaLocation="ImportExportEBO.xsd"/>
+<xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+<xsd:element name="DataLoadRequestEBM" type="DataLoadRequestEBMType"/>
+<xsd:complexType name="DataLoadRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="DataLoadRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="DataLoadResponseEBM" type="DataLoadResponseEBMType"/>
+<xsd:complexType name="DataLoadResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="DataLoadResponsePayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="DataLoadRequestPayload">
+<xsd:annotation>
+<xsd:documentation>A sample element</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="ebo:ImportExportEBO"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DataLoadResponsePayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ResponseDetails" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<xsd:schema xmlns:tns="http://cps.avocent.com/"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://cps.avocent.com/">
+  <xsd:element name="cancelTask" type="tns:cancelTask"/>
+  <xsd:element name="cancelTaskResponse" type="tns:cancelTaskResponse"/>
+  <xsd:complexType name="cancelTask">
+    <xsd:sequence>
+      <xsd:element name="arg0" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="arg2" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cancelTaskResponse">
+    <xsd:sequence>
+      <xsd:element name="return" type="xsd:boolean" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

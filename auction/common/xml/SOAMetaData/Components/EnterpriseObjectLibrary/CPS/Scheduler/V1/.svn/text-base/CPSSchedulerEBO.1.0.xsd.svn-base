@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+            targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+            version="1.0" elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+  <xsd:complexType name="TaskEBOType">
+    <xsd:annotation>
+      <xsd:documentation>The TaskEBOType is a complextype element, consisting of
+                         all the data to schedule a Task. A task must have one
+                         or more actions and Scheduling Parameters. The actions
+                         in the task are executed in sequence starting from the
+                         first one, everytime when the task is to be executed
+                         based on the Scheduling Parameters(eg: daily, monthly).
+                         Note: All the Date and times supplied must be in UTC</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="DomainId" type="DomainIdEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The DomainId element specifies the Domain to which
+                             this task belongs is part of.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UserId" type="UserIdEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The UserId element specifies the User who is
+                             scheduling this task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskIdEBO" type="TaskIdEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskIdEBO element specifies the ID of this
+                             task. This should be empty/null when adding a new
+                             task</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskReferenceIdEBO" type="TaskReferenceIdEBOType"
+                   minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskReferenceIdEBO element specifies the ID
+                             that can be passed in while adding a task and later
+                             can be used for retreiving the Task by this
+                             ReferenceID.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Name element specifies a meaningful name given
+                             to this task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Description" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Description element specifies some description
+                             of what this task is trying to acheive, for later
+                             reference.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="VisibleEBO" type="VariableEBOType" minOccurs="0"
+                   maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>The VisibleEBO element specifies whether this task
+                             is visible to the user, from scheduler UI.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StatusEBO" type="StatusEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The StatusEBO element specifies STATUS of the task
+                             at any given point in time.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NextTaskAction" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>The NextTaskAction element specifies the action
+                             that should be executed, when the task has to
+                             resume. Note: This must be set to '0' while
+                             creating a new task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="LastRun" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The LastRun element specifies, when was the last
+                             time the trigger to execute this task has been
+                             fired. Note:This element is populated by the
+                             Scheduler Service, therefore, is empty/null while
+                             adding a new task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NextRun" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The NextRun element specifies, when would the
+                             trigger to execute this task will be fired again,
+                             based on the scheduling parameters of this task.
+                             Note:This element is populated by the Scheduler
+                             Service, therefore, is empty/null while adding a
+                             new task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StartDateTime" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The StartDateTime element specifies the start Date
+                             along with time, from which the scheduling of this
+                             task should start Note: StartDateTime must be
+                             provided, the only expection is when
+                             "TaskFrequencyEBO=RUN_TASK_NOW".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="EndDateTime" type="xsd:dateTime" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The EndDateTime element specifies the End Date
+                             along with time, after which the scheduler stop
+                             executing the schedules for this Task. The
+                             EndDateTime can be NULL when either
+                             TaskFrequencyEBO=RUN_TASK_NOW or
+                             TaskFrequencyEBO=ONCE. In all other cases, if the
+                             EndDate is not supplied, the Scheduler executes
+                             this task forever, based on ite Scheduling
+                             parameters.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="NumberOfOccurrences" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The NumberOfOccurrences element specifies the
+                             number of invocations of the Task, after which the
+                             scheduling of this task should stop, If this value
+                             is set to a positive integer then EndDate has no
+                             significance.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurDailyEveryDay" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurDailyEveryDay element specifies, whether
+                             the trigger, to execute this task, is to be fired
+                             everyday or not. The default value is "false".
+                             Note: This field has meaning if only if the
+                             "TaskFrequencyEBO" element is set to "DAILY".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurDailyWeekDays" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurDailyWeekDays element specifies, whether
+                             the trigger, to execute this task, is to be fired
+                             everyWeekday or not. The default value is "false"
+                             Note: This field has meaning if only if the
+                             "TaskFrequencyEBO" element is set to "DAILY" and
+                             "RecurDailyEveryDay" is set to "false".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurDailyDays" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurDailyDays element specifies the recurrence
+                             frequency in days. eg( recur after every 3 days, if
+                             the value is 3 ). Note: This field has meaning if
+                             only if the "TaskFrequencyEBO" element is set to
+                             "DAILY" and both "RecurDailyEveryDay" and
+                             "RecurDailyWeekDays" is set to "false".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurMonthlyDays" type="RecurMonthlyDaysEBOType"
+                   minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurMonthlyDays element specifies the date in
+                             a month on which the trigger to execute this task
+                             is to be fired. Note: This field has meaning if
+                             only if the "TaskFrequencyEBO" element is set to
+                             "MONTHLY".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurMonthlyMonths" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurMonthlyMonths element specifies the
+                             recurrence frequency in months. Note: This field
+                             has meaning if only if the "TaskFrequencyEBO"
+                             element is set to "MONTHLY". eg: if a task has to
+                             be executed 5th of every month. then set
+                             "TaskFrequencyEBO=MONTHLY,RecurMonthlyDays=5 and
+                             RecurMonthlyMonths=1".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurMonthlySpecificDay"
+                   type="RecurMonthlySpecificDayEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurMonthlySpecificDay element is for future
+                             use.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurPeriodicMinutesEBO"
+                   type="RecurPeriodicMinutesEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurPeriodicMinutesEBO element specifies the
+                             recurrence frequency in minutes. Note: This field
+                             has meaning if only if the "TaskFrequencyEBO"
+                             element is set to "MINUTES". eg: recur every 5
+                             minutes, if the value is 5.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurPeriodicHoursEBO" type="RecurPeriodicHoursEBOType"
+                   minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurPeriodicHoursEBO element specifies the
+                             recurrence frequency in Hours. Note: This field has
+                             meaning if only if the "TaskFrequencyEBO" element
+                             is set to "HOURS". eg: recur for every 2 hours, if
+                             the value is set to 2.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurWeeklyWeekdaysEBO"
+                   type="RecurWeeklyWeekdaysEBOType" minOccurs="0"
+                   maxOccurs="7">
+        <xsd:annotation>
+          <xsd:documentation>The RecurWeeklyWeekdaysEBO element specifies a
+                             day(s) in a week the trigger, to execute this task,
+                             is to be fired.Note: This field has meaning if only
+                             if the "TaskFrequencyEBO" element is set to "WEEKLY"</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RecurWeeklyWeeksEBO" type="xsd:int" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The RecurWeeklyWeekdaysEBO element is for future
+                             use.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskDuration" type="TimeEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The TaskDuration element specifies the maximum
+                             duration of time a task can continue executing
+                             after a fire. Upon the expiry of this time, no new
+                             action will be executed, however, the currently
+                             executing action is not preempted. Note: This
+                             element has meaning, if and only if there are more
+                             than one action as part of the task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskFrequencyEBO" type="TaskFrequencyEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The TaskFrequencyEBO element specifies the
+                             frequency choosen for this task eg:
+                             minutes/daily/Monthly. If the TaskFrequencyEBO is
+                             set to RUN_TASK_NOW then, no other Scheduling
+                             parameters should be supplied as the Task is going
+                             to execute right away. If the TaskFrequencyEBO is
+                             set to ONCE then StartDateTime must be supplied and
+                             all other scheduling parameters have no meaning..
+                             If the TaskFrequencyEBO is set to MINUTES then
+                             StartDateTime,RecurPeriodicMinutesEBO must be
+                             supplied and all other scheduling parameters have
+                             no meaning. If the TaskFrequencyEBO is set to HOURS
+                             then StartDateTime,RecurPeriodicHoursEBO must be
+                             supplied and all other scheduling parameters have
+                             no meaning. If the TaskFrequencyEBO is set to DAILY
+                             then StartDateTime must be supplied and
+                             RecurDailyEveryDay, RecurDailyWeekDays,
+                             RecurDailyDays has meaning and in these what must
+                             be supplied/ommited is based on the following
+                             rules. Atleast RecurDailyEveryDay is mandatory. If
+                             RecurDailyEveryDay is set to 'true' then the
+                             remaining two need not be supplied and have no
+                             meaning. If RecurDailyEveryDay is set to 'false'
+                             then atleast RecurDailyWeekDays is mandatory. If
+                             RecurDailyWeekDays is set to 'true' then
+                             RecurDailyDays has no meaning. If both
+                             RecurDailyEveryDay and RecurDailyWeekDays is set to
+                             'false' then RecurDailyWeekDays is mandatory and
+                             must be supplied. If the TaskFrequencyEBO is set to
+                             WEEKLY then StartDateTime, atleast one
+                             RecurWeeklyWeekdaysEBO must be supplied and all
+                             other scheduling parameters have no meaning. If the
+                             TaskFrequencyEBO is set to MONTHLY then
+                             StartDateTime, RecurMonthlyDays,RecurMonthlyMonths
+                             must be supplied and all other scheduling
+                             parameters have no meaning. If the TaskFrequencyEBO
+                             is set to YEARLY then StartDateTime must be
+                             supplied and all other scheduling parameters have
+                             no meaning.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskActionEBO" type="TaskActionEBOType" minOccurs="1"
+                   maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionEBO element is complex type element
+                             containing the details of a single action, that is
+                             to be executed as part of the Task. There should be
+                             atleast one action in a Task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionIdEBO" type="TaskActionIdEBOType"
+                   minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionIdEBO element specifies the ID of
+                             this action. Note: This needs to be
+                             empty/null/ommited for all the action in the task
+                             that is being added and for all the new actions
+                             being added in existing task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskActionTypeEBO" type="TaskActionTypeEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionTypeEBO element specifies what type
+                             of action is this, which inturn specifies the
+                             endpoint URI of the service that is to be invoked
+                             inorder to execute this action.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Name element specifies a meaningful name given
+                             to this action.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Description" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Description element specifies some description
+                             of what this action is trying to acheive, for later
+                             reference.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskActionParametersEBO"
+                   type="TaskActionParametersEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionParametersEBO element specifies the
+                             execution parameters that needs to be passed while
+                             invoking this action. If there are no parameters to
+                             be supplied, this can be empty/null</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="StatusEBO" type="StatusEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The StatusEBO element specifies STATUS of the
+                             action at any given point in time.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Position" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>The Position element determines the execution order
+                             of the actions. For the first action to be
+                             executed, this element should be set to '0' and
+                             following actions position should be set to
+                             1,2,3... and so on. The action are executed in
+                             sequence starting from 0. Note: The Position needs
+                             to be set, even if there exists one and only one
+                             action as part of a task, moreover, should be set
+                             to '0'.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskIdEBO" type="TaskIdEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskIdEBO element specifies the id of the task
+                             to which this action belongs. This is populated by
+                             the Scheduler Framework. Note: This needs to be
+                             empty/null/ommited for all the action in the task
+                             that is being added and for all the new actions
+                             being added in existing task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionParametersEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionParametersIdEBO"
+                   type="TaskActionParametersIdEBOType" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionParametersIdEBO element specifies the
+                             id of this parameters set.This is populated by the
+                             Scheduler Framework. Note: This needs to be
+                             empty/null/ommited for all the action in the task
+                             that is being added and for all the new actions
+                             being added in existing task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TaskActionParameters" type="xsd:base64Binary">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionParameters element specifies the
+                             parameters set, that are passed as it is, while
+                             invoking the action.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionTypeEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionTypeIdEBO" type="TaskActionTypeIdEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionTypeIdEBO element specifies the id of
+                             this taskactiontype.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Name element specifies a meaningful name given
+                             to this taskactiontype.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Description" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The Description element specifies some description
+                             of what this taskactiontype is, for later reference.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="VisibleEBO" type="VariableEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The VisibleEBO element specifies whether this
+                             taskactiontype is visible to the user, while
+                             scheduling the tasks from UI.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ConfigurableEBO" type="VariableEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The ConfigurableEBO element specifies whether this
+                             taskactiontype can be instantiated to the user,
+                             while scheduling the tasks from UI.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ControllableEBO" type="VariableEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The ControllableEBO element specifies whether an
+                             action of this type can be controlled while
+                             execution like pause/cancel.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="RemovableEBO" type="VariableEBOType">
+        <xsd:annotation>
+          <xsd:documentation>The RemovableEBO element specifies whether this
+                             taskactiontype can be removed after registering.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CustomizeURI" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The CustomizeURI element specifies URI for the
+                             bounded task-flow, that is to be invoked to collect
+                             the parameters while creating a new action of this
+                             type in GUI mode.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ServiceURI" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The ServiceURI element specifies URL for the
+                             webservice, that is to be invoked in order to
+                             execute any action of this taskactiontype. The
+                             web-service's operation "process" is called to
+                             execute any action of this taskaction type,
+                             therefore, implementing the "process" operation is
+                             mandatory. Furthermore, if the "ControllableEBO" is
+                             set to "YES", the web-service has to implement
+                             additional operations "pause", "cancel".</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskId" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskId element specifies the id of this task.
+                             Note: while creating a new task, this value is to
+                             be set empty/null.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskReferenceIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskReferenceId" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskReferenceId element specifies the Reference
+                             id of this task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionId" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionId element specifies the id of
+                             taskaction. Note: For all the actions that are
+                             contaitned in a task, which is being creating new
+                             and for all new actions that are being added to an
+                             existing task, this value is to be set
+                             empty/null/ommited.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionTypeIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionTypeId" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionTypeId element specifies the id of
+                             the task-action-type. Note: while creating a new
+                             task-action-type, this value is to be set
+                             empty/null/ommited.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TaskActionParametersIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionParametersId" type="xsd:string"
+                   minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The TaskActionParametersId element specifies the id
+                             of TaskActionParameters of an action. Note: For all
+                             the actions that are contained in a task, which is
+                             being creating new and for all new actions that are
+                             being added to an existing task, this element is to
+                             be set empty/null/ommited.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DomainIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="DomainId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The DomainId element specifies the Domain to which
+                             this task belongs is part of.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserIdEBOType">
+    <xsd:sequence>
+      <xsd:element name="UserId" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The UserId element specifies the User that is
+                             scheduling this task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StatusEBOType">
+    <xsd:sequence>
+      <xsd:element name="Status" type="StatusType">
+        <xsd:annotation>
+          <xsd:documentation>The Status element specifies the status of a
+                             task/action at any given point in time. Note: The
+                             status element must be set to "IDLE" in the new
+                             task being created as well as in all the actions of
+                             the task. Further, the status should be set to
+                             "IDLE" for all the new actions, that are being
+                             added to any existing task.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Progress" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>The Progress element specifies the progress of a
+                             task/action at any given point in time. Usually
+                             this is empty, when creating a new Task</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TimeEBOType">
+    <xsd:sequence>
+      <xsd:element name="Time" type="xsd:time"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="VariableEBOType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="YES"/>
+      <xsd:enumeration value="NO"/>
+      <xsd:enumeration value="UNKNOWN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaskFrequencyEBOType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RUN_TASK_NOW"/>
+      <xsd:enumeration value="ONCE"/>
+      <xsd:enumeration value="MINUTES"/>
+      <xsd:enumeration value="HOURS"/>
+      <xsd:enumeration value="DAILY"/>
+      <xsd:enumeration value="WEEKLY"/>
+      <xsd:enumeration value="MONTHLY"/>
+      <xsd:enumeration value="YEARLY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurPeriodicMinutesEBOType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="360"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurPeriodicHoursEBOType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="24"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurMonthlyDaysEBOType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1"/>
+      <xsd:maxInclusive value="31"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurWeeklyWeekdaysEBOType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SUNDAY"/>
+      <xsd:enumeration value="MONDAY"/>
+      <xsd:enumeration value="TUESDAY"/>
+      <xsd:enumeration value="WEDNESDAY"/>
+      <xsd:enumeration value="THURSDAY"/>
+      <xsd:enumeration value="FRIDAY"/>
+      <xsd:enumeration value="SATURDAY"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurMonthlyMonthsEBOType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="JANUARY"/>
+      <xsd:enumeration value="FEBRUARY"/>
+      <xsd:enumeration value="MARCH"/>
+      <xsd:enumeration value="APRIL"/>
+      <xsd:enumeration value="MAY"/>
+      <xsd:enumeration value="JUNE"/>
+      <xsd:enumeration value="JULY"/>
+      <xsd:enumeration value="AUGUST"/>
+      <xsd:enumeration value="SEPTEMBER"/>
+      <xsd:enumeration value="OCTOBER"/>
+      <xsd:enumeration value="NOVEMBER"/>
+      <xsd:enumeration value="DECEMBER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RecurMonthlySpecificDayEBOType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FIRST"/>
+      <xsd:enumeration value="SECOND"/>
+      <xsd:enumeration value="THIRD"/>
+      <xsd:enumeration value="FOURTH"/>
+      <xsd:enumeration value="LAST"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IDLE"/>
+      <xsd:enumeration value="IN_PROGRESS"/>
+      <xsd:enumeration value="SUCCESS"/>
+      <xsd:enumeration value="FAIL"/>
+      <xsd:enumeration value="TERMINATED"/>
+      <xsd:enumeration value="CANCELLED"/>
+      <xsd:enumeration value="STALE"/>
+      <xsd:enumeration value="UN_KNOWN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="target2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/services/item-service/item-service-client/target/item-service-client-0.0.1-SNAPSHOT.jar!/" />
+      <root url="jar://$PROJECT_DIR$/services/item-service/item-service-client/target/item-service-ejb-client.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1
+END
+ImageLoaderEJBEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/ImageLoaderEJBEBSV1.wsdl
+END
+DataLoadEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/DataLoadEBSV1.wsdl
+END
+CSVToStagingAreaTransformV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/CSVToStagingAreaTransformV1.wsdl
+END
+DataFormatEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/DataFormatEBSV1.wsdl
+END
+CDMAssetEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/CDMAssetEBSV1.wsdl
+END
+ImportEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/ImportEBSV1.wsdl
+END
+DataImportMappingFacadeEJBBeanServiceV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 227
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/DataImportMappingFacadeEJBBeanServiceV1.wsdl
+END
+CSVToCDMTransformV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/CSVToCDMTransformV1.wsdl
+END
+StagingAreaDataLoaderEJBEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 217
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/StagingAreaDataLoaderEJBEBSV1.wsdl
+END
+ReceiveImportEBSV1.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseBusinessServiceLibrary/CPS/ImportExport/V1/ReceiveImportEBSV1.wsdl
+END

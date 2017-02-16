@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: Types.xsd
+
+Description: Common XML Schema for auction Types 
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:common="http://xmlns.jdap.com/auction/Common/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/Common/v2" elementFormDefault="qualified" version="1.0">
+  <xsd:include schemaLocation="Enumerations-v2.xsd"/>
+  <xsd:complexType name="NameValuePairDataType">
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name element of the Name value pair of the NVD data type.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Value" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Value element of Name Value pair of NVD data type.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserIDType">
+    <xsd:sequence>
+      <xsd:element name="UserName" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Name of the user</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UserID" type="xsd:string" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier of the user</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Complex Object common types-->
+  <xsd:complexType name="RangeOfDatesType">
+    <xsd:sequence>
+      <xsd:element name="QueryStartDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Start date for the query</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="QueryEndDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>End date for the query</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ListOfValuesType">
+    <xsd:sequence>
+      <xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>List of values</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- Common Device Types-->
+  <xsd:complexType name="categoryType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier of the object category</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="category" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Type of object category</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Category of object</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Category of object</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="subcategory" type="common:categoryType" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>Name of object</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ValueHolderType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Identifier of the value holder</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ValueType" type="common:valueType" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Associated value type for he ID</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>Value of the associated data</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

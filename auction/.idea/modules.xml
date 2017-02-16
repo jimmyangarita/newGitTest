@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/auction.iml" filepath="$PROJECT_DIR$/auction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/xml/xml-user/target/generated-sources/generated-sources.iml" filepath="$PROJECT_DIR$/common/xml/xml-user/target/generated-sources/generated-sources.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/xml/xml-bid/target/generated-sources/generated-sources1.iml" filepath="$PROJECT_DIR$/common/xml/xml-bid/target/generated-sources/generated-sources1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exceptions/src/main/main.iml" filepath="$PROJECT_DIR$/exceptions/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/item-service/item-service-client/src/main/main1.iml" filepath="$PROJECT_DIR$/services/item-service/item-service-client/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/bid-service/bid-service-ejb/src/main/main10.iml" filepath="$PROJECT_DIR$/services/bid-service/bid-service-ejb/src/main/main10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/user-service/user-service-client/src/main/main11.iml" filepath="$PROJECT_DIR$/services/user-service/user-service-client/src/main/main11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain-module/model/src/main/main12.iml" filepath="$PROJECT_DIR$/domain-module/model/src/main/main12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/ejb-util/ejb-util-ejbs/src/main/main13.iml" filepath="$PROJECT_DIR$/services/ejb-util/ejb-util-ejbs/src/main/main13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/ejb-util/ejb-util-client/src/main/main14.iml" filepath="$PROJECT_DIR$/services/ejb-util/ejb-util-client/src/main/main14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/test-service/test-service-ejb/src/main/main15.iml" filepath="$PROJECT_DIR$/services/test-service/test-service-ejb/src/main/main15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/bid-service/bid-service-client/src/main/main16.iml" filepath="$PROJECT_DIR$/services/bid-service/bid-service-client/src/main/main16.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/user-service/user-service-ejb/src/main/main17.iml" filepath="$PROJECT_DIR$/services/user-service/user-service-ejb/src/main/main17.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/item-service/item-service-ejb/src/main/main2.iml" filepath="$PROJECT_DIR$/services/item-service/item-service-ejb/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/xml/api-configuration/src/main/main3.iml" filepath="$PROJECT_DIR$/common/xml/api-configuration/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application/src/main/main4.iml" filepath="$PROJECT_DIR$/application/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain-module/persistence-interface/src/main/main5.iml" filepath="$PROJECT_DIR$/domain-module/persistence-interface/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application2/src/main/main6.iml" filepath="$PROJECT_DIR$/application2/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/spring/common-spring-edn/src/main/main7.iml" filepath="$PROJECT_DIR$/common/spring/common-spring-edn/src/main/main7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/test-stateful-ejb/src/main/main8.iml" filepath="$PROJECT_DIR$/services/test-stateful-ejb/src/main/main8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain-module/persistence/src/main/main9.iml" filepath="$PROJECT_DIR$/domain-module/persistence/src/main/main9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/xml/api-configuration/src/test/test.iml" filepath="$PROJECT_DIR$/common/xml/api-configuration/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/xml/xml-discover/target/jaxws/wsimport/wsimport.iml" filepath="$PROJECT_DIR$/common/xml/xml-discover/target/jaxws/wsimport/wsimport.iml" />
+    </modules>
+  </component>
+</project>

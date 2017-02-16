@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:include schemaLocation="ImportExportEBO.xsd"/>
+<xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+<xsd:element name="DataFormatterServiceResponse" type="DataFormatterResponseType"/>
+<xsd:complexType name="DataFormatterResponseType">
+<xsd:sequence>
+<xsd:element name="ResponseDetails" type="xsd:string"/>
+<xsd:element ref="ResponseFileDetails" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="ResponseFileDetails" type="ResponseFileDetailsType"/>
+<xsd:complexType name="ResponseFileDetailsType">
+<xsd:sequence>
+<xsd:element name="FileName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FilePath" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FileType" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FileSize" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="CSVToStagingAreaTransformRequestEBM" type="CSVToStagingAreaTransformRequestEBMType"/>
+<xsd:complexType name="CSVToStagingAreaTransformRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="CSVToStagingAreaTransformRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="CSVToStagingAreaTransformResponseEBM" type="CSVToStagingAreaTransformResponseEBMType"/>
+<xsd:complexType name="CSVToStagingAreaTransformResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="ebo:DataFormatterServiceResponse"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="CSVToStagingAreaTransformRequestPayload">
+<xsd:annotation>
+<xsd:documentation>A sample element</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="ebo:ImportExportEBO"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="DataFormatEBSRequestEBM" type="DataFormatEBSRequestEBMType"/>
+<xsd:complexType name="DataFormatEBSRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="DataFormatEBSRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="DataFormatEBSResponseEBM" type="DataFormatEBSResponseEBMType"/>
+<xsd:complexType name="DataFormatEBSResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="ebo:DataFormatterServiceResponse"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="DataFormatEBSRequestPayload">
+<xsd:annotation>
+<xsd:documentation>A sample element</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="ebo:ImportExportEBO"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

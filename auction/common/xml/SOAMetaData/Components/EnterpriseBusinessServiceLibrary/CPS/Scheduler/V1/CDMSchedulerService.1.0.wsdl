@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/wsdl"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:scheduler="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/ebm"
+             xmlns:fault="http://xmlns.avocent.com/EnterpriseFault"
+             xmlns:header="http://xmlns.avocent.com/EnterpriseHeader">
+  
+  <types>
+    <documentation>CDMSchedulerService Web service - This service provides the
+                   functionality to applications and any 3rd party clients to add a task,update a task,
+                   delete a task ,register task action types, update task action types, find a specific task 
+                   action type, unregister a task action type, retrieve all task action types,add a 
+                    task action, update a  task action, delete a task action,
+                   find a  task action,retrieve all tasks action, retrieve 
+                   s tasks action by date,
+                   get status for task action, get frequency for task action, get task action parameters and
+                   update task action parameters</documentation>
+                   <xsd:schema targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/wsdl/types" 
+                elementFormDefault="qualified">
+                </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="oramds:/apps/auction/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CDMSchedulerEBM.1.0.xsd"
+                  namespace="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/ebm"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="oramds:/apps/auction/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseFault.xsd"
+                  namespace="http://xmlns.avocent.com/EnterpriseFault"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="oramds:/apps/auction/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseHeader.xsd"
+                  namespace="http://xmlns.avocent.com/EnterpriseHeader"/>
+    </xsd:schema>
+  </types>
+  <message name="registerTaskActionType">
+     <part name="parameters" element="scheduler:RegisterTaskActionTypeRequest"/>
+   
+  </message>
+  <message name="registerTaskActionTypeResponse">
+     <part name="parameters" element="scheduler:RegisterTaskActionTypeResponse"/>
+    
+  </message>
+  <message name="updateTaskActionType">
+     <part name="parameters" element="scheduler:UpdateTaskActionTypeRequest"/>
+   
+  </message>
+  <message name="updateTaskActionTypeResponse">
+     <part name="parameters" element="scheduler:UpdateTaskActionTypeResponse"/>
+    
+  </message>
+  <message name="findTaskActionTypeById">
+     <part name="parameters" element="scheduler:FindTaskActionTypeByIdRequest"/>
+   
+  </message>
+  <message name="findTaskActionTypeByIdResponse">
+     <part name="parameters" element="scheduler:FindTaskActionTypeByIdResponse"/>
+    
+  </message>
+  
+  <message name="getAllTaskActionTypes">
+     <part name="parameters" element="scheduler:GetAllTaskActionTypesRequest"/>
+   
+  </message>
+  <message name="getAllTaskActionTypesResponse">
+     <part name="parameters" element="scheduler:GetAllTaskActionTypesResponse"/>
+    
+  </message>
+  <message name="unRegisterTaskActionType">
+     <part name="parameters" element="scheduler:UnRegisterTaskActionTypeRequest"/>
+   
+  </message>
+  <message name="unRegisterTaskActionTypeResponse">
+     <part name="parameters" element="scheduler:UnRegisterTaskActionTypeResponse"/>
+    
+  </message>
+  <message name="addTaskAction">
+     <part name="parameters" element="scheduler:AddTaskActionRequest"/>
+   
+  </message>
+  <message name="addTaskActionResponse">
+     <part name="parameters" element="scheduler:AddTaskActionResponse"/>
+    
+  </message>
+  
+   <message name="updateTaskAction">
+     <part name="parameters" element="scheduler:UpdateTaskActionRequest"/>
+   
+  </message>
+  <message name="updateTaskActionResponse">
+     <part name="parameters" element="scheduler:UpdateTaskActionResponse"/>
+    
+  </message>
+  <message name="deleteTaskAction">
+     <part name="parameters" element="scheduler:DeleteTaskActionRequest"/>
+   
+  </message>
+  <message name="deleteTaskActionResponse">
+     <part name="parameters" element="scheduler:DeleteTaskActionResponse"/>
+    
+  </message>
+  <message name="getAllTasksAction">
+     <part name="parameters" element="scheduler:GetAllTasksActionRequest"/>
+   
+  </message>
+  <message name="getAllTaskActionsResponse">
+     <part name="parameters" element="scheduler:GetAllTasksActionResponse"/>
+    
+  </message>
+  
+   <message name="getAllTaskActionsByDate">
+     <part name="parameters" element="scheduler:GetAllTasksActionByDateRequest"/>
+   
+  </message>
+  <message name="getAllTaskActionsByDateResponse">
+     <part name="parameters" element="scheduler:GetAllTasksActionByDateResponse"/>
+    
+  </message>
+  <message name="findTaskActionsById">
+     <part name="parameters" element="scheduler:FindTaskActionByIdRequest"/>
+   
+  </message>
+  <message name="findTaskActionsByIdResponse">
+     <part name="parameters" element="scheduler:FindTaskActionByIdResponse"/>
+    
+  </message>
+  <message name="getTaskActionStatus">
+     <part name="parameters" element="scheduler:GetTaskActionStatusRequest"/>
+   
+  </message>
+  <message name="getTaskActionStatusResponse">
+     <part name="parameters" element="scheduler:GetTaskActionStatusResponse"/>
+    
+  </message>
+  
+   <message name="updateTask">
+     <part name="parameters" element="scheduler:UpdateTaskRequest"/>
+   
+  </message>
+  <message name="updateTaskResponse">
+     <part name="parameters" element="scheduler:UpdateTaskResponse"/>
+    
+  </message>
+  <message name="getTask">
+     <part name="parameters" element="scheduler:GetTaskRequest"/>
+   
+  </message>
+  <message name="getTaskResponse">
+     <part name="parameters" element="scheduler:GetTaskResponse"/>
+    
+  </message>
+  <message name="getTaskFrequency">
+     <part name="parameters" element="scheduler:GetTaskFrequencyRequest"/>
+   
+  </message>
+  <message name="getTaskFrequencyResponse">
+     <part name="parameters" element="scheduler:GetTaskFrequencyResponse"/>
+    
+  </message>
+  
+   <message name="getTaskActionParameters">
+     <part name="parameters" element="scheduler:GetTaskActionParametersRequest"/>
+   
+  </message>
+  <message name="getTaskActionParametersResponse">
+     <part name="parameters" element="scheduler:GetTaskActionParametersResponse"/>
+    
+  </message>
+  <message name="updateTaskActionParameters">
+     <part name="parameters" element="scheduler:UpdateTaskActionParametersRequest"/>
+   
+  </message>
+  <message name="updateTaskActionParametersResponse">
+     <part name="parameters" element="scheduler:UpdateTaskActionParametersResponse"/>
+     
+    
+  </message>
+  <message name="getTaskDuration">
+     <part name="parameters" element="scheduler:GetTaskDurationRequest"/>
+   
+  </message>
+  <message name="getTaskDurationResponse">
+     <part name="parameters" element="scheduler:GetTaskDurationResponse"/>
+    
+  </message>
+  
+   <message name="addTask">
+     <part name="parameters" element="scheduler:AddTaskRequest"/>
+   
+  </message>
+  <message name="addTaskResponse">
+     <part name="parameters" element="scheduler:AddTaskResponse"/>
+    
+  </message>
+  <message name="deleteTask">
+     <part name="parameters" element="scheduler:DeleteTaskRequest"/>
+   
+  </message>
+  <message name="deleteTaskResponse">
+     <part name="parameters" element="scheduler:DeleteTaskResponse"/>
+    
+  </message>
+  <message name="getTaskStatus">
+     <part name="parameters" element="scheduler:GetTaskStatusRequest"/>
+   
+  </message>
+  <message name="getTaskStatusResponse">
+     <part name="parameters" element="scheduler:GetTaskStatusResponse"/>
+    
+  </message>
+  
+   <message name="getAllTasks">
+     <part name="parameters" element="scheduler:GetAllTasksRequest"/>
+   
+  </message>
+  <message name="getAllTasksResponse">
+     <part name="parameters" element="scheduler:GetAllTasksResponse"/>
+    
+  </message>
+  <message name="findTaskById">
+     <part name="parameters" element="scheduler:FindTaskByIdRequest"/>
+   
+  </message>
+  <message name="findTaskByIdResponse">
+     <part name="parameters" element="scheduler:FindTaskByIdResponse"/>
+    
+  </message>
+    <message name="findTaskByReferenceId">
+     <part name="parameters" element="scheduler:FindTaskByReferenceIdRequest"/>
+   
+  </message>
+  <message name="findTaskByReferenceIdResponse">
+     <part name="parameters" element="scheduler:FindTaskByReferenceIdResponse"/>
+    
+  </message>
+  <message name="findTaskActionTypeByNameRequest">
+        <part name="parameters"
+              element="scheduler:FindTaskActionTypeByNameRequest"/>
+    </message>
+    <message name="findTaskActionTypeByNameResponse">
+        <part name="parameters"
+              element="scheduler:FindTaskActionTypeByNameResponse"/>
+    </message>
+  <message name="getAllTasksByDate">
+     <part name="parameters" element="scheduler:GetAllTasksByDateRequest"/>
+   
+  </message>
+  <message name="getAllTasksByDateResponse">
+     <part name="parameters" element="scheduler:GetAllTasksByDateResponse"/>  
+  </message>
+  
+   <message name="EnterpriseFaultMessage">
+    <part name="fault" element="fault:EnterpriseException"/>
+  </message>
+
+  <message name="updateTaskActionStatus">
+     <part name="parameters" element="scheduler:UpdateTaskActionStatusRequest"/>
+   
+  </message>
+  <message name="updateTaskActionStatusResponse">
+     <part name="parameters" element="scheduler:UpdateTaskActionStatusResponse"/>  
+  </message>
+  
+  
+  
+  
+  <message name="EnterpriseHeaderMessage">
+    <part name="header" element="header:EnterpriseHeader"/>
+    </message>
+    <portType name="CDMSchedulerServicePortType">
+    
+    <operation name="registerTaskActionType">
+      <documentation>Request for registering the task action type into the repository</documentation>
+      <input message="tns:registerTaskActionType"/>
+      <output message="tns:registerTaskActionTypeResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="updateTaskActionType">
+      <documentation>Request for updating the task action type in the repository</documentation>
+      <input message="tns:updateTaskActionType"/>
+      <output message="tns:updateTaskActionTypeResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="findTaskActionTypeById">
+      <documentation>Request for retrieving a specific task action type from repository</documentation>
+      <input message="tns:findTaskActionTypeById"/>
+      <output message="tns:findTaskActionTypeByIdResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    
+    <operation name="getAllTaskActionTypes">
+      <documentation>Request for retrieving all the task action types from the repository</documentation>
+      <input message="tns:getAllTaskActionTypes"/>
+      <output message="tns:getAllTaskActionTypesResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="unRegisterTaskActionType">
+      <documentation>Request for unregistering the task action type from repository</documentation>
+      <input message="tns:unRegisterTaskActionType"/>
+      <output message="tns:unRegisterTaskActionTypeResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="addTaskAction">
+      <documentation>Request for adding a  task action into the repository</documentation>
+      <input message="tns:addTaskAction"/>
+      <output message="tns:addTaskActionResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="updateTaskAction">
+      <documentation>Request for updating the  task action in the repository</documentation>
+      <input message="tns:updateTaskAction"/>
+      <output message="tns:updateTaskActionResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="deleteTaskAction">
+      <documentation>Request for deleting the  task action from the repository</documentation>
+      <input message="tns:deleteTaskAction"/>
+      <output message="tns:deleteTaskActionResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="getAllTasksAction">
+      <documentation>Request for retrieving all the  tasks action from the repository</documentation>
+      <input message="tns:getAllTasksAction"/>
+      <output message="tns:getAllTaskActionsResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="getAllTaskActionsByDate">
+      <documentation>Request for retrieving all  tasks action from repository by date</documentation>
+      <input message="tns:getAllTaskActionsByDate"/>
+      <output message="tns:getAllTaskActionsByDateResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+    </operation>
+    <operation name="findTaskActionsById">
+      <documentation>Request for retrieving  tasks action by ID in the repository</documentation>
+      <input message="tns:findTaskActionsById"/>
+      <output message="tns:findTaskActionsByIdResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="getTaskActionStatus">
+      <documentation>Request for retrieving status of the  task action in the repository</documentation>
+      <input message="tns:getTaskActionStatus"/>
+      <output message="tns:getTaskActionStatusResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="updateTask">
+      <documentation>Request for updating task in the repository</documentation>
+      <input message="tns:updateTask"/>
+      <output message="tns:updateTaskResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="getTask">
+      <documentation>Request for retrieving task from the repository</documentation>
+      <input message="tns:getTask"/>
+      <output message="tns:getTaskResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="getTaskFrequency">
+      <documentation>Request for retrieving task frequency from the repository</documentation>
+      <input message="tns:getTaskFrequency"/>
+      <output message="tns:getTaskFrequencyResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="getTaskActionParameters">
+      <documentation>Request for retrieving task action parameters from the repository</documentation>
+      <input message="tns:getTaskActionParameters"/>
+      <output message="tns:getTaskActionParametersResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="updateTaskActionParameters">
+      <documentation>Request for updating the task action parameters in the repository</documentation>
+      <input message="tns:updateTaskActionParameters"/>
+      <output message="tns:updateTaskActionParametersResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="getTaskDuration">
+      <documentation>Request for retrieving  tasks duration for task  in the repository</documentation>
+      <input message="tns:getTaskDuration"/>
+      <output message="tns:getTaskDurationResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="addTask">
+      <documentation>Request for add  task  in the repository</documentation>
+      <input message="tns:addTask"/>
+      <output message="tns:addTaskResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="deleteTask">
+      <documentation>Request for delete task in the repository</documentation>
+      <input message="tns:deleteTask"/>
+      <output message="tns:deleteTaskResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+     <operation name="getTaskStatus">
+      <documentation>Request for retrieving task status from the repository</documentation>
+      <input message="tns:getTaskStatus"/>
+      <output message="tns:getTaskStatusResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="getAllTasks">
+      <documentation>Request for retrieving all task  from the repository</documentation>
+      <input message="tns:getAllTasks"/>
+      <output message="tns:getAllTasksResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="findTaskById">
+      <documentation>Request for retrieving task by ID parameters from the repository</documentation>
+      <input message="tns:findTaskById"/>
+      <output message="tns:findTaskByIdResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    
+    <operation name="findTaskByReferenceId">
+      <documentation>Request for retrieving task by reference ID parameters from the repository</documentation>
+      <input message="tns:findTaskByReferenceId"/>
+      <output message="tns:findTaskByReferenceIdResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+
+    </operation>
+    <operation name="findTaskActionTypeIDByName">
+            <documentation>The operation to find a Task by its referenceId</documentation>
+            <input message="tns:findTaskActionTypeByNameRequest"/>
+            <output message="tns:findTaskActionTypeByNameResponse"/>
+            <fault name="fault" message="tns:EnterpriseFaultMessage">
+                <documentation>Enterprise Fault Definition</documentation>
+            </fault>
+        </operation>
+    
+     <operation name="getAllTasksByDate">
+      <documentation>Request for retreive the task by date in the repository</documentation>
+      <input message="tns:getAllTasksByDate"/>
+      <output message="tns:getAllTasksByDateResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+        <documentation>
+          Enterprise Fault Definition
+        </documentation>
+      </fault>
+    </operation>
+    
+     <operation name="updateTaskActionStatus">
+      <documentation>Request for retreive the task by date in the repository</documentation>
+      <input message="tns:updateTaskActionStatus"/>
+      <output message="tns:updateTaskActionStatusResponse"/>
+      <fault message="tns:EnterpriseFaultMessage" name="fault">
+      </fault>
+    </operation>    
+    
+    
+  </portType>
+ </definitions>

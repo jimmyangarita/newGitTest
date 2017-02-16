@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ejb-util-ejbs-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/services/ejb-util/ejb-util-ejbs/target/ejb-util-ejbs-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

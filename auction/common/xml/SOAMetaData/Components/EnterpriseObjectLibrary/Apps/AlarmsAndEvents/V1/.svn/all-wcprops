@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1
+END
+AppsDeviceAlarmStatusServiceBeanServiceV2.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1/AppsDeviceAlarmStatusServiceBeanServiceV2.xsd
+END
+AppsDeviceAlarmStatusServiceBeanServiceV3.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1/AppsDeviceAlarmStatusServiceBeanServiceV3.xsd
+END
+AppsDeviceAlarmStatusServiceBeanServiceV4.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1/AppsDeviceAlarmStatusServiceBeanServiceV4.xsd
+END
+EventServiceBeanService.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1/EventServiceBeanService.xsd
+END
+AppsDeviceAlarmStatusServiceBeanService.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/AlarmsAndEvents/V1/AppsDeviceAlarmStatusServiceBeanService.xsd
+END

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xs:schema xmlns:tns="http://image.cps.auction.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://image.cps.auction.avocent.com/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="saveImage" type="tns:saveImage"/>
+
+<xs:element name="saveImageResponse" type="tns:saveImageResponse"/>
+
+<xs:complexType name="saveImage">
+<xs:sequence>
+<xs:element name="arg0" type="tns:imageInputDto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="imageInputDto">
+<xs:sequence>
+<xs:element name="fileName" type="xs:string" minOccurs="0"/>
+<xs:element name="filePath" type="xs:string" minOccurs="0"/>
+<xs:element name="floorId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="saveImageResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

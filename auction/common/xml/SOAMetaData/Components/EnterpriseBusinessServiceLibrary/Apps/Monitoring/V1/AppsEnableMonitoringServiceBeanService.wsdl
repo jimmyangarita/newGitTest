@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://facade.enablemonitoring.ejb.monitoring.apps.auction.avocent.com/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="http://facade.enablemonitoring.ejb.monitoring.apps.auction.avocent.com/"
+             name="AppsEnableMonitoringServiceBeanService">
+ <types>
+  <xsd:schema>
+   <xsd:import namespace="http://facade.enablemonitoring.ejb.monitoring.apps.auction.avocent.com/"
+               schemaLocation="../../../../EnterpriseObjectLibrary/Apps/Monitoring/V1/AppsEnableMonitoringServiceBean.xsd"/>
+  </xsd:schema>
+ </types>
+ <message name="DeleteManagedElementForUnMonitoredDevice">
+  <part name="parameters"
+        element="tns:DeleteManagedElementForUnMonitoredDevice"/>
+ </message>
+ <portType name="AppsEnableMonitoringServiceBeanService">
+  <operation name="DeleteManagedElementForUnMonitoredDevice">
+   <input message="tns:DeleteManagedElementForUnMonitoredDevice"/>
+  </operation>
+ </portType>
+</definitions>

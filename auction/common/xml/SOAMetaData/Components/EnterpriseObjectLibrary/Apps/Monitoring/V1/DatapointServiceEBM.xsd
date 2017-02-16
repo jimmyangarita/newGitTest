@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/commonplatform/mss/service/datapoint/ebo" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.avocent.com/commonplatform/mss/service/datapoint/ebo" elementFormDefault="qualified" attributeFormDefault="unqualified" jxb:version="1.0" jxb:extensionBindingPrefixes="xjc">
+            
+  <xs:annotation>
+    <xs:appinfo>
+      <jxb:schemaBindings>
+				<jxb:package name="com.avocent.commonplatform.mss.service.datapoint.endpoint.model"/>
+			</jxb:schemaBindings>
+    </xs:appinfo>
+  </xs:annotation>
+  
+    <xsd:complexType name="Datapoint">
+
+        <xsd:sequence>
+            <xsd:element name="timestamp" type="xsd:string" nillable="false"/>
+            <xsd:element name="value" type="xsd:double" minOccurs="0" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DatapointSummary">
+        <xsd:sequence>
+            <xsd:element name="timestamp" type="xsd:string" nillable="false"/>
+            <xsd:element name="AvgValue" type="xsd:double" minOccurs="0" nillable="false"/>
+
+            <xsd:element name="MinValue" type="xsd:double" minOccurs="0" nillable="false"/>
+            <xsd:element name="MaxValue" type="xsd:double" minOccurs="0" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DatapointSummaryParameters">
+        <xsd:sequence>
+            <xsd:element name="DATAPOINTTYPEDEFINITIONID" type="xsd:string" nillable="true"/>
+            <xsd:element name="MANAGEDELEMENTID" type="xsd:string" nillable="false"/>
+            <xsd:element name="PORTID" type="xsd:string" nillable="false"/>
+
+            <xsd:element name="from" type="DateFormat" nillable="false"/>
+            <xsd:element name="to" type="DateFormat" nillable="false"/>
+            <xsd:element name="interval" type="Interval" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DatapointParameters">
+        <xsd:sequence>
+            <xsd:element name="DATAPOINTTYPEDEFINITIONID" type="xsd:string" nillable="true"/>
+            <xsd:element name="MANAGEDELEMENTID" type="xsd:string" nillable="false"/>
+
+            <xsd:element name="PORTID" type="xsd:string" nillable="false"/>
+            <xsd:element name="from" type="DateFormat" nillable="false"/>
+            <xsd:element name="to" type="DateFormat" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="LastDatapointParameters">
+        <xsd:sequence>
+            <xsd:element name="DATAPOINTTYPEDEFINITIONID" type="xsd:string" nillable="true"/>
+            <xsd:element name="MANAGEDELEMENTID" type="xsd:string" nillable="false"/>
+
+            <xsd:element name="PORTID" type="xsd:string" nillable="false"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="DataPointIdEBO">
+        <xsd:sequence>
+        <xsd:element name="DeviceId" type="xsd:string" nillable="false"/>
+        <xsd:element name="PortId" type="xsd:string" nillable="false"/>
+        <xsd:element name="DatapointTypeDefId" type="xsd:string" nillable="false"/>
+
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DataPointEBO">
+        <xsd:sequence>
+        <xsd:element name="DeviceId" type="xsd:string" nillable="false"/>
+        <xsd:element name="PortId" type="xsd:string" nillable="false"/>
+        <xsd:element name="DatapointTypeDefId" type="xsd:string" nillable="false"/>
+        <xsd:element name="Value" type="xsd:double" minOccurs="0" nillable="false"/>
+        <xsd:element name="Timestamp" type="xsd:string" nillable="false"/>
+
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="SaveDatapointRequestParameters">
+        <xsd:sequence>
+            <xsd:element name="DATAPOINTTYPEDEFINITIONID" type="xsd:string" nillable="true"/>
+            <xsd:element name="MANAGEDELEMENTID" type="xsd:string" nillable="false"/>
+            <xsd:element name="PORTID" type="xsd:string" nillable="false"/>
+            <xsd:element name="timestamp" type="DateFormat" nillable="false"/>
+            <xsd:element name="value" type="xsd:string" nillable="false"/>
+
+        </xsd:sequence>
+    </xsd:complexType>
+       
+    <xsd:simpleType name="Interval">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="HOURLY"/>
+            <xsd:enumeration value="DAILY"/>
+            <xsd:enumeration value="WEEKLY"/>
+            <xsd:enumeration value="MONTHLY"/>
+        </xsd:restriction>
+
+    </xsd:simpleType>
+    <xsd:simpleType name="DateFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])) (([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

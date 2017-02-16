@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ExternalApiAuditService"
+	targetNamespace="http://xmlns.avocent.com/Common/Audit/ApiAudit/Services/v1.0"
+	xmlns:ns1="http://xmlns.avocent.com/Common/Audit/ApiAudit/Messages/v1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://xmlns.avocent.com/Common/Audit/ApiAudit/Services/v1.0"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+	
+	<plt:partnerLinkType name="ApiAuditServicePortType_v1.0_plt">
+		<plt:role name="api_audit_role">
+			<plt:portType name="tns:ApiAuditServicePortType_v1.0" />
+		</plt:role>
+	</plt:partnerLinkType>
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import
+				namespace="http://xmlns.avocent.com/Common/Audit/ApiAudit/Messages/v1.0"
+				schemaLocation="../../../../EnterpriseObjectLibrary/Common/Audit/Messages/v1.0/ApiAuditMessages-v1.0.xsd" />
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="AuditServiceInputMessage">
+		<wsdl:part name="input" element="ns1:AuditInput" />
+	</wsdl:message>
+	<wsdl:message name="AuditServiceOutputMessage">
+		<wsdl:part name="input" element="ns1:AuditOutput" />
+	</wsdl:message>
+	<wsdl:message name="AuditServiceResponseMessage">
+		<wsdl:part name="input" element="ns1:AuditResponse" />
+	</wsdl:message>
+	<wsdl:message name="AuditServiceCheckMessage">
+		<wsdl:part name="input" element="ns1:AuditCheckPoint" />
+	</wsdl:message>
+	<wsdl:portType name="ApiAuditServicePortType_v1.0">
+		<wsdl:operation name="auditInput">
+			<wsdl:input message="tns:AuditServiceInputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="auditOutput">
+			<wsdl:input message="tns:AuditServiceOutputMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="auditResponse">
+			<wsdl:input message="tns:AuditServiceResponseMessage" />
+		</wsdl:operation>
+		<wsdl:operation name="auditCheckPoint">
+			<wsdl:input message="tns:AuditServiceCheckMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1
+END
+AppsEnableMonitoringServiceBean.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/AppsEnableMonitoringServiceBean.xsd
+END
+ConfirmThresholdsBeanServiceV1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/ConfirmThresholdsBeanServiceV1.xsd
+END
+AppsSetMonitoringServiceBeanService.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/AppsSetMonitoringServiceBeanService.xsd
+END
+InfrastructureServiceCommon.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 204
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/InfrastructureServiceCommon.xsd
+END
+InfrastructureServiceEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/InfrastructureServiceEBM.xsd
+END
+InfrastructureServiceEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 201
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/InfrastructureServiceEBO.xsd
+END
+AppsAlarmControlTriggerBeanService1V1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/AppsAlarmControlTriggerBeanService1V1.xsd
+END
+DatapointServiceEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/DatapointServiceEBM.xsd
+END
+AppsAlarmControlTriggerBeanService2V1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/AppsAlarmControlTriggerBeanService2V1.xsd
+END
+DatapointServiceEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/Apps/Monitoring/V1/DatapointServiceEBO.xsd
+END

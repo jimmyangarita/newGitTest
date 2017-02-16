@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://event.ds.trellis.avocent.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://event.ds.trellis.avocent.com/">
+
+	<xs:element name="createEvent" type="tns:createEvent" />
+
+	<xs:element name="createEventResponse" type="tns:createEventResponse" />
+
+	<xs:complexType name="createEvent">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:trellisEventType"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="trellisEventType">
+		<xs:sequence>
+			<xs:element name="componentId" type="xs:string" minOccurs="0" />
+			<xs:element name="componentName" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="equipCategory" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventClass" type="xs:string" minOccurs="0" />
+			<xs:element name="eventDescriptionKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventDetailDescriptionKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventInstanceId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventNameKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventState" type="xs:string" minOccurs="0" />
+			<xs:element name="eventSubstitutionValueDTOList" type="tns:eventSubstitutionValueDTO"
+				nillable="true" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="eventTimestamp" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="eventToken" type="xs:string" minOccurs="0" />
+			<xs:element name="eventTypeTag" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="extensions" type="xs:base64Binary"
+				minOccurs="0" />
+			<xs:element name="severityKey" type="xs:string" minOccurs="0" />
+			<xs:element name="sourceName" type="xs:string" minOccurs="0" />
+			<xs:element name="sourceObjectId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="sourceTypeKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectCategoryKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectName" type="xs:string" minOccurs="0" />
+			<xs:element name="subjectObjectId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectTypeKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="userId" type="xs:string" minOccurs="0" />
+			<xs:element name="userName" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="eventSubstitutionValueDTO">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="0" />
+			<xs:element name="value" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="createEventResponse">
+		<xs:sequence>
+			<xs:element name="return" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

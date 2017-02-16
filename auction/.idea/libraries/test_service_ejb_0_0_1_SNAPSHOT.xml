@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="test-service-ejb-0.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/services/test-service/test-service-ejb/target/test-service-ejb-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

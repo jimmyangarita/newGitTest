@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Name: ExtensionApiFault-v1.xsd
+
+Description: Common XML Schema for API Fault Extension.
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xmlns.jdap.com/Common/Fault/ApiFault/Extension/v2"
+            elementFormDefault="qualified" version="1.0">
+ 
+    <xsd:complexType name="ExtensionApiFaultType"/>
+ 
+</xsd:schema>
+

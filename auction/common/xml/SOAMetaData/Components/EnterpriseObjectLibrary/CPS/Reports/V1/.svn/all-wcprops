@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Reports/V1
+END
+CPSReportingEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Reports/V1/CPSReportingEBO.xsd
+END
+ExecuteScheduledReport.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Reports/V1/ExecuteScheduledReport.xsd
+END
+ReportingEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Reports/V1/ReportingEBM.xsd
+END

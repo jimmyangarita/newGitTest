@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://facade.threshold.ejb.monitoring.apps.auction.avocent.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://facade.threshold.ejb.monitoring.apps.auction.avocent.com/">
+
+<xs:element name="confirmThresholds" type="tns:confirmThresholds"/>
+
+<xs:element name="confirmThresholdsResponse" type="tns:confirmThresholdsResponse"/>
+
+<xs:complexType name="confirmThresholds">
+<xs:sequence>
+<xs:element name="arg0" type="tns:appsMSSDataPointStatusDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="appsMSSDataPointStatusDTO">
+<xs:sequence>
+<xs:element name="dataPointStatusDTOList" type="tns:dataPointStatusDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="deviceID" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataPointStatusDTO">
+<xs:sequence>
+<xs:element name="dataPointID" type="xs:string" minOccurs="0"/>
+<xs:element name="dataPointStatus" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="confirmThresholdsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

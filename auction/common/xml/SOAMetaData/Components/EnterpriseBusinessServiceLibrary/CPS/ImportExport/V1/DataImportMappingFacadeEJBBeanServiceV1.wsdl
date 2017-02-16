@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://dataimportmapping.ejb.emrsn.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://dataimportmapping.ejb.emrsn.com/"
+	name="DataImportMappingFacadeEJBBeanService">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://dataimportmapping.ejb.emrsn.com/"
+				schemaLocation="../../../../EnterpriseObjectLibrary/CPS/ImportExport/V1/DataImportMappingFacadeEJBBeanService.xsd" />
+		</xsd:schema>
+	</types>
+	<message name="createXSL">
+		<part name="parameters" element="tns:createXSL" />
+	</message>
+	<message name="createXSLResponse">
+		<part name="parameters" element="tns:createXSLResponse" />
+	</message>
+	<portType name="DataImportMappingFacadeEJBBeanService">
+		<operation name="createXSL">
+			<input message="tns:createXSL" />
+			<output message="tns:createXSLResponse" />
+		</operation>
+	</portType>
+	<binding name="DataImportMappingFacadeEJBBeanServicePortBinding"
+		type="tns:DataImportMappingFacadeEJBBeanService">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<operation name="createXSL">
+			<soap:operation soapAction="" />
+			<input>
+				<soap:body use="literal" />
+			</input>
+			<output>
+				<soap:body use="literal" />
+			</output>
+		</operation>
+	</binding>
+	<service name="DataImportMappingFacadeEJBBeanService">
+		<port name="DataImportMappingFacadeEJBBeanServicePort" binding="tns:DataImportMappingFacadeEJBBeanServicePortBinding">
+			<soap:address
+				location="http://10.207.66.166:8001/DataImportMappingFacadeEJBBean/DataImportMappingFacadeEJBBeanService" />
+		</port>
+	</service>
+</definitions>

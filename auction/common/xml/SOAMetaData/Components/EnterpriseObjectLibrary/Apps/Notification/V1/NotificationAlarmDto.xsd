@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://ejb.service.notification.apps.auction.avocent.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+	targetNamespace="http://ejb.service.notification.apps.auction.avocent.com/">
+
+	<xs:element name="schedule" type="tns:schedule" />
+
+	<xs:complexType name="schedule">
+		<xs:sequence>
+			<xs:element name="arg0" type="tns:notificationAlarmDto"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="notificationAlarmDto">
+		<xs:sequence>
+			<xs:element name="acknowledged" type="xs:boolean" />
+			<xs:element name="acknowledgedBy" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="acknowledgedTimestamp" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmDescriptionString" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmDetailDescriptionKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmInstanceId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmNameKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmStateKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="alarmTypeTag" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="componentId" type="xs:string" minOccurs="0" />
+			<xs:element name="componentName" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="createdTimestamp" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="equipCategory" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="escalationLevel" type="xs:int" />
+			<xs:element name="eventClass" type="xs:string" minOccurs="0" />
+			<xs:element name="lastTransitionTimestamp" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="severityKey" type="xs:string" minOccurs="0" />
+			<xs:element name="sourceName" type="xs:string" minOccurs="0" />
+			<xs:element name="sourceObjectId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="sourceTypeKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectCategoryKey" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectName" type="xs:string" minOccurs="0" />
+			<xs:element name="subjectObjectId" type="xs:string"
+				minOccurs="0" />
+			<xs:element name="subjectTypeKey" type="xs:string"
+				minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

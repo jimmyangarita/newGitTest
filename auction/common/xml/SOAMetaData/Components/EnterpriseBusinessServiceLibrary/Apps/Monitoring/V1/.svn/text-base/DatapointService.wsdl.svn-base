@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><wsdl:definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:datapoint="http://xmlns.avocent.com/commonplatform/mss/service/datapoint/ebm" xmlns:tns="urn:DatapointService.1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:types="urn:DatapointService.1.0/types" targetNamespace="urn:DatapointService.1.0">
+    <types>
+        <xsd:schema targetNamespace="urn:DatapointService.1.0" elementFormDefault="qualified">
+            <xsd:import namespace="http://xmlns.avocent.com/commonplatform/mss/service/datapoint/ebm" schemaLocation="../../../../EnterpriseObjectLibrary/Apps/Monitoring/V1/DatapointServiceEBO.xsd"/>
+        </xsd:schema>
+    </types>
+    <wsdl:message name="getTimeseriesDataRequest">
+        <wsdl:documentation>
+            <summary>Required Request parameters: ID - managed element ID FROM - formatted string for beginning range.
+                     Valid date format: YYYY-MM-DD MM:SI:SS TO - formatted string for ending range. Valid date format:
+                     YYYY-MM-DD MM:SI:SS</summary>
+
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:TimeseriesDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getTimeseriesDataResponse">
+        <wsdl:documentation>
+            <summary>Return data: ID - managed element ID timestamp - date and time of the specific value value -
+                     datapoint value</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:TimeseriesDataResponse"/>
+
+    </wsdl:message>
+    <wsdl:message name="InvalidParametersError">
+        <wsdl:documentation>
+            <summary>This error shows parameter validation message errors</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:ErrorMessage"/>
+    </wsdl:message>
+    <wsdl:message name="MethodExecutionError">
+
+        <wsdl:documentation>
+            <summary>This error shows errors during method invocation</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:ErrorMessage"/>
+    </wsdl:message>   
+    <wsdl:message name="getLastTimeseriesDataRequest">
+        <wsdl:documentation>
+            <summary>Required Request parameters: ID - managed element ID</summary>
+
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:LastTimeseriesDataRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getLastTimeseriesDataResponse">
+        <wsdl:documentation>
+            <summary>Return data: ID - managed element ID timestamp - date and time of the specific value value -
+                     datapoint value</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:LastTimeseriesDataResponse"/>
+
+    </wsdl:message>
+    <wsdl:message name="getTimeseriesDataSummaryRequest">
+        <wsdl:documentation>
+            <summary>Required Request parameters: ID - managed element ID FROM - formatted string for beginning range.
+                     Valid date format: YYYY-MM-DD MM:SI:SS TO - formatted string for ending range. Valid date format:
+                     YYYY-MM-DD MM:SI:SS</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:TimeseriesDataSummaryRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getTimeseriesDataSummaryResponse">
+
+        <wsdl:documentation>
+            <summary>Return data: ID - managed element ID timestamp - date and time of the specific value value -
+                     datapoint value</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" type="datapoint:TimeseriesDataSummaryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getLastCollectedValuesRequest">
+        <wsdl:documentation>
+            <summary>Allows clients to retrieve the latest collected values for a list of datapoints. 
+           </summary>
+
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:GetLastCollectedValuesTypesRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getLastCollectedValuesResponse">
+        <wsdl:documentation>
+            <summary>Returns teh list of datapoints collected</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" type="datapoint:GetLastCollectedValuesTypesResponse"/>
+
+    </wsdl:message>
+       <wsdl:message name="getSaveDatapointRequest">
+        <wsdl:documentation>
+            <summary>Required Request parameters: ID - managed element ID FROM - formatted string for beginning range.
+                     Valid date format: YYYY-MM-DD MM:SI:SS TO - formatted string for ending range. Valid date format:
+                     YYYY-MM-DD MM:SI:SS</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" element="datapoint:SaveDatapointRequest"/>
+    </wsdl:message>
+    <wsdl:message name="getSaveDatapointResponse">
+
+        <wsdl:documentation>
+            <summary>Return data: status - if the Datapoint is successfully saved or not</summary>
+        </wsdl:documentation>
+        <wsdl:part name="parameters" type="datapoint:SaveDatapointResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="DatapointServicePortType">
+        <wsdl:documentation>
+            <summary>This service retrieves time series data by IDs and time range. Information is sourced from
+                     tsd.time_series_data</summary>
+
+        </wsdl:documentation>
+        <wsdl:operation name="getTimeseriesData">
+            <wsdl:input message="tns:getTimeseriesDataRequest"/>
+            <wsdl:output message="tns:getTimeseriesDataResponse"/>
+            <wsdl:fault name="InvalidParametersError" message="tns:InvalidParametersError"/>
+            <wsdl:fault name="MethodExecutionError" message="tns:MethodExecutionError"/>
+        </wsdl:operation>
+        <wsdl:operation name="getLastTimeseriesData">
+            <wsdl:input message="tns:getLastTimeseriesDataRequest"/>
+
+            <wsdl:output message="tns:getLastTimeseriesDataResponse"/>
+            <wsdl:fault name="InvalidParametersError" message="tns:InvalidParametersError"/>
+            <wsdl:fault name="MethodExecutionError" message="tns:MethodExecutionError"/>
+        </wsdl:operation>
+        <wsdl:operation name="getTimeseriesDataSummary">
+            <wsdl:input message="tns:getTimeseriesDataSummaryRequest"/>
+            <wsdl:output message="tns:getTimeseriesDataSummaryResponse"/>
+            <wsdl:fault name="InvalidParametersError" message="tns:InvalidParametersError"/>
+            <wsdl:fault name="MethodExecutionError" message="tns:MethodExecutionError"/>
+
+        </wsdl:operation>
+        <wsdl:operation name="getLastCollectedValues">
+            <wsdl:input message="tns:getLastCollectedValuesRequest"/>
+            <wsdl:output message="tns:getLastCollectedValuesResponse"/>
+            <wsdl:fault name="InvalidParametersError" message="tns:InvalidParametersError"/>
+            <wsdl:fault name="MethodExecutionError" message="tns:MethodExecutionError"/>
+        </wsdl:operation>
+        <wsdl:operation name="saveDatapointValue">
+            <wsdl:input message="tns:getSaveDatapointRequest"/>
+
+            <wsdl:output message="tns:getSaveDatapointResponse"/>
+            <wsdl:fault name="InvalidParametersError" message="tns:InvalidParametersError"/>
+            <wsdl:fault name="MethodExecutionError" message="tns:MethodExecutionError"/>
+        </wsdl:operation>
+    </wsdl:portType>
+       
+</wsdl:definitions>
+

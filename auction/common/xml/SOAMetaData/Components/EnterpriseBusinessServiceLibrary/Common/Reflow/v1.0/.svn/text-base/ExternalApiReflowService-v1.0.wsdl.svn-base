@@ -1,0 +1,38 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="ExternalApiReflowService"
+	targetNamespace="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Services/v1.0"
+	xmlns:ns2="http://xmlns.avocent.com/reflow/xml/parser"
+	xmlns:ns1="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Messages/v1.0"
+	xmlns:tns="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Services/v1.0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+	<plt:partnerLinkType name="ApiReflowServicePortType_v1.0_plt">
+		<plt:role name="api_reflow_role">
+			<plt:portType name="tns:ApiReflowServicePortType_v1.0" />
+		</plt:role>
+	</plt:partnerLinkType>
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xmlns.avocent.com/reflow/xml/parser"
+			xmlns:ns1="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Messages/v1.0"
+			xmlns:tns="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Services/v1.0"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+			<import
+				namespace="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Messages/v1.0"
+				schemaLocation="../../../../EnterpriseObjectLibrary/Common/Reflow/v1.0/ApiReflowMessages-v1.0.xsd" />
+		</schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:ns2="http://xmlns.avocent.com/reflow/xml/parser"
+			xmlns:ns1="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Messages/v1.0"
+			xmlns:tns="http://xmlns.avocent.com/Common/Reflow/ApiReflow/Services/v1.0"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+		
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ReflowProcessRequestMessage">
+		<wsdl:part name="input" element="ns1:ReflowRequestCollection" />
+	</wsdl:message>
+	<wsdl:portType name="ApiReflowServicePortType_v1.0">
+		<wsdl:operation name="reflow">
+			<wsdl:input message="tns:ReflowProcessRequestMessage" />
+		</wsdl:operation>
+	</wsdl:portType>
+</wsdl:definitions>

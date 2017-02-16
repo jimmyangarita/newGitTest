@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>auction-common</artifactId>
+    <groupId>com.jdap.auction.common</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.jdap.auction.common.xml</groupId>
+  <artifactId>common-xml</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>common-xml</name>
+  <description>Action common xml</description>
+  <modules>
+  	<module>api-configuration</module>
+	  <module>xml-fault</module>
+	<!--<module>xml-item</module>
+	<module>xml-bid</module>
+	<module>xml-user</module>-->
+	<!--<module>xml-discover</module> ONLY TO TEST THE PROCEESS POLICY FOR SCHEDULER--> 
+	<!--  <module>xml-osb</module>  -->
+  </modules>
+
+</project>
