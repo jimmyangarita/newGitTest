@@ -1,0 +1,5 @@
+
+How to use this Code
+
+Create a new Project (ng new PROJECT_NAME)
+Copy the Files from the Source Code Directory into your src/ folder (and replace the existing files)
