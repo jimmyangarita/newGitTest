@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Name: ExtensionUserObjects-v1.xsd
+
+Description: XML Schema for User Objects Extension 
+
+Copyright (c) 2012 JDAP Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xmlns.jdap.com/auction/User/Objects/Extension/v2"
+            elementFormDefault="qualified" version="1.0">
+            
+    <xsd:complexType name="ExtensionUserType"/>
+    
+</xsd:schema>

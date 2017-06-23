@@ -1,0 +1,80 @@
+<faultPolicies xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+ <faultPolicy version="1.0" id="CompositeFaultPolicy" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+  <Conditions>
+   <!-- Conditions can be fine grained to include Actions based on Error Codes. If a remotefault occurs check whether it is a WSDLReadingError. If yes then rethrow it else retry it."-->
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:remoteFault">
+    <condition>
+     <test>$fault.code/code="WSDLReadingError"</test>
+     <auction ref="ora-rethrow-fault"/>
+    </condition>
+    <condition>
+     <auction ref="ora-retry"/>
+    </condition>
+   </faultName>
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:bindingFault">
+    <condition>
+     <auction ref="java-fault-handler"/>
+    </condition>
+   </faultName>
+   <faultName xmlns:bpelx="http://schemas.oracle.com/bpel/extension" name="bpelx:runtimeFault">
+    <condition>
+     <auction ref="java-fault-handler"/>
+    </condition>
+   </faultName>
+   
+   <faultName xmlns:medns="http://schemas.oracle.com/mediator/faults" name="medns:mediatorFault">
+    <condition>
+     <auction ref="ora-rethrow-fault"/>
+    </condition>
+   </faultName>
+   
+  </Conditions>
+  <Actions>
+   <!-- This Action will invoke a Custom Java Class to process Faults. Also depending upon the returnValueanother auction will be invoked whic is specified by the ref attribute. This demosntrates chaining of Actions"-->
+   <Action id="java-fault-handler">
+    <javaAction className="com.api.faultapp.CustomFaultApiHandler" defaultAction="ora-rethrow" propertySet="properties">
+     <returnValue value="Rethrow" ref="ora-rethrow-fault"/>
+    </javaAction>
+   </Action>
+   <!-- This Action will mark the instance as "Pending for Recovery" in the EM console -->
+   <Action id="ora-human-intervention">
+    <humanIntervention/>
+   </Action>
+   <!--This is an auction will bubble up the fault to the Catch Blocks-->
+   <Action id="ora-rethrow-fault">
+    <rethrowFault/>
+   </Action>
+   <!--This auction will attempt 3 retries with intervals of 120 seconds -->
+   <Action id="ora-retry">
+    <retry>
+     <retryCount>2</retryCount>
+     <retryInterval>10</retryInterval>
+     <retryFailureAction ref="java-fault-handler"/>
+    </retry>
+   </Action>
+   <!-- This is an auction will cause a replay scope fault-->
+   <Action id="ora-replay-scope">
+    <replayScope/>
+   </Action>
+   <!--This auction will cause the instance to terminate-->
+   <Action id="ora-terminate">
+    <abort/>
+   </Action>
+  </Actions>
+  <!--Properties can be used to pass values to the Java class as a Map that can be used by the Class -->
+  <Properties>
+   <propertySet name="properties">
+    <property name="myProperty1">propertyValue1</property>
+    <property name="myProperty2">propertyValue2</property>
+    <property name="myPropertyN">propertyValueN</property>
+   </propertySet>
+  </Properties>
+ </faultPolicy>
+</faultPolicies>
+
+
+
+
+
+

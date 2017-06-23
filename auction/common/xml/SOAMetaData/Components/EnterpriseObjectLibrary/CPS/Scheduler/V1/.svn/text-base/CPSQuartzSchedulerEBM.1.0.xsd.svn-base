@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebm"
+            xmlns:quartz-scheduler-EBO="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebo"
+            xmlns:cps-scheduler-ebo="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+            xmlns:cps-scheduler-ebm="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"
+            targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebm"
+            elementFormDefault="qualified" version="1.0">
+    <xsd:import schemaLocation="CPSQuartzSchedulerEBO.1.0.xsd"
+                namespace="http://xmlns.dcim.emerson.com/cps/scheduler/quartz-scheduler/ebo"/>
+  <xsd:import schemaLocation="CPSSchedulerEBO.1.0.xsd"
+              namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"/>
+              <xsd:import schemaLocation="CPSSchedulerEBM.1.0.xsd"
+              namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebm"/>
+                
+    <xsd:element name="AddJobTriggerRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="quartz-scheduler-EBO:QuartzJobScheduleEBOType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModifyJobTriggerRequestEBM">
+  <xsd:complexType>
+    <xsd:complexContent>
+      <xsd:extension base="quartz-scheduler-EBO:QuartzJobScheduleEBOType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteJobTriggerRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cps-scheduler-ebo:TaskIdEBOType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseTaskNoPreemptionRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cps-scheduler-ebo:TaskIdEBOType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="PauseTaskWithPreemptionRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cps-scheduler-ebo:TaskIdEBOType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ResumeTaskRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="quartz-scheduler-EBO:JobPayload"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="TerminateTaskRequestEBM">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cps-scheduler-ebo:TaskIdEBOType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="CommonResponse">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="cps-scheduler-ebm:CommonResponseType"/>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Exception" type="quartz-scheduler-EBO:ExceptionType"/>
+</xsd:schema>

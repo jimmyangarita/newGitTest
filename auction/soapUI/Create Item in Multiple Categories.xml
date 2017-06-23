@@ -1,0 +1,269 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.jdap.com/auction/Item/Messages/v2" xmlns:v21="http://xmlns.jdap.com/Common/MessageHeader/v2" xmlns:add="http://www.w3.org/2005/08/addressing" xmlns:v22="http://xmlns.jdap.com/auction/Item/Objects/v2" xmlns:v23="http://xmlns.jdap.com/auction/Common/v2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:CreateItem>
+         <!--Optional:-->
+         <v21:MessageHeader>
+            <v21:RequestId>?</v21:RequestId>
+            <v21:CreationDateTime>?</v21:CreationDateTime>
+            <v21:Sender>
+               <v21:SenderId>?</v21:SenderId>
+               <!--Zero or more repetitions:-->
+               <v21:ReferenceId>?</v21:ReferenceId>
+               <!--Optional:-->
+               <v21:SenderName>?</v21:SenderName>
+               <!--Optional:-->
+               <v21:SenderTimeZone>?</v21:SenderTimeZone>
+               <!--Optional:-->
+               <v21:WSAddressing>
+                  <!--Optional:-->
+                  <add:From>
+                     <add:Address>?</add:Address>
+                     <!--Optional:-->
+                     <add:ReferenceParameters>
+                        <!--You may enter ANY elements at this point-->
+                     </add:ReferenceParameters>
+                     <!--Optional:-->
+                     <add:Metadata>
+                        <!--You may enter ANY elements at this point-->
+                     </add:Metadata>
+                     <!--You may enter ANY elements at this point-->
+                  </add:From>
+                  <!--Optional:-->
+                  <add:To>?</add:To>
+                  <!--Optional:-->
+                  <add:ReplyTo>
+                     <add:Address>?</add:Address>
+                     <!--Optional:-->
+                     <add:ReferenceParameters>
+                        <!--You may enter ANY elements at this point-->
+                     </add:ReferenceParameters>
+                     <!--Optional:-->
+                     <add:Metadata>
+                        <!--You may enter ANY elements at this point-->
+                     </add:Metadata>
+                     <!--You may enter ANY elements at this point-->
+                  </add:ReplyTo>
+                  <!--Optional:-->
+                  <add:FaultTo>
+                     <add:Address>?</add:Address>
+                     <!--Optional:-->
+                     <add:ReferenceParameters>
+                        <!--You may enter ANY elements at this point-->
+                     </add:ReferenceParameters>
+                     <!--Optional:-->
+                     <add:Metadata>
+                        <!--You may enter ANY elements at this point-->
+                     </add:Metadata>
+                     <!--You may enter ANY elements at this point-->
+                  </add:FaultTo>
+               </v21:WSAddressing>
+            </v21:Sender>
+            <!--Optional:-->
+            <v21:TransactionId>?</v21:TransactionId>
+            <!--Optional:-->
+            <v21:BusinessProcessId>?</v21:BusinessProcessId>
+            <!--Optional:-->
+            <v21:UserId>?</v21:UserId>
+            <!--Optional:-->
+            <v21:LoggingLevel>?</v21:LoggingLevel>
+            <!--Zero or more repetitions:-->
+            <v21:ExtensionProperties>
+               <v21:Name>?</v21:Name>
+               <v21:Value>?</v21:Value>
+            </v21:ExtensionProperties>
+            <!--Optional:-->
+            <v21:extension/>
+         </v21:MessageHeader>
+         <!--Optional:-->
+                  <v22:item>
+            <!--Optional:-->
+            <v22:id>?</v22:id>
+			<v22:sellerId>30a0af8f-3682-4cf6-bea3-e68e345dfa81</v22:sellerId>
+            <v22:title>?</v22:title>
+            <v22:description>?</v22:description>
+            <!--1 or more repetitions:-->
+            <v22:category>
+               <!--Optional:-->
+               <v23:id>?</v23:id>
+               <v23:category>true</v23:category>
+               <v23:name>Books</v23:name>
+               <v23:description>Books Category</v23:description>
+               <!--Optional:-->
+               <v23:subcategory>
+					<!--Optional:-->
+					<v23:id>?</v23:id>
+					<v23:category>false</v23:category>
+					<v23:name>History</v23:name>
+					<v23:description>History Books</v23:description>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>World</v23:name>
+						<v23:description>World history Books</v23:description>
+						<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>Religion</v23:name>
+							<v23:description>Religion history Books</v23:description>	
+						</v23:subcategory>
+						<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>Woman</v23:name>
+							<v23:description>Woman History Books</v23:description>	
+						</v23:subcategory>
+					</v23:subcategory>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Military</v23:name>
+						<v23:description>Military History Books</v23:description>
+						<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>Intelligence</v23:name>
+							<v23:description>Intelligence Military History Books</v23:description>	
+						</v23:subcategory>
+						<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>World War I</v23:name>
+							<v23:description>World War Military History Books</v23:description>	
+						</v23:subcategory>
+						<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>World War II</v23:name>
+							<v23:description>World War II Military History Books</v23:description>	
+						</v23:subcategory>
+					</v23:subcategory>
+				
+				</v23:subcategory>
+				<v23:subcategory>
+					<!--Optional:-->
+					<v23:id>?</v23:id>
+					<v23:category>false</v23:category>
+					<v23:name>Science and Math</v23:name>
+					<v23:description>Science and Math Books</v23:description>		
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Physics</v23:name>
+						<v23:description>Physics Science and Math Books</v23:description>	
+					</v23:subcategory>	
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Math</v23:name>
+						<v23:description>Math Science and Math Books</v23:description>	
+					</v23:subcategory>	
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Technology</v23:name>
+						<v23:description>Technology Books</v23:description>	
+					</v23:subcategory>
+				</v23:subcategory>
+            </v22:category>
+			
+			
+            <v22:category>
+				<!--Optional:-->
+				<v23:id>?</v23:id>
+				<v23:category>true</v23:category>
+				<v23:name>Computers and Accessories</v23:name>
+				<v23:description>Computers and Accessories Category</v23:description>
+				<!--Optional:-->
+				<v23:subcategory>
+					<!--Optional:-->
+					<v23:id>?</v23:id>
+					<v23:category>false</v23:category>
+					<v23:name>Desktop Computers</v23:name>
+					<v23:description>Desktop Computers</v23:description>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Dell</v23:name>
+						<v23:description>Dell Desktop Computers</v23:description>						
+					</v23:subcategory>
+					<v23:subcategory>
+							<!--Optional:-->
+							<v23:id>?</v23:id>
+							<v23:category>false</v23:category>
+							<v23:name>HP</v23:name>
+							<v23:description>HP Desktop Computers</v23:description>
+					</v23:subcategory>
+				</v23:subcategory>
+				<v23:subcategory>
+					<!--Optional:-->
+					<v23:id>?</v23:id>
+					<v23:category>false</v23:category>
+					<v23:name>Laptop Computer</v23:name>
+					<v23:description>Laptop Computers</v23:description>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Dell</v23:name>
+						<v23:description>Dell Laptop Computers</v23:description>
+					</v23:subcategory>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>HP</v23:name>
+						<v23:description>HP Laptop Computers</v23:description>
+					</v23:subcategory>
+				</v23:subcategory>
+				<v23:subcategory>
+					<!--Optional:-->
+					<v23:id>?</v23:id>
+					<v23:category>false</v23:category>
+					<v23:name>Computers Monitors</v23:name>
+					<v23:description>Computers Monitors</v23:description>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Asus</v23:name>
+						<v23:description>Asus Computers Monitor</v23:description>
+					</v23:subcategory>
+					<v23:subcategory>
+						<!--Optional:-->
+						<v23:id>?</v23:id>
+						<v23:category>false</v23:category>
+						<v23:name>Dell</v23:name>
+						<v23:description>Dell Computers Monitors</v23:description>
+					</v23:subcategory>
+				</v23:subcategory>
+            </v22:category>
+            <v22:initialPrice>10</v22:initialPrice>
+            <!--Optional:-->
+            <v22:reservePrice>240</v22:reservePrice>
+            <!--Optional:-->
+            <v22:condition>NEW</v22:condition>
+            <!--Optional:-->
+            <v22:paymentMethod>CREDIT_CARD</v22:paymentMethod>
+            <!--Optional:-->
+            <v22:auctionDuration>?</v22:auctionDuration>
+            <!--Optional:-->
+            <v22:startTime>?</v22:startTime>
+            <!--Optional:-->
+            <v22:postageCost>?</v22:postageCost>
+         </v22:item>
+         <createCategories>true</createCategories>
+      </v2:CreateItem>
+   </soapenv:Body>
+</soapenv:Envelope>

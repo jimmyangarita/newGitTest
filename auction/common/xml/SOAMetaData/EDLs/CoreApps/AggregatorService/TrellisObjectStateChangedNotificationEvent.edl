@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://schemas.oracle.com/events/edl" targetNamespace="http://xmlns.avocent.com/commonplatform/objectstatechangednotificationevent/edl">
+    <schema-import namespace="http://xmlns.avocent.com/commonplatform/objectstatechangednotification" location="../../../Components/EnterpriseObjectLibrary/CoreApps/AggregatorService/V1/auctionObjectStateChangedNotificationEvent.xsd"/>
+    <event-definition name="ObjectStateChangeNotification">
+        <content xmlns:ns0="http://xmlns.avocent.com/commonplatform/objectstatechangednotification" element="ns0:ObjectStateChangedNotification"/>
+    </event-definition>
+</definitions>
+
+

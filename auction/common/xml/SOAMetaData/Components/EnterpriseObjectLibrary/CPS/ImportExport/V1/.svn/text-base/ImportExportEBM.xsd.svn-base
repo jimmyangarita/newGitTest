@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ImportExport/V1" xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" xmlns:cpscom="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1" xmlns="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ImportExport/V1" targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ImportExport/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+<xsd:include schemaLocation="ImportExportEBO.xsd"/>
+<xsd:import namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+<xsd:import schemaLocation="../../Common/V1/CommonComponents.xsd" namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1"/>
+<xsd:element name="ImportRequestEBM" type="ImportRequestEBMType"/>
+<xsd:complexType name="ImportRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="ImportRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="ImportResponseEBM" type="ImportResponseEBMType"/>
+<xsd:complexType name="ImportResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="ImportResponsePayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="ImportRequestPayload">
+<xsd:annotation>
+<xsd:documentation>A sample element</xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="ebo:ImportExportEBO"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="ImportResponsePayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="cpscom:MetaDataDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:StagingAreaDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:Status" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.00">
+<xsd:element name="PaginationDetails" type="PaginationsDetailsType"/>
+<xsd:complexType name="PaginationsDetailsType">
+<xsd:sequence>
+<xsd:element name="OffSet" type="xsd:nonNegativeInteger" minOccurs="0"/>
+<xsd:element name="RecordCount" type="xsd:positiveInteger" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="MetaDataDetails" type="MetaDataDetailsType"/>
+<xsd:complexType name="MetaDataDetailsType">
+<xsd:sequence>
+<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Direction" type="xsd:string" minOccurs="0"/>
+<xsd:element name="CorrelationIdentifier" type="xsd:string" minOccurs="0"/>
+<xsd:element name="EncryptionType" type="xsd:string" minOccurs="0"/>
+<xsd:element name="IsZIPFile" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="FileDetails" type="FileDetailsType"/>
+<xsd:complexType name="FileDetailsType">
+<xsd:sequence>
+<xsd:element name="FileName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FilePath" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FileSize" type="xsd:string" minOccurs="0"/>
+<xsd:element name="FileFormat" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="PreferencesList" type="PreferencesListType"/>
+<xsd:complexType name="PreferencesListType">
+<xsd:sequence>
+<xsd:element name="Preference" maxOccurs="unbounded" minOccurs="0">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="HeaderType">
+<xsd:sequence>
+<xsd:element name="HeaderName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="HeaderDataType" type="xsd:string" minOccurs="0"/>
+<xsd:element name="HeaderDisplayName" type="xsd:string" minOccurs="0"/>
+<xsd:element name="HeaderLength" type="xsd:integer" minOccurs="0"/>
+<xsd:element name="IsHeaderContentMandatory" type="xsd:boolean" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Header" type="cpscom:HeaderType"/>
+<xsd:element name="HeaderList" type="cpscom:HeaderListType"/>
+<xsd:complexType name="HeaderListType">
+<xsd:sequence>
+<xsd:element ref="Header" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="NoOfRecords" type="xsd:integer"/>
+<xsd:complexType name="MapperDetailsType">
+<xsd:sequence>
+<xsd:element name="Identifier" type="xsd:string" minOccurs="0"/>
+<xsd:element ref="FileDetails" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="MapperDetails" type="MapperDetailsType"/>
+<xsd:complexType name="StagingAreaDetailsType">
+<xsd:sequence>
+<xsd:element name="Identifier" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="StagingAreaDetails" type="StagingAreaDetailsType"/>
+<xsd:complexType name="StatusType">
+<xsd:sequence>
+<xsd:element name="Code" type="xsd:string" minOccurs="0"/>
+<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+<xsd:element name="LineStatusCode" type="xsd:string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="Status" type="StatusType"/>
+</xsd:schema>

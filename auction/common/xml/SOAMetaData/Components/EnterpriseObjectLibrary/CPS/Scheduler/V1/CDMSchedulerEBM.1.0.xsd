@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/ebm"
+            targetNamespace="http://xmlns.dcim.emerson.com/cps/scheduler/cdm/ebm"
+            xmlns:scheduler="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+            elementFormDefault="qualified" version="1.0">
+  <xsd:import namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"
+              schemaLocation="CPSSchedulerEBO.1.0.xsd"/>
+              <xsd:complexType name="TaskEBMType">
+        <xsd:complexContent>
+            <xsd:extension base="scheduler:TaskEBOType"/>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TaskActionTypeEBMType">
+        <xsd:complexContent>
+            <xsd:extension base="scheduler:TaskActionTypeEBOType"/>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:complexType name="TaskActionEBMType">
+        <xsd:complexContent>
+            <xsd:extension base="scheduler:TaskActionEBOType"/>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    
+    
+    <xsd:complexType name="TaskActionParametersEBMType">
+        <xsd:complexContent>
+            <xsd:extension base="scheduler:TaskActionParametersEBOType"/>
+        </xsd:complexContent>
+    </xsd:complexType>
+    
+    <xsd:element name="CommonResponse" type="CommonResponseType"/>
+    <xsd:complexType name="CommonResponseType">
+        <xsd:sequence>
+            <xsd:element name="ErrorMessage" type="xsd:string"/>
+            <xsd:element name="ErrorCode" type="xsd:string"/>
+            <xsd:element name="Result" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+    <xsd:element name="RegisterTaskActionTypeRequest" type="RegisterTaskActionTypeRequestType"/>
+    <xsd:complexType name="RegisterTaskActionTypeRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskActionTypeEBM" minOccurs="1" maxOccurs="unbounded" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="RegisterTaskActionTypeResponse" type="RegisterTaskActionTypeResponseType"/>
+    <xsd:complexType name="RegisterTaskActionTypeResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+            <xsd:element name="TaskActionTypeEBM" minOccurs="1" maxOccurs="unbounded" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="UpdateTaskActionTypeRequest" type="UpdateTaskActionTypeRequestType"/>
+    <xsd:complexType name="UpdateTaskActionTypeRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskActionTypeEBM" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UpdateTaskActionTypeResponse" type="UpdateTaskActionTypeResponseType"/>
+    <xsd:complexType name="UpdateTaskActionTypeResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+   
+    <xsd:element name="FindTaskActionTypeByIdRequest" type="FindTaskActionTypeByIdRequestType"/>
+    <xsd:complexType name="FindTaskActionTypeByIdRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskActionTypeId" type="scheduler:TaskActionTypeIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FindTaskActionTypeByIdResponse" type="FindTaskActionTypeByIdResponseType"/>
+    <xsd:complexType name="FindTaskActionTypeByIdResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskActionTypeEBM" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="GetAllTaskActionTypesRequest" type="GetAllTaskActionTypesRequestType"/>
+    <xsd:complexType name="GetAllTaskActionTypesRequestType"/>
+    <xsd:element name="GetAllTaskActionTypesResponse" type="GetAllTaskActionTypesResponseType"/>
+    <xsd:complexType name="GetAllTaskActionTypesResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskActionType" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="UnRegisterTaskActionTypeRequest" type="UnRegisterTaskActionTypeRequestType"/>
+    <xsd:complexType name="UnRegisterTaskActionTypeRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskActionType" type="TaskActionTypeEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UnRegisterTaskActionTypeResponse" type="UnRegisterTaskActionTypeResponseType"/>
+    <xsd:complexType name="UnRegisterTaskActionTypeResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+            <xsd:element name="TaskActionType" type="TaskActionTypeEBMType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="AddTaskActionRequest" type="AddTaskActionRequestType"/>
+    <xsd:complexType name="AddTaskActionRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskAction" type="TaskActionEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AddTaskActionResponse" type="AddTaskActionResponseType"/>
+    <xsd:complexType name="AddTaskActionResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="UpdateTaskActionRequest" type="UpdateTaskActionRequestType"/>
+    <xsd:complexType name="UpdateTaskActionRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskAction" type="TaskActionEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="UpdateTaskActionResponse" type="UpdateTaskActionResponseType"/>
+    <xsd:complexType name="UpdateTaskActionResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="DeleteTaskActionRequest" type="DeleteTaskActionRequestType"/>
+    <xsd:complexType name="DeleteTaskActionRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskActionID" type="scheduler:TaskActionIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DeleteTaskActionResponse" type="DeleteTaskActionResponseType"/>
+    <xsd:complexType name="DeleteTaskActionResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+            <xsd:element name="TaskActionID" type="scheduler:TaskActionIdEBOType" minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="GetAllTasksActionRequest" type="GetAllTasksActionRequestType"/>
+    <xsd:complexType name="GetAllTasksActionRequestType"/>
+    <xsd:element name="GetAllTasksActionResponse" type="GetAllTasksActionResponseType"/>
+    <xsd:complexType name="GetAllTasksActionResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskAction" type="TaskActionEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="GetAllTasksActionByDateRequest" type="GetAllTasksActionByDateRequestType"/>
+    <xsd:complexType name="GetAllTasksActionByDateRequestType">
+        <xsd:sequence>
+            <xsd:element name="startDate" type="xsd:dateTime"/>
+            <xsd:element name="endDate" type="xsd:dateTime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetAllTasksActionByDateResponse" type="GetAllTasksActionByDateResponseType"/>
+    <xsd:complexType name="GetAllTasksActionByDateResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskAction" type="TaskActionEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="FindTaskActionByIdRequest" type="FindTaskActionByIdRequestType"/>
+    <xsd:complexType name="FindTaskActionByIdRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskActionId" type="scheduler:TaskActionIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FindTaskActionByIdResponse" type="FindTaskActionByIdResponseType"/>
+    <xsd:complexType name="FindTaskActionByIdResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskActionEBM" type="TaskActionEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="GetTaskActionStatusRequest" type="GetTaskActionStatusRequestType"/>
+    <xsd:complexType name="GetTaskActionStatusRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskActionId" type="scheduler:TaskActionIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetTaskActionStatusResponse" type="GetTaskActionStatusResponseType"/>
+    <xsd:complexType name="GetTaskActionStatusResponseType">
+        <xsd:sequence>
+            <xsd:element name="Status" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+  <xsd:element name="UpdateTaskRequest" type="UpdateTaskRequestType"/>
+    <xsd:complexType name="UpdateTaskRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionIdEBO" type="scheduler:TaskActionIdEBOType"/>
+      <xsd:element name="TaskEBM" type="TaskEBMType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UpdateTaskResponse" type="UpdateTaskResponseType"/>
+  <xsd:complexType name="UpdateTaskResponseType">
+    <xsd:sequence>
+      <xsd:element ref="CommonResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetTaskRequest" type="GetTaskRequestType"/>
+  <xsd:complexType name="GetTaskRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskIdEBO" type="scheduler:TaskIdEBOType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetTaskResponse" type="GetTaskResponseType"/>
+  <xsd:complexType name="GetTaskResponseType">
+    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="TaskEBM" type="TaskEBMType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetTaskFrequencyRequest" type="GetTaskFrequencyRequestType"/>
+  <xsd:complexType name="GetTaskFrequencyRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionIdEBO" type="scheduler:TaskActionIdEBOType"/>
+      <xsd:element name="TaskIdEBO" type="scheduler:TaskIdEBOType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetTaskFrequencyResponse"
+               type="GetTaskFrequencyResponseType"/>
+  <xsd:complexType name="GetTaskFrequencyResponseType">
+    <xsd:sequence>
+      <xsd:element name="TaskFrequencyEBO"
+                   type="scheduler:TaskFrequencyEBOType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="GetTaskActionParametersRequest" type="GetTaskActionParametersRequestType"/>
+  <xsd:complexType name="GetTaskActionParametersRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionEBM" type="TaskActionEBMType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetTaskActionParametersResponse"
+               type="GetTaskActionParametersResponseType"/>
+  <xsd:complexType name="GetTaskActionParametersResponseType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionParametersEBM"
+                   type="TaskActionParametersEBMType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UpdateTaskActionParametersRequest" type="UpdateTaskActionParametersRequestType"/>
+  <xsd:complexType name="UpdateTaskActionParametersRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionIdEBO" type="scheduler:TaskActionIdEBOType"/>
+      <xsd:element name="TaskActionParametersEBM"
+                   type="TaskActionParametersEBMType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UpdateTaskActionParametersResponse"
+               type="UpdateTaskActionParametersResponseType"/>
+  <xsd:complexType name="UpdateTaskActionParametersResponseType">
+    <xsd:sequence>
+      <xsd:element ref="CommonResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+   
+    <xsd:element name="GetTaskDurationRequest" type="GetTaskDurationRequestType"/>
+    <xsd:complexType name="GetTaskDurationRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskId" type="scheduler:TaskIdEBOType"/>
+            
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetTaskDurationResponse" type="GetTaskDurationResponseType"/>
+    <xsd:complexType name="GetTaskDurationResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="AddTaskRequest" type="AddTaskRequestType"/>
+    <xsd:complexType name="AddTaskRequestType">
+        <xsd:sequence>
+            <xsd:element name="Task" type="TaskEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="AddTaskResponse" type="AddTaskResponseType"/>
+    <xsd:complexType name="AddTaskResponseType">
+        <xsd:sequence>
+            <xsd:element name="TaskIdEBO" type="scheduler:TaskIdEBOType"/>
+            <xsd:element ref="CommonResponse"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    
+    
+    <xsd:element name="DeleteTaskRequest" type="DeleteTaskRequestType"/>
+    <xsd:complexType name="DeleteTaskRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskID" type="scheduler:TaskIdEBOType"/>
+            
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DeleteTaskResponse" type="DeleteTaskResponseType"/>
+    <xsd:complexType name="DeleteTaskResponseType">
+        <xsd:sequence>
+            <xsd:element ref="CommonResponse"/>
+            <xsd:element name="TaskID" type="scheduler:TaskIdEBOType" minOccurs="0"
+                 maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:element name="GetTaskStatusRequest" type="GetTaskStatusRequestType"/>
+    <xsd:complexType name="GetTaskStatusRequestType">
+        <xsd:sequence>
+            <xsd:element name="TaskId" type="scheduler:TaskIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetTaskStatusResponse" type="GetTaskStatusResponseType"/>
+    <xsd:complexType name="GetTaskStatusResponseType">
+        <xsd:sequence>
+            <xsd:element name="Status" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:element name="GetAllTasksRequest" type="GetAllTasksRequestType"/>
+    <xsd:complexType name="GetAllTasksRequestType"/>
+    <xsd:element name="GetAllTasksResponse" type="GetAllTasksResponseType"/>
+    <xsd:complexType name="GetAllTasksResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="Task" type="TaskEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="GetAllTasksByDateRequest" type="GetAllTasksByDateRequestType"/>
+    <xsd:complexType name="GetAllTasksByDateRequestType">
+        <xsd:sequence>
+            <xsd:element name="startDate" type="xsd:dateTime"/>
+            <xsd:element name="endDate" type="xsd:dateTime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="GetAllTasksByDateResponse" type="GetAllTasksByDateResponseType"/>
+    <xsd:complexType name="GetAllTasksByDateResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="Task" type="TaskEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="FindTaskByIdRequest" type="FindTaskByIdRequestType"/>
+    <xsd:complexType name="FindTaskByIdRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskId" type="scheduler:TaskIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FindTaskByIdResponse" type="FindTaskByIdResponseType"/>
+    <xsd:complexType name="FindTaskByIdResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskEBM" type="TaskEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>    
+    
+    <xsd:element name="FindTaskByReferenceIdRequest" type="FindTaskByReferenceIdRequestType"/>
+    <xsd:complexType name="FindTaskByReferenceIdRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="TaskReferenceId" type="scheduler:TaskReferenceIdEBOType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FindTaskByReferenceIdResponse" type="FindTaskByReferenceIdResponseType"/>
+    <xsd:complexType name="FindTaskByReferenceIdResponseType">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="TaskEBM" type="TaskEBMType"/>
+        </xsd:sequence>
+    </xsd:complexType>       
+    
+    <xsd:element name="FindTaskActionTypeByNameRequest"
+                 type="FindTaskActionTypeByNameRequestType"/>
+    <xsd:complexType name="FindTaskActionTypeByNameRequestType">
+        <xsd:sequence minOccurs="1" maxOccurs="1">
+            <xsd:element name="Name" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="FindTaskActionTypeByNameResponse"
+                 type="FindTaskActionTypeByNameType"/>
+    <xsd:complexType name="FindTaskActionTypeByNameType">
+        <xsd:sequence>
+            <xsd:element name="TaskActionTypeEBO" type="scheduler:TaskActionTypeEBOType" minOccurs="1"
+                         maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+  <xsd:element name="UpdateTaskActionStatusRequest" type="UpdateTaskActionStatusRequestType"/>
+    <xsd:complexType name="UpdateTaskActionStatusRequestType">
+    <xsd:sequence>
+      <xsd:element name="TaskActionIdEBO" type="scheduler:TaskActionIdEBOType"/>
+      <xsd:element name="StatusEBO" type="scheduler:StatusEBOType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="UpdateTaskActionStatusResponse" type="UpdateTaskActionStatusResponseType"/>
+  <xsd:complexType name="UpdateTaskActionStatusResponseType">
+    <xsd:sequence>
+      <xsd:element ref="CommonResponse"/>
+    </xsd:sequence>
+  </xsd:complexType>    
+</xsd:schema>

@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1
+END
+AssetDataEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/AssetDataEBM.xsd
+END
+ImportExportEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/ImportExportEBM.xsd
+END
+AssetDataEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/AssetDataEBO.xsd
+END
+ImportExportEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/ImportExportEBO.xsd
+END
+StagingAreaDataLoaderEBM.xml
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/StagingAreaDataLoaderEBM.xml
+END
+StagingAreaDataLoaderEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 202
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/StagingAreaDataLoaderEBM.xsd
+END
+DataLoadEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/DataLoadEBM.xsd
+END
+DataFormatterEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/DataFormatterEBM.xsd
+END
+DataImportMappingFacadeEJBBeanService.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/DataImportMappingFacadeEJBBeanService.xsd
+END
+ImageLoaderEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 192
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/ImageLoaderEBM.xsd
+END
+DataLoadEBO.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 189
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/ImportExport/V1/DataLoadEBO.xsd
+END

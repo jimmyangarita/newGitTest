@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:alarm="http://xmlns.avocent.com/commonplatform/alarm"
+            targetNamespace="http://xmlns.avocent.com/commonplatform/alarm"
+            elementFormDefault="qualified">
+<xsd:element name="auctionAlarm" type="alarm:auctionAlarmType"/>
+   <xsd:complexType name="auctionAlarmType">
+      <xsd:sequence>
+        <!-- Class of published EDN events; e.g. { Device | Engine | Service | Application | Platform  | etc. } -->
+        <xsd:element name="EventClass" type="xsd:string"/>
+        <xsd:element name="Header" minOccurs="1" maxOccurs="1" type="alarm:auctionAlarmHeader"/>
+        <xsd:element name="Payload" minOccurs= "1" maxOccurs="1" type="alarm:auctionAlarmPayload" />
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="auctionAlarmHeader">
+      <xsd:sequence>
+        <!-- Programmatic name that identifies this AlarmType; not localized -->
+        <xsd:element name="AlarmTypeTag" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized alarm 'name' string for this AlarmType -->
+        <xsd:element name="AlarmNameKey" type="xsd:string" minOccurs="1"/>
+        <!-- Token for localized enum string for CDMR AlarmState enum; e.g. { Active | Cleared } -->
+        <xsd:element name="AlarmStateKey" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized boolean alarm acknowledged flag -->
+        <xsd:element name="Acknowledged" type="xsd:boolean" minOccurs="1"/>
+		<!-- Token for localized enum string for CDMR EventSeverity enum; e.g. { Critical | Warning | Informational } -->
+        <xsd:element name="SeverityKey" type="xsd:string" minOccurs="1"/>
+
+		<!-- Subject<xxxx> fields identify the object for which the alarm was generated.
+		     Name of object with this alarm; e.g. device name. Loaded from SubjectObjectId instance info -->
+        <xsd:element name="SubjectName" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized enum string for CDMR SubjectCategory enum; e.g. { Facility | IT } -->
+        <xsd:element name="SubjectCategoryKey" type="xsd:string" minOccurs="1"/>
+		<!-- Token for localized enum string for CDMR EventSubjectType enum; e.g. { Device | Application | Platform } -->
+        <xsd:element name="SubjectTypeKey" type="xsd:string" minOccurs="1"/>
+		<!-- GUID for object with the Alarm -->
+        <xsd:element name="SubjectObjectId" type="xsd:string" minOccurs="0"/>
+
+		<!-- Source<xxxx> fields identify the object that generated the alarm; often same as Subject<xxx>.
+		     Token for localized enum string for CDMR EventSourceType enum; e.g. { Device | Application | Platform  } -->
+        <xsd:element name="SourceTypeKey" type="xsd:string" minOccurs="1"/>
+
+		<!-- Name of equipment category for object with the alarm; e.g. UPS, Environmental, RackPdu, Server, etc.
+             Loaded by accessing SubjectObjectId instance info -->
+        <xsd:element name="EquipCategory" type="xsd:string" minOccurs="0"/>
+
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="auctionAlarmPayload">
+      <xsd:sequence>
+        <!-- UUID of the Alarm instance stored in the Database ... -->
+        <xsd:element name="AlarmInstanceId" type="xsd:string"/>
+
+		<!-- Token for localized 'shortDescription' string for this AlarmType; typically one sentence -->
+        <xsd:element name="AlarmDescriptionKey" type="xsd:string"/>
+		<!-- Token for localized 'longDescription' string for this AlarmType;
+		     typically has helpful text to understand the alarm.” -->
+        <xsd:element name="AlarmDetailDescriptionKey" type="xsd:string" minOccurs="0"/>
+
+		<!-- Timestamp from initiating event instance -->
+        <xsd:element name="CreatedTimestamp" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<!-- Timestamp from last event transition instance -->
+        <xsd:element name="LastTransitionTimestamp" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+
+        <!-- Time when the alarm was acknowledged -->
+        <xsd:element name="AcknowledgedTimestamp" minOccurs="0" type="xsd:string"/>
+        <!-- Identifies who acknowledged the alarm by their UUID -->    
+        <xsd:element name="AcknowledgedBy" minOccurs="0" type="xsd:string"/>
+
+		<!-- Source<xxxx> fields identify the object that generated the alarm; often same as Subject<xxx>.
+		     Name of object that generated the alarm; e.g. device name. Loaded from SourceObjectId instance info -->
+        <xsd:element name="SourceName" type="xsd:string" minOccurs="0"/>
+		<!-- GUID of source object that generated the alarm -->
+        <xsd:element name="SourceObjectId" type="xsd:string" minOccurs="0"/>
+
+        <!--Identifies the escalationLevel of the alarm -->    
+        <xsd:element name="EscalationLevel" minOccurs="0" type="xsd:integer"/>
+
+  	    <!-- Identifies multi-module device component (if any) -->
+        <xsd:element name="Component" type="alarm:Component" minOccurs="0" maxOccurs="1"/>
+
+  	    <!-- Used for name-value-pair data of alarm (if needed); e.g. alarmSubstitutionValues for a threshold alarm. -->
+        <xsd:element name="NVPData" type="alarm:NVPData" minOccurs="0" maxOccurs="unbounded"/>
+		  
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="Component">
+      <xsd:sequence>
+        <!-- Identify multi-module device component; verify element name, verify localization not needed -->
+        <xsd:element name="Name" minOccurs="1" type="xsd:string"/>
+        <!-- Verify element -->
+        <xsd:element name="Id" minOccurs="1" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   
+    <xsd:complexType name="NVPData">
+  	  <!-- Name-value-pair data of an alarm; e.g. a threshold alarm with substitution data to display in alarm name. -->
+      <xsd:sequence>
+        <xsd:element name="Name" minOccurs="1" type="xsd:string"/>
+        <xsd:element name="Value" minOccurs="1" type="xsd:string"/>
+      </xsd:sequence>
+   </xsd:complexType>
+	
+</xsd:schema>

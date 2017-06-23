@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:cpscom="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1" version="1.00">
+<xsd:include schemaLocation="CommonComponents.xsd"/>
+<xsd:import schemaLocation="../../../Infrastructure/V1/Meta.xsd" namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"/>
+<xsd:element name="XSLTransformRequestPayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="cpscom:FileDetails" minOccurs="0"/>
+<xsd:element ref="cpscom:MapperDetails" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="XSLTransformRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="XSLTransformRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="XSLTransformRequestEBM" type="XSLTransformRequestEBMType"/>
+<xsd:element name="XSLTransformResponsePayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="FileDetails" minOccurs="0"/>
+<xsd:element ref="Status" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="XSLTransformResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="XSLTransformResponsePayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="XSLTransformResponseEBM" type="XSLTransformResponseEBMType"/>
+</xsd:schema>

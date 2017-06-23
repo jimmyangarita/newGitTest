@@ -1,0 +1,55 @@
+<!-- Name: AddressObjects-v2.xsd Description: XML Schema for Address Objects Copyright (c) 2014 
+	JDAP Corporation. All rights reserved. -->
+<xsd:schema targetNamespace="http://xmlns.jdap.com/auction/Address/Objects/v2"
+	elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:address="http://xmlns.jdap.com/auction/Address/Objects/v2" xmlns:ext="http://xmlns.jdap.com/auction/Address/Objects/Extension/v2">
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Address/Objects/Extension/v2"
+		schemaLocation="../Extension/v2/ExtensionAddressObjects-v2.xsd" />
+	<xsd:complexType name="addressType">
+		<xsd:sequence>
+			<xsd:element name="line1" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Street line 1 Address</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="line2" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Street line 2 Address</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="city" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>sity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="state" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>State</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="zip" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Zipcode
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="country" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Country</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="ext:ExtensionAddressType" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Extension point for the address.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="address" type="address:addressType">
+		<xsd:annotation>
+			<xsd:documentation>Address extension for MM system</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>
+

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1
+END
+XSLTransformEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/XSLTransformEBM.xsd
+END
+FileParserEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 185
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/FileParserEBM.xsd
+END
+TrellisEvent.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/TrellisEvent.xsd
+END
+TrellisAlarm.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/TrellisAlarm.xsd
+END
+CSVToRawXMLEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/CSVToRawXMLEBM.xsd
+END
+FilePurgeEBM.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/FilePurgeEBM.xsd
+END
+CommonComponents.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 188
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Common/V1/CommonComponents.xsd
+END

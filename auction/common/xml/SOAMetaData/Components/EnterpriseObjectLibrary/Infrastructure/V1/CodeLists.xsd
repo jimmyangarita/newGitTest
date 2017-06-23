@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** avocent  **
+** auction SOA Metadata**
+** Version 1.00 **
+** Date: 14 Feb 2011 **
+
+<<avocent copyright string >>
+
+  
+XML Schema 
+
+Name: auction_HOME\SOAMetaData\EnterpriseObjectLibrary\Common\V1\CodeLists.xsd
+
+Description: Contains all the code type definitions which will be used for defining EBMs
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" 
+xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.00">
+
+
+	<xsd:simpleType name="ResponseTypeCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OBJECT"/>
+			<xsd:enumeration value="ID"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+	<xsd:simpleType name="LanguageCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="en"/>
+			<xsd:enumeration value="fr"/>
+			<xsd:enumeration value="jp"/>
+			<!-- todo: add ISO language codes list -->
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ImplementationCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BPEL"/>
+			<xsd:enumeration value="MEDIATOR"/>
+      <xsd:enumeration value="COMPOSITE"/>
+			<xsd:enumeration value="JAVA"/>
+			<xsd:enumeration value="OSB"/>
+			<xsd:enumeration value="ADF-BC"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+</xsd:schema>

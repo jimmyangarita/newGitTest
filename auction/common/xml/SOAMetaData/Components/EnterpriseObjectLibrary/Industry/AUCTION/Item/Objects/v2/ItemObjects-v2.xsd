@@ -1,0 +1,100 @@
+<!-- Name: ItemObjects-v2.xsd Description: XML Schema for Item Objects Copyright (c) 2014 JDAP 
+	Corporation. All rights reserved. -->
+<xsd:schema targetNamespace="http://xmlns.jdap.com/auction/Item/Objects/v2"
+	elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:item="http://xmlns.jdap.com/auction/Item/Objects/v2" xmlns:ext="http://xmlns.jdap.com/auction/Item/Objects/Extension/v2"
+	xmlns:common="http://xmlns.jdap.com/auction/Common/v2">
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd" />
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Item/Objects/Extension/v2"
+		schemaLocation="../Extension/v2/ExtensionItemObjects-v2.xsd" />
+	<xsd:complexType name="itemType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier for the Item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sellerId" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User, Seller who creates the Item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="title" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Main name for the Item</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"></xsd:minLength>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies more detailed Item Description to be display
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="category" type="common:categoryType" minOccurs="1"
+				maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Category and sub category from where the Item is listed
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="initialPrice" type="xsd:double" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Price when the Item was Listed as minimum price</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="reservePrice" type="xsd:double" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>It can be used to by now if you Pay at least this amount for the
+						Item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="condition" type="common:itemCondition" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>What are the Item conditions from new to very used
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="paymentMethod" type="common:paymentMethod" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the payment method CC, cash, etc</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="auctionDuration" type="common:auctionDurationDays"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Specifies the product line of the item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="startTime" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Date and time when item was installed</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="postageCost" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>The cost of posting the item, following the Listing fee.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="ext:ExtensionItemType" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Extension point for the device.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="item" type="item:itemType">
+		<xsd:annotation>
+			<xsd:documentation>Item extension for MM system</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>
+

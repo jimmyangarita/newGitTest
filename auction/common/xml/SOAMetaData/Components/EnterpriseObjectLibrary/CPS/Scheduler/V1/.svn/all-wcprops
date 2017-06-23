@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1
+END
+AQSCH_PROGRESS_TYPE.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/AQSCH_PROGRESS_TYPE.xsd
+END
+CDMSchedulerEBM.1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CDMSchedulerEBM.1.0.xsd
+END
+NotifyTaskCancelPort.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 195
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/NotifyTaskCancelPort.xsd
+END
+TrellisEvent.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/TrellisEvent.xsd
+END
+CPSQuartzSchedulerEBM.1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSQuartzSchedulerEBM.1.0.xsd
+END
+TrellisEvent.edl
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/TrellisEvent.edl
+END
+CPSQuartzSchedulerEBO.1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 200
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSQuartzSchedulerEBO.1.0.xsd
+END
+EnterpriseHeader.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 191
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseHeader.xsd
+END
+CPSSchedulerEBM.1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSSchedulerEBM.1.0.xsd
+END
+EnterpriseFault.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/EnterpriseFault.xsd
+END
+CPSSchedulerEBO.1.0.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 194
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CPSSchedulerEBO.1.0.xsd
+END
+CDMR_PROGRESS_TYPE.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/Components/EnterpriseObjectLibrary/CPS/Scheduler/V1/CDMR_PROGRESS_TYPE.xsd
+END

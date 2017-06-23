@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: UserMessages-v2.0.xsd
+
+Description: XML Schema for User Messages
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:usermsg="http://xmlns.jdap.com/auction/User/Messages/v2"
+            xmlns:userobj="http://xmlns.jdap.com/auction/User/Objects/v2"
+            xmlns:sellerobj="http://xmlns.jdap.com/auction/Seller/Objects/v2"
+            xmlns:bidderobj="http://xmlns.jdap.com/auction/Bidder/Objects/v2"
+            xmlns:common="http://xmlns.jdap.com/auction/Common/v2"
+            xmlns:header="http://xmlns.jdap.com/auction/Common/Messages/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/User/Messages/v2" elementFormDefault="qualified"
+            version="1.0">
+  <xsd:import namespace="http://xmlns.jdap.com/auction/User/Objects/v2"
+              schemaLocation="../../Objects/v2/UserObjects-v2.xsd"/>
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Seller/Objects/v2"
+              schemaLocation="../../Objects/v2/SellerObjects-v2.xsd"/>
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Bidder/Objects/v2"
+              schemaLocation="../../Objects/v2/BidderObjects-v2.xsd"/>              
+  <xsd:import schemaLocation="../../../common/Messages/v2/Message-v2.xsd"
+              namespace="http://xmlns.jdap.com/auction/Common/Messages/v2"/>
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd"/>
+  <xsd:complexType name="CreateSellerRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to create a user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Seller details to create the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateSellerRequestMessage" type="usermsg:CreateSellerRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create user request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateSellerResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of create user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The created user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateSellerResponseMessage" type="usermsg:CreateSellerResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create user response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="UpdateSellerRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to update the user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Seller details to be updated for the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateSellerRequestMessage" type="usermsg:UpdateSellerRequestMessageType"></xsd:element>
+  <xsd:complexType name="UpdateSellerResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of update user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user after update operation</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateSellerResponseMessage" type="usermsg:UpdateSellerResponseMessageType"></xsd:element>
+  <xsd:complexType name="DeleteSellerRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to delete a user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user object to be deleted</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ForceFlag" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The force flag to delete the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteSellerRequestMessage" type="usermsg:DeleteSellerRequestMessageType"></xsd:element>
+  <xsd:complexType name="DeleteSellerResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of the delete user query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteSellerResponseMessage" type="usermsg:DeleteSellerResponseMessageType"></xsd:element>
+  <xsd:complexType name="QuerySellerRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to query user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user to query user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QuerySellerRequestMessage" type="usermsg:QuerySellerRequestMessageType"></xsd:element>
+  <xsd:complexType name="QuerySellerResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of read user query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="sellerobj:seller" minOccurs="1" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user in response to query user request</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QuerySellerResponseMessage" type="usermsg:QuerySellerResponseMessageType"></xsd:element>
+  <!-- Added messages for Bidder method-->
+
+
+  <xsd:complexType name="CreateBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of user details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query user details for the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidderRequestMessage" type="usermsg:CreateBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query user details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of user details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query user details for the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateBidderResponseMessage" type="usermsg:CreateBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query user details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="UpdateBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to update the user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Seller details to be updated for the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateBidderRequestMessage" type="usermsg:UpdateBidderRequestMessageType"></xsd:element>
+  <xsd:complexType name="UpdateBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of update user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user after update operation</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateBidderResponseMessage" type="usermsg:UpdateBidderResponseMessageType"></xsd:element>
+  <xsd:complexType name="DeleteBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to delete a user</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the user object to be deleted</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ForceFlag" type="xsd:boolean" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The force flag to delete the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteBidderRequestMessage" type="usermsg:DeleteBidderRequestMessageType"></xsd:element>
+  <xsd:complexType name="DeleteBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of the delete user query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteBidderResponseMessage" type="usermsg:DeleteBidderResponseMessageType"></xsd:element>
+  
+    <xsd:complexType name="QueryBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request of user query details element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of user object to query user details</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryBidderRequestMessage" type="usermsg:QueryBidderRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query user details request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="QueryBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of user details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="bidderobj:bidder" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query user details for the user</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryBidderResponseMessage" type="usermsg:QueryBidderResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query user details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

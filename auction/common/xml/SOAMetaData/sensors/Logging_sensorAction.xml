@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<auctions targetNamespace="http://xmlns.oracle.com/TestBpelService_jws/CPS_Logging/Logging" xmlns="http://xmlns.oracle.com/bpel/sensor" xmlns:tns="http://xmlns.oracle.com/TestBpelService_jws/CPS_Logging/Logging" xmlns:pc="http://xmlns.oracle.com/bpel/sensor">
+   <auction name="LoggingSensorLogProcessorAction" publishName="" publishType="Custom" enabled="true" publishTarget="com.avocent.cps.corelogger.BPELLogSensorAction">
+      <sensorName>LoggingFineSensor</sensorName>
+      <sensorName>LoggingFinestSensor</sensorName>
+      <sensorName>LogggingConfigSensor</sensorName>
+      <sensorName>LoggingMessageSensor</sensorName>
+      <sensorName>LoggingWarnSensor</sensorName>
+      <sensorName>LoggingInfoSensor</sensorName>
+   </auction>
+</auctions>

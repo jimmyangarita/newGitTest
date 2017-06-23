@@ -1,0 +1,105 @@
+<!-- Name: UserObjects-v2.xsd Description: XML Schema for User Objects Copyright (c) 2014 JDAP 
+	Corporation. All rights reserved. -->
+<xsd:schema targetNamespace="http://xmlns.jdap.com/auction/User/Objects/v2"
+	elementFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:user="http://xmlns.jdap.com/auction/User/Objects/v2" xmlns:ext="http://xmlns.jdap.com/auction/User/Objects/Extension/v2"
+	xmlns:common="http://xmlns.jdap.com/auction/Common/v2" xmlns:addressObj="http://xmlns.jdap.com/auction/Address/Objects/v2">
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd" />
+	<xsd:import namespace="http://xmlns.jdap.com/auction/User/Objects/Extension/v2"
+		schemaLocation="../Extension/v2/ExtensionUserObjects-v2.xsd" />
+	<xsd:import namespace="http://xmlns.jdap.com/auction/Address/Objects/v2"
+		schemaLocation="../../../common/Objects/v2/AddressObjects-v2.xsd" />
+	<xsd:complexType name="userType" abstract="true">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Unique identifier for the User</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="usertype" type="common:UserKind" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Bidder,seller, or Admin</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="username" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>userName identity</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="password">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="5" />
+						<xsd:maxLength value="8" />
+					</xsd:restriction>
+					
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="firstName" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>firstName</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="lastName" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>lastName</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="email" type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User Email</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="phone" type="xsd:string" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User Phone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="creationDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User creation date</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="picture" type="xsd:byte" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User Phone</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element ref="addressObj:address" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>User Address</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="category" type="common:categoryType" minOccurs="0"
+				maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Category and sub category from where the Item is listed
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Extension" type="ext:ExtensionUserType" minOccurs="0"
+				maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>Extension point for the device.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="user" type="user:userType">
+		<xsd:annotation>
+			<xsd:documentation>User extension for MM system</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<!-- <xsd:complexType name="bidderType"> <xsd:complexContent> <xsd:extension base="user:userType"> 
+		<xsd:sequence> <xsd:element name="bidFrequency" type="xsd:double" maxOccurs="1" minOccurs="1" 
+		/> </xsd:sequence> </xsd:extension> </xsd:complexContent> </xsd:complexType> <xsd:element name="bidder" 
+		type="user:bidderType"> <xsd:annotation> <xsd:documentation>User extension for MM system</xsd:documentation> 
+		</xsd:annotation> </xsd:element> <xsd:complexType name="sellerType"> <xsd:complexContent> <xsd:extension 
+		base="user:userType"> <xsd:sequence> <xsd:element name="creditWorth" type="xsd:double" maxOccurs="1" 
+		minOccurs="1" /> </xsd:sequence> </xsd:extension> </xsd:complexContent> </xsd:complexType> <xsd:element 
+		name="seller" type="user:sellerType"> <xsd:annotation> <xsd:documentation>User extension for 
+		MM system</xsd:documentation> </xsd:annotation> </xsd:element> -->
+</xsd:schema>
+
+
+

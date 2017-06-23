@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+** avocent  **
+** auction SOA Metadata**
+** Version 1.00 **
+** Date: 14 Feb 2011 **
+
+<<avocent copyright string >>
+
+  
+XML Schema 
+
+Name: auction_HOME\SOAMetaData\EnterpriseObjectLibrary\CPS\Search\V1\SearchEM.xsd
+
+Description: Contains the Enterprise Message definitions which are used in the Search Enterprise Service
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1"
+            xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1"
+            xmlns:ebo="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Search/V1"
+            xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Search/V1"
+            xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+            targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Search/V1"
+            elementFormDefault="qualified" attributeFormDefault="unqualified"
+            version="1.00">
+  <xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1"
+              schemaLocation="../../../Infrastructure/V1/Meta.xsd"/>
+  <xsd:import namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1"
+              schemaLocation="../../Common/V1/CommonComponents.xsd"/>              
+  <xsd:element name="SearchRequestEBM" type="SearchRequestEBMType"/>
+  <xsd:complexType name="SearchRequestEBMType">
+    <xsd:complexContent>
+      <xsd:extension base="com:EBMType">
+        <xsd:sequence>
+          <xsd:element ref="SearchRequestPayload"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SearchRequestPayload" type="SearchRequestPayloadType"/>
+  <xsd:complexType name="SearchRequestPayloadType">
+    <xsd:sequence>
+      <xsd:element ref="SearchExpression" minOccurs="1"/>
+      <xsd:element ref="cpscom:PaginationDetails" minOccurs="1"/>
+      <xsd:element ref="com:ApplicationContext" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchRespEBM" type="SearchResponseEBMType"/>
+  <xsd:complexType name="SearchExpressionType">
+    <xsd:choice>
+      <xsd:element name="FreeTextSearchExpression" type="xsd:string"
+                   minOccurs="1"/>
+      <xsd:element name="FieldBasedSearchExpression"
+                   type="FieldBasedSearchExpressionType" minOccurs="1"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element name="SearchExpression" type="SearchExpressionType"/>
+  <xsd:complexType name="FieldBasedSearchExpressionType">
+    <xsd:sequence>
+      <xsd:element ref="SearchFieldEntry" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="JoinClause" minOccurs="0"/>
+      <xsd:element ref="SortEntry" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SearchFieldEntry" type="SearchFieldEntryType"/>
+  <xsd:complexType name="SearchFieldEntryType">
+    <xsd:sequence>
+      <xsd:element name="FieldName" type="xsd:string" nillable="false"/>
+      <xsd:element ref="FieldInput"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="FieldInput" type="FieldInputType"/>
+  <xsd:complexType name="FieldInputType">
+    <xsd:choice>
+      <xsd:element ref="Value"/>
+      <xsd:element ref="Range"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element name="Range" type="RangeType"/>
+  <xsd:complexType name="RangeType">
+    <xsd:sequence>
+      <xsd:element name="FromValue" type="ValueType"/>
+      <xsd:element name="ToValue" type="ValueType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ValueType">
+    <xsd:choice>
+      <xsd:element name="StringValue" type="xsd:string"/>
+      <xsd:element name="DateTimeValue" type="xsd:dateTime"/>
+      <xsd:element name="NumericValue" type="xsd:decimal"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element name="Value" type="ValueType"/>
+  
+  <xsd:element name="SortEntry" type="SortEntryType"/>
+  <xsd:complexType name="SortEntryType">
+    <xsd:sequence>
+      <xsd:element name="SortFieldName" type="xsd:string" nillable="false"/>
+      <xsd:element name="SortOrder" nillable="false">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ASCENDING"/>
+            <xsd:enumeration value="DECENDING"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="JoinClause" nillable="false">
+    <xsd:simpleType>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="MANDETORY"/>
+        <xsd:enumeration value="PROHIBATED"/>
+        <xsd:enumeration value="OPTIONAL"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+  </xsd:element>
+  
+  <xsd:element name="SearchResponseEBM" type="SearchResponseEBMType"/>
+  <xsd:complexType name="SearchResponseEBMType">
+    <xsd:complexContent>
+      <xsd:extension base="com:EBMType">
+        <xsd:sequence>
+          <xsd:element ref="SearchResponsePayload"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SearchResponsePayload" type="SearchResponsePayloadType"/>
+  <xsd:complexType name="SearchResponsePayloadType">
+    <xsd:sequence>
+      <xsd:element name="SearchResults" type="SearchResultsType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SearchResultsType">
+    <xsd:sequence>
+      <xsd:element name="SearchResultRecordList"
+                   type="SearchResultRecordListType" minOccurs="1"/>
+      <xsd:element name="SearchResultsMetaData" type="SearchResultsMetaDataType"
+                   minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SearchResultRecordListType">
+    <xsd:sequence>
+      <xsd:element name="SearchResultRecord" type="SearchResultRecordType"
+                   minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SearchResultRecordType">
+    <xsd:sequence>
+      <xsd:element name="FieldList" type="FieldListType" minOccurs="0"/>
+      <xsd:element name="ActionURLList" type="FieldListType" minOccurs="0"/>
+      <xsd:element name="DescriptionFieldName" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FieldListType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ActionURLListType">
+    <xsd:sequence>
+      <xsd:element name="ActionURL" type="ActionURLType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FieldType">
+    <xsd:sequence>
+      <xsd:element name="FieldName" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="FieldValue" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ActionURLType">
+    <xsd:sequence>
+      <xsd:element name="ActionName" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ActionURL" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SearchResultsMetaDataType">
+    <xsd:sequence>
+      <xsd:element name="TotalResultsCount" type="xsd:nonNegativeInteger"
+                   minOccurs="1"/>
+                   <!--
+      <xsd:element name="SuggestedSearchExpession" type="xsd:string"
+                   minOccurs="0"/>
+                   -->
+      <xsd:element ref="cpscom:PaginationDetails" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

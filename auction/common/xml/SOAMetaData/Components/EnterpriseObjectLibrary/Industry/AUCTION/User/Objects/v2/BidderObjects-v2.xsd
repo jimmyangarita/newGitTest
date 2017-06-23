@@ -1,0 +1,37 @@
+<!-- Name: UserObjects-v2.xsd Description: XML Schema for User Objects Copyright (c) 2014 JDAP 
+	Corporation. All rights reserved. -->
+<xsd:schema targetNamespace="http://xmlns.jdap.com/auction/Bidder/Objects/v2" elementFormDefault="qualified"
+            version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:bidder="http://xmlns.jdap.com/auction/Bidder/Objects/v2"
+            xmlns:ext="http://xmlns.jdap.com/auction/Bidder/Objects/Extension/v2"
+            xmlns:user="http://xmlns.jdap.com/auction/User/Objects/v2"
+            xmlns:common="http://xmlns.jdap.com/auction/Common/v2"
+            xmlns:addressObj="http://xmlns.jdap.com/auction/Address/Objects/v2">
+ <xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd"/>
+ <xsd:import namespace="http://xmlns.jdap.com/auction/User/Objects/v2" schemaLocation="UserObjects-v2.xsd"/>
+ <xsd:import namespace="http://xmlns.jdap.com/auction/Bidder/Objects/Extension/v2"
+             schemaLocation="../Extension/v2/ExtensionBidderObjects-v2.xsd"/>
+ <xsd:import namespace="http://xmlns.jdap.com/auction/Address/Objects/v2"
+             schemaLocation="../../../common/Objects/v2/AddressObjects-v2.xsd"/>
+ <xsd:complexType name="bidderType">
+  <xsd:complexContent>
+   <xsd:extension base="user:userType">
+    <xsd:sequence>
+     <xsd:element name="bidFrequency" type="xsd:double" maxOccurs="1" minOccurs="1" />
+     <xsd:element name="discountRate" type="xsd:double" maxOccurs="1" minOccurs="1" />
+    <xsd:element name="bidderExtension" type="ext:ExtensionBidderType" minOccurs="0" maxOccurs="1"/> 
+    </xsd:sequence>
+   </xsd:extension>
+  </xsd:complexContent>
+ </xsd:complexType>
+ <xsd:element name="bidder" type="bidder:bidderType">
+  <xsd:annotation>
+   <xsd:documentation>User extension for MM system</xsd:documentation>
+  </xsd:annotation>
+ </xsd:element>
+</xsd:schema>
+
+
+
+
+

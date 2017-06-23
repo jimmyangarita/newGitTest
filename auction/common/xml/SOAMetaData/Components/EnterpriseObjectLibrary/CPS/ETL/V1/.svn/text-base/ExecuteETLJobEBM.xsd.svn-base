@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ** avocent ** ** trellis SOA Metadata** ** Version 1.00 ** ** Date: 
+	14 Feb 2011 ** <<avocent copyright string >> XML Schema Name: trellis_HOME\SOAMetaData\EnterpriseObjectLibrary\CPS\ETL\V1\ExecuteETLJobEBM.xsd 
+	Description: Contains the Enterprise Message definitions which are used in 
+	the ETLJob Enterprise Service -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:com="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+	xmlns:cpscom="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1"
+	xmlns:ebo="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ETL/V1"
+	xmlns="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ETL/V1"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+	targetNamespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/ETL/V1"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.00">
+	<xsd:import
+		namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/Common/V1"
+		schemaLocation="../../../Infrastructure/V1/Meta.xsd" />
+	<xsd:import
+		namespace="http://xmlns.avocent.com/trellis/EnterpriseObjectLibrary/CPS/Common/V1"
+		schemaLocation="../../Common/V1/CommonComponents.xsd" />
+	<xsd:element name="ExecuteETLJobRequestEBM" type="ExecuteETLJobRequestEBMType" />
+	<xsd:complexType name="ExecuteETLJobRequestEBMType">
+		<xsd:complexContent>
+			<xsd:extension base="com:EBMType">
+				<xsd:sequence>
+					<xsd:element ref="ExecuteETLJobRequestPayload" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ExecuteETLJobRequestPayload" type="ExecuteETLJobRequestPayloadType" />
+	<xsd:complexType name="ExecuteETLJobRequestPayloadType">
+		<xsd:sequence>
+			<xsd:element name="JobName" type="xsd:string" minOccurs="1" />
+			<xsd:element name="JobURL" type="xsd:string" minOccurs="1" />
+			<xsd:element name="TaksID" type="xsd:string" minOccurs="1" />
+			<xsd:element name="ActionID" type="xsd:string" minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	</xsd:schema>

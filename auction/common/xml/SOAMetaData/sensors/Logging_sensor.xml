@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sensors targetNamespace="http://xmlns.oracle.com/TestBpelService_jws/CPS_Logging/Logging" xmlns="http://xmlns.oracle.com/bpel/sensor" xmlns:tns="http://xmlns.oracle.com/TestBpelService_jws/CPS_Logging/Logging" xmlns:pc="http://xmlns.oracle.com/bpel/sensor">
+<sensor sensorName="LoggingFineSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_FINE_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_FINE_VAR=',$LOG_FINE_VAR)"/>
+</sensor>
+<sensor sensorName="LoggingFinestSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_FINEST_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_FINEST_VAR=',$LOG_FINEST_VAR)"/>
+</sensor>
+<sensor sensorName="LogggingConfigSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_CONFIG_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_CONFIG_VAR=',$LOG_CONFIG_VAR)"/>
+</sensor>
+<sensor sensorName="LoggingMessageSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_MESSAGE_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_MESSAGE_VAR=',$LOG_MESSAGE_VAR)"/>
+</sensor>
+<sensor sensorName="LoggingWarnSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_WARN_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_WARN_VAR=',$LOG_WARN_VAR)"/>
+</sensor>
+<sensor sensorName="LoggingInfoSensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelVariableSensorAgent" kind="variable" target="$LOG_INFO_VAR">
+<variableConfig outputDataType="string" outputNamespace="http://www.w3.org/2001/XMLSchema" queryName="concat('LOG_APP_SHORT_NAME=',$LOG_APP_SHORT_NAME, '%0ALOG_MODULE_ID=',$LOG_MODULE_ID, '%0ALOG_TOKEN_MAP=',$LOG_TOKEN_MAP, '%0ALOG_FAULT_MAP=',$LOG_FAULT_MAP, '%0ALOG_INFO_VAR=',$LOG_INFO_VAR)"/>
+</sensor>
+</sensors>

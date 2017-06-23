@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: ItemMessages-v2.0.xsd
+
+Description: XML Schema for Item Messages
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:itemmsg="http://xmlns.jdap.com/auction/Item/Messages/v2"
+            xmlns:itemobj="http://xmlns.jdap.com/auction/Item/Objects/v2"
+            xmlns:common="http://xmlns.jdap.com/auction/Common/v2"
+              xmlns:header="http://xmlns.jdap.com/auction/Common/Messages/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/Item/Messages/v2" elementFormDefault="qualified"
+            version="1.0">
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Item/Objects/v2"
+              schemaLocation="../../Objects/v2/ItemObjects-v2.xsd"/>
+  <xsd:import schemaLocation="../../../common/Messages/v2/Message-v2.xsd"
+              namespace="http://xmlns.jdap.com/auction/Common/Messages/v2"/>
+  <xsd:import namespace="http://xmlns.jdap.com/auction/Common/v2" schemaLocation="../../../common/v2/Types-v2.xsd"/>
+ 
+  <xsd:complexType name="CreateItemRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to create a item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Item details to create the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateItemRequestMessage" type="itemmsg:CreateItemRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create item request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateItemResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of create item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The created item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateItemResponseMessage" type="itemmsg:CreateItemResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Create item response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="UpdateItemRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to update the item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Item details to be updated for the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateItemRequestMessage" type="itemmsg:UpdateItemRequestMessageType"></xsd:element>
+  <xsd:complexType name="UpdateItemResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of update item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the item after update operation</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateItemResponseMessage" type="itemmsg:UpdateItemResponseMessageType"></xsd:element>
+  <xsd:complexType name="DeleteItemRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to delete a item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the item object to be deleted</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="ForceFlag" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>The force flag to delete the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteItemRequestMessage" type="itemmsg:DeleteItemRequestMessageType"></xsd:element>
+  <xsd:complexType name="DeleteItemResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of the delete item query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DeleteItemResponseMessage" type="itemmsg:DeleteItemResponseMessageType"></xsd:element>
+  <xsd:complexType name="QueryItemRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request to query item</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of the item to query item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+    <xsd:element name="QueryItemRequestMessage" type="itemmsg:QueryItemRequestMessageType"></xsd:element>
+  <xsd:complexType name="QueryItemResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of read item query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="unbounded">
+            <xsd:annotation>
+              <xsd:documentation>Details of the item in response to query item request</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryItemResponseMessage" type="itemmsg:QueryItemResponseMessageType"></xsd:element>
+  <!-- Added messages for ItemDetails method-->
+  
+  <xsd:complexType name="QueryItemDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Request of item query details element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+          <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Details of item object to query item details</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryItemDetailsRequestMessage"
+               type="itemmsg:QueryItemDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query item details request message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="QueryItemDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of item details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query item details for the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueryItemDetailsResponseMessage"
+               type="itemmsg:QueryItemDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query item details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <!-- Adding messages for UC 9a -->
+  <xsd:complexType name="CreateItemDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of item details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query item details for the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateItemDetailsRequestMessage"
+               type="itemmsg:CreateItemDetailsRequestMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query item details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CreateItemDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Response of item details query</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="header:MessageType">
+        <xsd:sequence>
+           <xsd:element ref="itemobj:item" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation>Query item details for the item</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateItemDetailsResponseMessage"
+               type="itemmsg:CreateItemDetailsResponseMessageType">
+    <xsd:annotation>
+      <xsd:documentation>Query item details response message</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

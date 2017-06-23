@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+        xmlns:tns="http://xmlns.dcim.emerson.com/Reporting/CPS_Report_ExecuteReport/ExecuteScheduledReport"
+        targetNamespace="http://xmlns.dcim.emerson.com/Reporting/CPS_Report_ExecuteReport/ExecuteScheduledReport"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:scheduler-ebo="http://xmlns.dcim.emerson.com/cps/scheduler/ebo">
+<import schemaLocation="../../Scheduler/V1/CPSSchedulerEBO.1.0.xsd"
+         namespace="http://xmlns.dcim.emerson.com/cps/scheduler/ebo"/>
+    <element name="process">
+    <complexType>
+      <sequence>
+        <element name="TaskIdEBO" type="scheduler-ebo:TaskIdEBOType"/>
+        <element name="TaskActionIdEBO" type="scheduler-ebo:TaskActionIdEBOType"/>
+        <element name="TaskActionParametersIdEBO"
+                 type="base64Binary"/>
+        <element name="StatusEBO" type="scheduler-ebo:StatusEBOType"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:cpscom="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" xmlns:wsa="http://schemas.xmlsoap.org/ws/2003/03/addressing" targetNamespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/CPS/Common/V1" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:com="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1" version="1.00">
+<xsd:include schemaLocation="CommonComponents.xsd"/>
+<xsd:import schemaLocation="../../../Infrastructure/V1/Meta.xsd" namespace="http://xmlns.avocent.com/auction/EnterpriseObjectLibrary/Common/V1"/>
+<xsd:element name="FilePurgeRequestPayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="cpscom:FileDetails" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="FilePurgeRequestEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="FilePurgeRequestPayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="FilePurgeRequestEBM" type="cpscom:FilePurgeRequestEBMType"/>
+<xsd:element name="FilePurgeResponsePayload">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element ref="FileDetails"/>
+<xsd:element ref="Status"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="FilePurgeResponseEBMType">
+<xsd:complexContent>
+<xsd:extension base="com:EBMType">
+<xsd:sequence>
+<xsd:element ref="FilePurgeResponsePayload"/>
+</xsd:sequence>
+</xsd:extension>
+</xsd:complexContent>
+</xsd:complexType>
+<xsd:element name="FilePurgeResponseEBM" type="FilePurgeResponseEBMType"/>
+</xsd:schema>

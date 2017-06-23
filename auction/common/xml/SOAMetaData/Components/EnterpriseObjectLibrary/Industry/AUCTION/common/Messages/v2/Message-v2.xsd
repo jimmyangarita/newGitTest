@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Name: Messages-v2.xsd
+
+Description: Common XML Schema for Enterprise Business Messages. 
+
+Copyright (c) 2012 jdap Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:common="http://xmlns.jdap.com/Common/MessageHeader/v2"
+            targetNamespace="http://xmlns.jdap.com/auction/Common/Messages/v2"
+            elementFormDefault="qualified" version="1.0">
+  
+  <xsd:import namespace="http://xmlns.jdap.com/Common/MessageHeader/v2"
+              schemaLocation="../../../../../Common/MessageHeader/v2/MessageHeader-v2.xsd"/>
+  
+  <xsd:complexType name="MessageType" abstract="true">
+    <xsd:sequence>
+      <xsd:element name="MessageHeader" type="common:MessageHeaderType" maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

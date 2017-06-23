@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://schemas.oracle.com/events/edl"
+             targetNamespace="http://xmlns.avocent.com/commonplatform/event/edl">
+    <schema-import namespace="http://xmlns.avocent.com/commonplatform/event"
+                   location="../../../../Components/EnterpriseObjectLibrary/CPS/Common/V1/auctionEvent.xsd"/>
+    <event-definition name="auctionEvent">
+        <content xmlns:event="http://xmlns.avocent.com/commonplatform/event"
+                 element="event:auctionEvent"/>
+    </event-definition>
+</definitions>

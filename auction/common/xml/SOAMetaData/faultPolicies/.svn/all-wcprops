@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/faultPolicies
+END
+api-fault-bindings.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/faultPolicies/api-fault-bindings.xml
+END
+api-fault-policies.xml
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/TRELLIS-MAIN/!svn/ver/191094/Trellis/CPS/MDS/branches/R3.0.1-RELEASE/SOAMetaData/TRELLIS_HOME/Trellis/SOAMetaData/faultPolicies/api-fault-policies.xml
+END

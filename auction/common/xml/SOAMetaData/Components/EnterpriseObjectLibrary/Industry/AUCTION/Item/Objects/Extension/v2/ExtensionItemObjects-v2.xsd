@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Name: ExtensionItemObjects-v1.xsd
+
+Description: XML Schema for Item Objects Extension 
+
+Copyright (c) 2012 JDAP Corporation. All rights reserved.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xmlns.jdap.com/auction/Item/Objects/Extension/v2"
+            elementFormDefault="qualified" version="1.0">
+            
+    <xsd:complexType name="ExtensionItemType"/>
+    
+</xsd:schema>
